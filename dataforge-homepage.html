@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DataForge | Data Analytics & Web Consulting | Wichita, KS</title>
+<meta name="description" content="DataForge delivers data analytics, intelligent systems, and web solutions that give Wichita businesses a measurable edge.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:       #070707;
+    --bg2:      #0D0D0D;
+    --bg3:      #141414;
+    --bg4:      #1A1A1A;
+    --border:   rgba(255,255,255,0.06);
+    --border2:  rgba(255,255,255,0.10);
+    --text:     #F0EAE0;
+    --muted:    #6A6560;
+    --muted2:   #3A3633;
+    --accent:   #E8920A;
+    --accent2:  #F5A830;
+    --accent3:  #C47208;
+    --adim:     rgba(232,146,10,0.08);
+    --adim2:    rgba(232,146,10,0.15);
+    --adim3:    rgba(232,146,10,0.25);
+    --nav-h:    72px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--muted2); border-radius: 2px; }
+
+  /* ── SELECTION ── */
+  ::selection { background: var(--adim3); color: var(--accent2); }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    height: var(--nav-h);
+    display: flex; align-items: center;
+    padding: 0 48px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(7,7,7,0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition: border-color 0.3s;
+  }
+  nav.scrolled { border-color: var(--border2); }
+
+  .nav-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .nav-logo span { color: var(--text); opacity: 0.4; }
+
+  .nav-links {
+    display: flex; align-items: center; gap: 36px;
+    list-style: none;
+    margin-left: auto;
+  }
+  .nav-links a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  .nav-cta {
+    margin-left: 36px;
+    padding: 9px 22px;
+    border: 1px solid var(--accent3);
+    background: transparent;
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+  .nav-cta:hover { background: var(--adim2); color: var(--accent2); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    padding-top: var(--nav-h);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Grid texture */
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 100%);
+    pointer-events: none;
+  }
+
+  /* Amber glow orb */
+  .hero-glow {
+    position: absolute;
+    top: 15%;
+    right: -5%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(232,146,10,0.07) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .hero-left {}
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 28px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 28px; height: 1px;
+    background: var(--accent);
+  }
+
+  .hero-headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(72px, 8vw, 108px);
+    line-height: 0.9;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 32px;
+  }
+  .hero-headline em {
+    font-style: normal;
+    color: var(--accent);
+    display: block;
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: 420px;
+    margin-bottom: 44px;
+  }
+  .hero-sub strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    padding: 14px 32px;
+    background: var(--accent);
+    color: #0A0600;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); }
+
+  .btn-ghost {
+    padding: 13px 32px;
+    background: transparent;
+    border: 1px solid var(--border2);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-block;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--muted); color: var(--text); }
+
+  /* Hero right — data viz decoration */
+  .hero-right {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .data-card {
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+  }
+  .data-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+  }
+
+  .data-card-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  .data-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 28px;
+  }
+
+  .metric {
+    padding: 16px;
+    background: var(--bg4);
+    border: 1px solid var(--border);
+  }
+  .metric-val {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .metric-label {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+
+  .data-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+  }
+  .bar-label { width: 80px; flex-shrink: 0; }
+  .bar-track {
+    flex: 1;
+    height: 4px;
+    background: var(--bg4);
+    position: relative;
+  }
+  .bar-fill {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    background: var(--accent);
+    transform-origin: left;
+    animation: barGrow 1.2s cubic-bezier(0.25,0.46,0.45,0.94) both;
+  }
+  .bar-pct { width: 28px; text-align: right; }
+
+  @keyframes barGrow {
+    from { transform: scaleX(0); }
+    to   { transform: scaleX(1); }
+  }
+
+  .floating-tag {
+    position: absolute;
+    bottom: -24px;
+    right: -24px;
+    background: var(--bg2);
+    border: 1px solid var(--border2);
+    padding: 12px 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    overflow: hidden;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 40px;
+    border-right: 1px solid var(--border);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .trust-item:first-child { border-left: 1px solid var(--border); }
+  .trust-dot {
+    width: 4px; height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    padding: 120px 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 64px;
+  }
+
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: clamp(40px, 5vw, 60px);
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    color: var(--text);
+  }
+  .section-title em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .section-rule {
+    width: 100%; height: 1px;
+    background: var(--border);
+    margin-bottom: 64px;
+    position: relative;
+  }
+  .section-rule::after {
+    content: '';
+    position: absolute;
+    left: 0; top: 0;
+    width: 80px; height: 1px;
+    background: var(--accent);
+  }
+
+  /* ── SERVICES ── */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .service-card {
+    background: var(--bg);
+    padding: 40px 36px;
+    position: relative;
+    transition: background 0.3s;
+    cursor: default;
+  }
+  .service-card:hover { background: var(--bg3); }
+  .service-card:hover .service-arrow { transform: translate(3px,-3px); color: var(--accent); }
+
+  .service-icon {
+    width: 44px; height: 44px;
+    border: 1px solid var(--border2);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 28px;
+    color: var(--accent);
+    transition: border-color 0.3s;
+  }
+  .service-card:hover .service-icon { border-color: var(--adim3); }
+
+  .service-num {
+    position: absolute;
+    top: 40px; right: 36px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--muted2);
+  }
+
+  .service-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  .service-desc {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+
+  .service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 24px;
+  }
+  .tag {
+    padding: 4px 10px;
+    background: var(--bg4);
+    border: 1px solid var(--border);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+
+  .service-arrow {
+    font-size: 18px;
+    color: var(--muted2);
+    transition: transform 0.2s, color 0.2s;
+    display: inline-block;
+  }
+
+  /* ── PORTFOLIO ── */
+  .portfolio-wrap {
+    background: var(--bg2);
+    padding: 120px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+
+  .portfolio-card {
+    background: var(--bg2);
+    padding: 48px;
+    position: relative;
+    transition: background 0.3s;
+  }
+  .portfolio-card:hover { background: var(--bg3); }
+
+  .portfolio-card.featured::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent 60%);
+  }
+
+  .p-type {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .p-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  .p-desc {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+
+  .p-result {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--adim);
+    border: 1px solid var(--adim3);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+  }
+
+  .p-coming {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 220px;
+    opacity: 0.4;
+    gap: 12px;
+  }
+  .p-coming-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .p-coming-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .portfolio-footer {
+    text-align: center;
+  }
+
+  /* ── APPROACH ── */
+  .approach-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .approach-left {}
+
+  .approach-statement {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: clamp(28px, 3vw, 38px);
+    line-height: 1.15;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 28px;
+  }
+  .approach-statement em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .approach-p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  .approach-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--border);
+  }
+
+  .step-item {
+    padding: 28px 32px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    transition: background 0.2s;
+  }
+  .step-item:last-child { border-bottom: none; }
+  .step-item:hover { background: var(--bg3); }
+
+  .step-n {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 36px;
+    color: var(--adim3);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 36px;
+    transition: color 0.2s;
+  }
+  .step-item:hover .step-n { color: var(--accent3); }
+
+  .step-body {}
+  .step-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .step-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── CTA SECTION ── */
+  .cta-wrap {
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    padding: 100px 48px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .cta-wrap::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px; height: 400px;
+    background: radial-gradient(ellipse, rgba(232,146,10,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .cta-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+
+  .cta-headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: clamp(48px, 6vw, 80px);
+    line-height: 0.92;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-sub {
+    font-size: 16px;
+    color: var(--muted);
+    margin-bottom: 44px;
+    position: relative; z-index: 1;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    position: relative; z-index: 1;
+    flex-wrap: wrap;
+  }
+
+  .cta-contact {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .cta-contact:hover { color: var(--text); }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .footer-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+  }
+  .footer-logo span { color: var(--text); opacity: 0.3; }
+
+  .footer-copy {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--muted2);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+  .footer-links a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted2);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--muted); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up {
+    opacity: 0;
+    animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .d1 { animation-delay: 0.1s; }
+  .d2 { animation-delay: 0.2s; }
+  .d3 { animation-delay: 0.35s; }
+  .d4 { animation-delay: 0.5s; }
+  .d5 { animation-delay: 0.65s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+
+    .hero-inner { grid-template-columns: 1fr; gap: 48px; padding: 40px 24px; }
+    .hero-right { display: none; }
+
+    .section { padding: 80px 24px; }
+    .trust-bar { padding: 18px 24px; flex-wrap: wrap; gap: 8px; }
+    .trust-item { border: none; padding: 0 16px; }
+    .trust-item:first-child { border: none; }
+
+    .services-grid { grid-template-columns: 1fr; }
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .approach-grid { grid-template-columns: 1fr; gap: 48px; }
+
+    footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+    .cta-wrap { padding: 80px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="/" class="nav-logo">DATA<span>—</span>FORGE</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Start a Project</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-eyebrow fade-up d1">Wichita, KS — Data & Web Consulting</div>
+      <h1 class="hero-headline fade-up d2">
+        Your Data.<br>
+        <em>Your Edge.</em>
+      </h1>
+      <p class="hero-sub fade-up d3">
+        DataForge builds the <strong>analytics systems, automated workflows, and web infrastructure</strong>
+        that turn raw business data into measurable growth — without the enterprise price tag.
+      </p>
+      <div class="hero-actions fade-up d4">
+        <a href="#portfolio" class="btn-primary">See Our Work</a>
+        <a href="#contact" class="btn-ghost">Start a Project</a>
+      </div>
+    </div>
+
+    <div class="hero-right fade-up d5">
+      <div style="position:relative;">
+        <div class="data-card">
+          <div class="data-card-label">// client performance snapshot</div>
+          <div class="data-metrics">
+            <div class="metric">
+              <div class="metric-val">3.4×</div>
+              <div class="metric-label">Report Speed</div>
+            </div>
+            <div class="metric">
+              <div class="metric-val">91%</div>
+              <div class="metric-label">Process Reduction</div>
+            </div>
+            <div class="metric">
+              <div class="metric-val">12h</div>
+              <div class="metric-label">Saved Weekly</div>
+            </div>
+            <div class="metric">
+              <div class="metric-val">100%</div>
+              <div class="metric-label">On-Time Delivery</div>
+            </div>
+          </div>
+          <div class="data-bars">
+            <div class="bar-row">
+              <span class="bar-label">Analytics</span>
+              <div class="bar-track"><div class="bar-fill" style="width:88%;animation-delay:0.8s"></div></div>
+              <span class="bar-pct">88%</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">Systems</span>
+              <div class="bar-track"><div class="bar-fill" style="width:76%;animation-delay:0.95s"></div></div>
+              <span class="bar-pct">76%</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">Web</span>
+              <div class="bar-track"><div class="bar-fill" style="width:94%;animation-delay:1.1s"></div></div>
+              <span class="bar-pct">94%</span>
+            </div>
+          </div>
+        </div>
+        <div class="floating-tag">Live Client Data</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-dot"></span>Wichita, KS Based</div>
+  <div class="trust-item"><span class="trust-dot"></span>Data Analytics</div>
+  <div class="trust-item"><span class="trust-dot"></span>Process Automation</div>
+  <div class="trust-item"><span class="trust-dot"></span>Web & CMS</div>
+  <div class="trust-item"><span class="trust-dot"></span>AI-Augmented Workflows</div>
+</div>
+
+<!-- SERVICES -->
+<div id="services" style="border-bottom: 1px solid var(--border);">
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">What We<br><em>Build</em></h2>
+    </div>
+    <div class="section-rule"></div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 3v18h18M7 16l4-4 4 4 4-8"/>
+          </svg>
+        </div>
+        <span class="service-num">01</span>
+        <div class="service-name">Data Analytics</div>
+        <div class="service-desc">Transform scattered business data into dashboards and reports that actually drive decisions. From SQL pipelines to executive-level visualizations.</div>
+        <div class="service-tags">
+          <span class="tag">Dashboards</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Reporting</span>
+          <span class="tag">KPI Tracking</span>
+        </div>
+        <span class="service-arrow">↗</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="3" width="20" height="14" rx="1"/>
+            <path d="M8 21h8M12 17v4"/>
+          </svg>
+        </div>
+        <span class="service-num">02</span>
+        <div class="service-name">Systems & Automation</div>
+        <div class="service-desc">Build the backend infrastructure that eliminates manual work — custom tools, automated workflows, and integrations that scale with your business.</div>
+        <div class="service-tags">
+          <span class="tag">Automation</span>
+          <span class="tag">Integrations</span>
+          <span class="tag">Custom Tools</span>
+          <span class="tag">AI Workflows</span>
+        </div>
+        <span class="service-arrow">↗</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+          </svg>
+        </div>
+        <span class="service-num">03</span>
+        <div class="service-name">Web & CMS</div>
+        <div class="service-desc">Professional websites and CMS-driven platforms that convert visitors into clients. Hand-coded or Webflow — built to perform and easy to own.</div>
+        <div class="service-tags">
+          <span class="tag">Webflow</span>
+          <span class="tag">Custom Dev</span>
+          <span class="tag">CMS</span>
+          <span class="tag">Performance</span>
+        </div>
+        <span class="service-arrow">↗</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- PORTFOLIO -->
+<div id="portfolio" class="portfolio-wrap">
+  <div class="section" style="padding-top:0;padding-bottom:0;">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Recent<br><em>Work</em></h2>
+    </div>
+    <div class="section-rule"></div>
+    <div class="portfolio-grid">
+
+      <div class="portfolio-card featured">
+        <div class="p-type">// Law Firm · Web Platform</div>
+        <div class="p-name">Adams Jones<br>Law Firm</div>
+        <div class="p-desc">Full Webflow redesign and CMS buildout for one of Wichita's established law practices. Restructured information architecture, improved mobile experience, and delivered a platform the team can maintain independently.</div>
+        <div class="p-result">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Live · Webflow CMS
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="p-coming">
+          <div class="p-coming-label">// In Progress</div>
+          <div class="p-coming-title">Case Study<br>Coming Soon</div>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="p-coming">
+          <div class="p-coming-label">// In Progress</div>
+          <div class="p-coming-title">Case Study<br>Coming Soon</div>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="p-coming">
+          <div class="p-coming-label">// In Progress</div>
+          <div class="p-coming-title">Case Study<br>Coming Soon</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="portfolio-footer" style="margin-top:48px;">
+      <a href="portfolio.html" class="btn-ghost">View Full Portfolio →</a>
+    </div>
+  </div>
+</div>
+
+<!-- APPROACH -->
+<div id="approach" style="border-bottom: 1px solid var(--border);">
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">How We<br><em>Work</em></h2>
+    </div>
+    <div class="section-rule"></div>
+    <div class="approach-grid">
+      <div class="approach-left">
+        <div class="approach-statement">
+          Built for small teams.<br>
+          <em>Priced for reality.</em>
+        </div>
+        <p class="approach-p">
+          Most small businesses don't need a $50k enterprise engagement. They need a partner
+          who actually understands their data, speaks plain language, and delivers something
+          that works on Monday morning.
+        </p>
+        <p class="approach-p">
+          DataForge operates lean by design — no account managers or padding. Just direct,
+          structured collaboration that moves fast and ships clean.
+        </p>
+        <div style="margin-top:36px;">
+          <a href="#contact" class="btn-primary">Let's Talk</a>
+        </div>
+      </div>
+      <div class="approach-right">
+        <div class="step-item">
+          <div class="step-n">01</div>
+          <div class="step-body">
+            <div class="step-title">Discovery Call</div>
+            <div class="step-desc">30 minutes. No pitch. We listen, ask the right questions, and figure out what's actually broken.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-n">02</div>
+          <div class="step-body">
+            <div class="step-title">Scoped Proposal</div>
+            <div class="step-desc">Clear deliverables, clear timeline, clear price. No ambiguous "ongoing retainer" language.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-n">03</div>
+          <div class="step-body">
+            <div class="step-title">Build & Iterate</div>
+            <div class="step-desc">Tight feedback loops. You see progress early. We adjust before it becomes expensive to change.</div>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-n">04</div>
+          <div class="step-body">
+            <div class="step-title">Deliver & Document</div>
+            <div class="step-desc">You own everything. Code, docs, logins — all transferred. No lock-in, no dependency on us.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT STRIP -->
+<div id="about" style="border-bottom: 1px solid var(--border); background: var(--bg2);">
+  <div class="section" style="padding-top:80px;padding-bottom:80px;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;">04 · About DataForge</div>
+        <div style="font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:42px;line-height:1;text-transform:uppercase;color:var(--text);margin-bottom:24px;">Wichita-Based.<br><span style="color:var(--accent);">Results-Focused.</span></div>
+        <p style="font-size:15px;line-height:1.8;color:var(--muted);">
+          DataForge is a boutique data analytics and web consulting practice based in Wichita, KS.
+          Founded to give local and regional businesses access to the same caliber of systems and
+          strategy that enterprise companies take for granted — at a price that makes sense.
+        </p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);">
+        <div style="background:var(--bg2);padding:24px 28px;border-bottom:1px solid var(--border);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--muted);margin-bottom:6px;">Stack</div>
+          <div style="font-size:14px;color:var(--text);">Python · SQL · JavaScript · Webflow · PowerShell</div>
+        </div>
+        <div style="background:var(--bg2);padding:24px 28px;border-bottom:1px solid var(--border);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--muted);margin-bottom:6px;">Focus</div>
+          <div style="font-size:14px;color:var(--text);">Small business · Professional services · Local orgs</div>
+        </div>
+        <div style="background:var(--bg2);padding:24px 28px;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.1em;color:var(--muted);margin-bottom:6px;">Location</div>
+          <div style="font-size:14px;color:var(--text);">Wichita, KS · Remote-friendly</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div id="contact" class="cta-wrap">
+  <div class="cta-eyebrow">// Ready to Build</div>
+  <h2 class="cta-headline">Forge Your<br>Competitive Edge.</h2>
+  <p class="cta-sub">A 30-minute call costs nothing. Let's find out what's possible.</p>
+  <div class="cta-actions">
+    <a href="mailto:hello@dataforgewichita.com" class="btn-primary">Send a Message</a>
+    <a href="mailto:hello@dataforgewichita.com" class="cta-contact">hello@dataforgewichita.com</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">DATA<span>—</span>FORGE</div>
+  <div class="footer-copy">© 2026 DataForge · Wichita, KS</div>
+  <ul class="footer-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+</script>
+</body>
+</html>

@@ -1,0 +1,399 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const stack = [
+  { name: 'Python',      role: 'Data pipelines, automation & scripting'  },
+  { name: 'SQL',         role: 'Analytics, reporting & data modeling'    },
+  { name: 'JavaScript',  role: 'Web builds, tooling & API integrations'  },
+  { name: 'PowerShell',  role: 'System scripting & Windows automation'   },
+  { name: 'Webflow',     role: 'Web design, CMS & no-code delivery'      },
+];
+
+const steps = [
+  {
+    num:  '01',
+    name: 'Discovery',
+    desc: 'A focused call to understand the problem, your data, and what already exists. No pitch — just listening.',
+  },
+  {
+    num:  '02',
+    name: 'Proposal',
+    desc: 'A written scope with clear deliverables, timeline, and fixed price. No vague estimates. No surprise overages.',
+  },
+  {
+    num:  '03',
+    name: 'Build',
+    desc: 'Iterative delivery with milestone check-ins. You see work before the finish line — not just at it.',
+  },
+  {
+    num:  '04',
+    name: 'Deliver',
+    desc: 'Clean handoff with documentation and training. You own it completely. No ongoing dependency on us.',
+  },
+];
+---
+
+<Layout title="About">
+
+<!-- ── PAGE HERO ── -->
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-glow"></div>
+  <div class="page-hero-inner">
+    <div class="page-eyebrow fade-up d1">// About DataForge</div>
+    <h1 class="page-headline fade-up d2">
+      Real Systems.<br><em>Zero Fluff.</em>
+    </h1>
+  </div>
+</section>
+
+<!-- ── IDENTITY ── -->
+<div style="border-bottom: 1px solid var(--border);">
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Who We<br><em>Are</em></h2>
+    </div>
+    <div class="section-rule"></div>
+
+    <div class="identity-body">
+
+      <!-- Left: about copy -->
+      <div class="identity-copy">
+        <p class="identity-para">
+          DataForge is a boutique data analytics and web consulting practice based in
+          Wichita, Kansas. We build the kind of systems — dashboards, automations,
+          websites, AI-augmented workflows — that used to require an enterprise budget
+          or a full internal team.
+        </p>
+        <p class="identity-para">
+          We work directly with small and regional businesses: no account managers,
+          no offshore handoffs, no inflated agency margins. Every engagement is scoped
+          honestly, priced realistically, and delivered by the same person you talk to
+          on the first call.
+        </p>
+        <p class="identity-para">
+          The goal is simple: give Wichita businesses the same caliber of data
+          infrastructure and web presence that larger competitors take for granted —
+          without the enterprise price tag attached.
+        </p>
+        <div class="identity-stat-row">
+          <div class="identity-stat">
+            <div class="identity-stat-val">100%</div>
+            <div class="identity-stat-label">On-time delivery</div>
+          </div>
+          <div class="identity-stat-divider"></div>
+          <div class="identity-stat">
+            <div class="identity-stat-val">Direct</div>
+            <div class="identity-stat-label">No middlemen</div>
+          </div>
+          <div class="identity-stat-divider"></div>
+          <div class="identity-stat">
+            <div class="identity-stat-val">Fixed</div>
+            <div class="identity-stat-label">Scoped pricing</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: tech stack -->
+      <div class="stack-block">
+        <div class="stack-label">// Tech Stack</div>
+        <div class="stack-list">
+          {stack.map((item, i) => (
+            <div class="stack-item">
+              <span class="stack-num">0{i + 1}</span>
+              <div class="stack-detail">
+                <div class="stack-name">{item.name}</div>
+                <div class="stack-role">{item.role}</div>
+              </div>
+              <div class="stack-bar-wrap" aria-hidden="true">
+                <div class="stack-bar"></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ── HOW I WORK ── -->
+<div style="background: var(--bg2); border-bottom: 1px solid var(--border);">
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">How I<br><em>Work</em></h2>
+    </div>
+    <div class="section-rule"></div>
+
+    <div class="process-track">
+      {steps.map((step, i) => (
+        <div class="process-step">
+          <div class="process-step-inner">
+            <div class="process-num-row">
+              <span class="process-num">{step.num}</span>
+              {i < steps.length - 1 && (
+                <div class="process-connector" aria-hidden="true"></div>
+              )}
+            </div>
+            <div class="process-name">{step.name}</div>
+            <p class="process-desc">{step.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</div>
+
+<!-- ── CTA ── -->
+<div class="cta-strip">
+  <div class="cta-glow"></div>
+  <div class="cta-eyebrow">// Let's Build Something</div>
+  <h2 class="cta-headline">Ready to Get<br><em>Started?</em></h2>
+  <p class="cta-sub">
+    Discovery calls are free and take 30 minutes.
+    Come with a problem — leave with a clear path forward.
+  </p>
+  <div class="cta-actions">
+    <a href="/contact" class="btn-primary">Book a Discovery Call</a>
+    <a href="/services" class="btn-ghost">View Services</a>
+  </div>
+</div>
+
+</Layout>
+
+<style>
+  /* ── PAGE HERO ── */
+  .page-hero {
+    min-height: 44vh;
+    padding-top: var(--nav-h);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+  .page-hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 20%, transparent 100%);
+    pointer-events: none;
+  }
+  .page-hero-glow {
+    position: absolute; top: -10%; left: -5%;
+    width: 700px; height: 500px;
+    background: radial-gradient(ellipse, rgba(232,146,10,0.05) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .page-hero-inner {
+    position: relative; z-index: 2;
+    max-width: 1200px; margin: 0 auto;
+    padding: 80px 48px; width: 100%;
+  }
+  .page-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+  }
+  .page-headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: clamp(64px, 8vw, 100px);
+    line-height: 0.9; letter-spacing: -0.01em;
+    text-transform: uppercase; color: var(--text);
+  }
+  .page-headline em { font-style: normal; color: var(--accent); display: block; }
+
+  /* ── IDENTITY ── */
+  .identity-body {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 80px;
+    align-items: start;
+  }
+  .identity-para {
+    font-size: 15px; line-height: 1.8; color: var(--muted);
+    margin-bottom: 22px;
+  }
+  .identity-para:last-of-type { margin-bottom: 40px; }
+
+  .identity-stat-row {
+    display: flex; align-items: center; gap: 0;
+    border: 1px solid var(--border);
+  }
+  .identity-stat {
+    padding: 20px 28px; flex: 1;
+  }
+  .identity-stat-val {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 28px;
+    color: var(--accent); line-height: 1; margin-bottom: 4px;
+  }
+  .identity-stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted2);
+  }
+  .identity-stat-divider {
+    width: 1px; height: 60px; background: var(--border); flex-shrink: 0;
+  }
+
+  /* ── TECH STACK ── */
+  .stack-block {
+    position: sticky; top: calc(var(--nav-h) + 24px);
+  }
+  .stack-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+  }
+  .stack-list {
+    border: 1px solid var(--border);
+    background: var(--border);
+    display: flex; flex-direction: column; gap: 1px;
+  }
+  .stack-item {
+    background: var(--bg3);
+    display: flex; align-items: center; gap: 16px;
+    padding: 18px 20px;
+    transition: background 0.25s;
+    cursor: default;
+  }
+  .stack-item:hover { background: var(--bg4); }
+  .stack-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; letter-spacing: 0.1em;
+    color: var(--muted2); flex-shrink: 0; width: 20px;
+  }
+  .stack-detail { flex: 1; min-width: 0; }
+  .stack-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 18px;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--text); line-height: 1; margin-bottom: 3px;
+  }
+  .stack-role {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; letter-spacing: 0.06em;
+    color: var(--muted2); white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis;
+  }
+  .stack-bar-wrap {
+    width: 48px; flex-shrink: 0;
+  }
+  .stack-bar {
+    height: 2px; background: var(--adim3);
+    position: relative; overflow: hidden;
+  }
+  .stack-bar::after {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0;
+    width: 70%; background: var(--accent);
+  }
+  /* Vary each bar visually */
+  .stack-item:nth-child(1) .stack-bar::after { width: 88%; }
+  .stack-item:nth-child(2) .stack-bar::after { width: 92%; }
+  .stack-item:nth-child(3) .stack-bar::after { width: 78%; }
+  .stack-item:nth-child(4) .stack-bar::after { width: 72%; }
+  .stack-item:nth-child(5) .stack-bar::after { width: 85%; }
+
+  /* ── PROCESS STEPS ── */
+  .process-track {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  .process-step {
+    padding-right: 32px;
+    position: relative;
+  }
+  .process-step:last-child { padding-right: 0; }
+
+  .process-num-row {
+    display: flex; align-items: center;
+    margin-bottom: 20px;
+  }
+  .process-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: 56px;
+    line-height: 1; color: var(--bg4);
+    /* accent outline effect */
+    -webkit-text-stroke: 1px var(--muted2);
+    flex-shrink: 0;
+    transition: color 0.3s, -webkit-text-stroke 0.3s;
+  }
+  .process-step:hover .process-num {
+    color: var(--adim);
+    -webkit-text-stroke: 1px var(--accent3);
+  }
+  .process-connector {
+    flex: 1; height: 1px;
+    background: linear-gradient(90deg, var(--border2), transparent);
+    margin-left: 12px;
+  }
+
+  .process-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 22px;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--text); margin-bottom: 12px;
+  }
+  .process-desc {
+    font-size: 13px; line-height: 1.7;
+    color: var(--muted);
+  }
+
+  /* ── CTA STRIP ── */
+  .cta-strip {
+    padding: 100px 48px; text-align: center;
+    position: relative; overflow: hidden; background: var(--bg);
+  }
+  .cta-glow {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px; height: 400px;
+    background: radial-gradient(ellipse, rgba(232,146,10,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .cta-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px; position: relative; z-index: 1;
+  }
+  .cta-headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: clamp(48px, 6vw, 80px);
+    line-height: 0.92; text-transform: uppercase;
+    color: var(--text); margin-bottom: 20px; position: relative; z-index: 1;
+  }
+  .cta-headline em { font-style: normal; color: var(--accent); display: block; }
+  .cta-sub {
+    font-size: 15px; color: var(--muted); margin-bottom: 44px;
+    max-width: 420px; margin-inline: auto; line-height: 1.7;
+    position: relative; z-index: 1;
+  }
+  .cta-actions {
+    display: flex; gap: 16px; justify-content: center;
+    align-items: center; flex-wrap: wrap; position: relative; z-index: 1;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .identity-body { grid-template-columns: 1fr; gap: 52px; }
+    .stack-block { position: static; }
+  }
+  @media (max-width: 900px) {
+    .page-hero-inner { padding: 60px 24px; }
+    .process-track { grid-template-columns: 1fr 1fr; gap: 40px 24px; }
+    .process-step { padding-right: 0; }
+    .process-connector { display: none; }
+    .cta-strip { padding: 80px 24px; }
+    .identity-stat-row { flex-direction: column; }
+    .identity-stat-divider { width: 100%; height: 1px; }
+  }
+  @media (max-width: 540px) {
+    .process-track { grid-template-columns: 1fr; }
+  }
+</style>

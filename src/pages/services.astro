@@ -1,0 +1,563 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const pillars = [
+  {
+    num: '01',
+    name: 'Data Analytics',
+    desc: 'Transform scattered business data into dashboards and live reporting pipelines that drive real decisions — not just presentations.',
+    deliverables: [
+      'Custom KPI dashboards',
+      'SQL query design & optimization',
+      'Automated reporting pipelines',
+      'Data cleaning & normalization',
+      'Business intelligence setup',
+      'Excel / Sheets automation',
+    ],
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18M7 16l4-4 4 4 4-8"/></svg>`,
+  },
+  {
+    num: '02',
+    name: 'Systems & Automation',
+    desc: 'Replace manual, repetitive processes with custom backend tools and integrations that run themselves — and scale with you.',
+    deliverables: [
+      'API integrations & webhooks',
+      'Custom scripts & internal tooling',
+      'CRM & data sync workflows',
+      'Scheduled automation pipelines',
+      'Notification & alerting systems',
+      'Admin dashboards & portals',
+    ],
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="1"/><path d="M8 21h8M12 17v4"/><path d="M7 8h2v5H7zM11 6h2v7h-2zM15 10h2v3h-2z"/></svg>`,
+  },
+  {
+    num: '03',
+    name: 'Process Streamlining',
+    desc: 'Map, analyze, and redesign business operations to eliminate bottlenecks, reduce overhead, and recapture lost time across your team.',
+    deliverables: [
+      'Workflow audits & process mapping',
+      'SOP documentation & templates',
+      'Tool stack evaluation & cleanup',
+      'Manual-to-digital migration plans',
+      'Bottleneck & waste analysis',
+      'Implementation roadmaps',
+    ],
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h18M3 12h13M3 18h8"/><path d="M18 15l3 3-3 3"/><circle cx="19" cy="9" r="2"/><path d="M17 9H9"/></svg>`,
+  },
+  {
+    num: '04',
+    name: 'AI-Augmented Workflows',
+    desc: 'Embed large language models and AI tooling into your existing processes — document analysis, content generation, and intelligent decision support.',
+    deliverables: [
+      'LLM-powered internal tools',
+      'Document parsing & data extraction',
+      'AI classification pipelines',
+      'GPT / Claude API integrations',
+      'Prompt engineering & optimization',
+      'Custom chatbots & assistants',
+    ],
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a7 7 0 0 1 7 7c0 3.5-2 6-5 7v2H10v-2c-3-1-5-3.5-5-7a7 7 0 0 1 7-7z"/><path d="M9 17v2a3 3 0 0 0 6 0v-2"/><path d="M9.5 9.5a2.5 2.5 0 0 1 5 0c0 1.5-1 2.5-2.5 3v1"/></svg>`,
+  },
+  {
+    num: '05',
+    name: 'Web & CMS',
+    desc: 'Professional websites and content platforms built for performance, clarity, and conversion. Hand-coded or Webflow — built to last and grow.',
+    deliverables: [
+      'Custom site design & development',
+      'Webflow builds & migrations',
+      'CMS setup, structure & training',
+      'SEO foundations & metadata',
+      'Performance & Core Web Vitals',
+      'Landing pages & microsites',
+    ],
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="16" rx="1"/><path d="M8 21h8M12 19v2"/><path d="M7 8l3 2-3 2M13 12h4"/></svg>`,
+  },
+];
+
+const tiers = [
+  {
+    id: 'starter',
+    label: 'Starter',
+    badge: 'Project-Based',
+    price: '$500 – $1,500',
+    cadence: 'per project',
+    tagline: 'Scoped deliverables, fast turnaround.',
+    best: 'One-time projects & early-stage businesses',
+    features: [
+      'Single-scope deliverable',
+      '1–2 week delivery window',
+      'One revision round included',
+      'Email support throughout',
+      'Handoff documentation',
+    ],
+    examples: ['Dashboard build', 'Automation script', 'Landing page'],
+    cta: 'Start a Project',
+    featured: false,
+  },
+  {
+    id: 'growth',
+    label: 'Growth',
+    badge: 'Monthly Retainer',
+    price: '$1,500 – $3,000',
+    cadence: 'per month',
+    tagline: 'Ongoing partnership, continuous delivery.',
+    best: 'Growing businesses with recurring data or dev needs',
+    features: [
+      '4–8 hrs/week engagement',
+      'Priority response & support',
+      'Monthly strategy review call',
+      'Iterative builds & improvements',
+      'Rollover hrs (up to 4/mo)',
+    ],
+    examples: ['Ongoing analytics', 'Maintained automation', 'Continuous dev'],
+    cta: 'Start a Conversation',
+    featured: true,
+  },
+  {
+    id: 'custom',
+    label: 'Custom',
+    badge: 'Enterprise Scope',
+    price: 'Quoted',
+    cadence: 'after discovery call',
+    tagline: 'Complex problems, tailored solutions.',
+    best: 'Larger orgs, multi-system builds, long-term roadmaps',
+    features: [
+      'Discovery & scoping session',
+      'Dedicated point of contact',
+      'Multi-deliverable roadmap',
+      'Custom SLA & review cadence',
+      'Flexible engagement model',
+    ],
+    examples: ['Full system builds', 'Multi-dept rollouts', 'Strategic retainers'],
+    cta: 'Book a Discovery Call',
+    featured: false,
+  },
+];
+---
+
+<Layout title="Services">
+
+<!-- ── PAGE HERO ── -->
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-glow"></div>
+  <div class="page-hero-inner">
+    <div class="page-eyebrow fade-up d1">
+      <span class="eyebrow-num">// Services</span>
+    </div>
+    <h1 class="page-headline fade-up d2">
+      What We<br><em>Build</em>
+    </h1>
+    <p class="page-sub fade-up d3">
+      Five core disciplines. One focused team. Every engagement is scoped to your exact problem —
+      no bloated retainers, no off-the-shelf solutions.
+    </p>
+    <div class="page-hero-meta fade-up d4">
+      <div class="meta-item"><span class="meta-dot"></span>Wichita, KS</div>
+      <div class="meta-divider"></div>
+      <div class="meta-item"><span class="meta-dot"></span>5 Service Areas</div>
+      <div class="meta-divider"></div>
+      <div class="meta-item"><span class="meta-dot"></span>Project &amp; Retainer Models</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICE PILLARS ── -->
+<div id="pillars" style="border-bottom: 1px solid var(--border);">
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Service<br><em>Pillars</em></h2>
+    </div>
+    <div class="section-rule"></div>
+
+    <div class="pillars-grid">
+      {pillars.map((p) => (
+        <div class="pillar-card">
+          <div class="pillar-top">
+            <div class="service-icon" set:html={p.icon} />
+            <span class="service-num">{p.num}</span>
+          </div>
+          <div class="pillar-name">{p.name}</div>
+          <div class="pillar-desc">{p.desc}</div>
+          <div class="pillar-divider"></div>
+          <div class="pillar-deliverables-label">Deliverables</div>
+          <ul class="pillar-deliverables">
+            {p.deliverables.map((d) => (
+              <li>{d}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<!-- ── PRICING ── -->
+<div id="pricing" style="background: var(--bg2); border-bottom: 1px solid var(--border);">
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Pricing &amp;<br><em>Engagement</em></h2>
+    </div>
+    <div class="section-rule"></div>
+
+    <p class="pricing-intro">
+      We work both project-based and retainer. Pricing reflects scope — not arbitrary hourly rates.
+      Every engagement starts with a free scoping call.
+    </p>
+
+    <div class="pricing-grid">
+      {tiers.map((t) => (
+        <div class={`pricing-card${t.featured ? ' pricing-card--featured' : ''}`}>
+          {t.featured && <div class="pricing-featured-bar"></div>}
+          <div class="pricing-badge">{t.badge}</div>
+          <div class="pricing-label">{t.label}</div>
+          <div class="pricing-price">
+            {t.price}
+            {t.id !== 'custom' && <span class="pricing-cadence">/ {t.cadence}</span>}
+          </div>
+          {t.id === 'custom' && <div class="pricing-cadence-block">{t.cadence}</div>}
+          <div class="pricing-tagline">{t.tagline}</div>
+          <div class="pricing-best-for">
+            <span class="pricing-best-label">Best for</span>
+            <span>{t.best}</span>
+          </div>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-features">
+            {t.features.map((f) => (
+              <li>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+          <div class="pricing-examples">
+            {t.examples.map((e) => (
+              <span class="tag">{e}</span>
+            ))}
+          </div>
+          <a href="/contact" class={t.featured ? 'btn-primary pricing-cta' : 'btn-ghost pricing-cta'}>
+            {t.cta}
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <p class="pricing-note">
+      All projects include a scoping call, written proposal, and clear milestone structure.
+      No surprise overages — scope changes are agreed in writing before work begins.
+    </p>
+  </div>
+</div>
+
+<!-- ── CTA STRIP ── -->
+<div class="cta-strip">
+  <div class="cta-glow"></div>
+  <div class="cta-eyebrow">// Ready to Build</div>
+  <h2 class="cta-headline">Not Sure Where<br><em>to Start?</em></h2>
+  <p class="cta-sub">
+    A 30-minute scoping call is free. We'll map your biggest bottleneck and tell you exactly what we'd build.
+  </p>
+  <div class="cta-actions">
+    <a href="/contact" class="btn-primary">Book a Free Call</a>
+    <a href="/portfolio" class="btn-ghost">See Our Work</a>
+  </div>
+</div>
+
+</Layout>
+
+<style>
+  /* ── PAGE HERO ── */
+  .page-hero {
+    min-height: 52vh;
+    padding-top: var(--nav-h);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+  .page-hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 20%, transparent 100%);
+    pointer-events: none;
+  }
+  .page-hero-glow {
+    position: absolute; top: -10%; left: -5%;
+    width: 700px; height: 500px;
+    background: radial-gradient(ellipse, rgba(232,146,10,0.055) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .page-hero-inner {
+    position: relative; z-index: 2;
+    max-width: 1200px; margin: 0 auto;
+    padding: 80px 48px;
+    width: 100%;
+  }
+  .page-eyebrow {
+    margin-bottom: 20px;
+  }
+  .eyebrow-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  .page-headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: clamp(64px, 8vw, 100px);
+    line-height: 0.9; letter-spacing: -0.01em;
+    text-transform: uppercase; color: var(--text);
+    margin-bottom: 28px;
+  }
+  .page-headline em { font-style: normal; color: var(--accent); display: block; }
+  .page-sub {
+    font-size: 16px; line-height: 1.7; color: var(--muted);
+    max-width: 520px; margin-bottom: 40px;
+  }
+  .page-hero-meta {
+    display: flex; align-items: center; gap: 0;
+    flex-wrap: wrap;
+  }
+  .meta-item {
+    display: flex; align-items: center; gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); padding: 0 20px 0 0;
+  }
+  .meta-item:first-child { padding-left: 0; }
+  .meta-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  .meta-divider { width: 1px; height: 12px; background: var(--border2); margin-right: 20px; }
+
+  /* ── PILLARS GRID ── */
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .pillar-card {
+    grid-column: span 2;
+    background: var(--bg);
+    padding: 40px 36px;
+    position: relative;
+    transition: background 0.3s;
+    cursor: default;
+  }
+  /* Bottom two cards: each span 3 cols (50% width) */
+  .pillar-card:nth-child(4),
+  .pillar-card:nth-child(5) {
+    grid-column: span 3;
+  }
+  .pillar-card:hover { background: var(--bg3); }
+  .pillar-card:hover .service-icon { border-color: var(--adim3); }
+
+  .pillar-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 24px;
+  }
+  .pillar-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 22px;
+    letter-spacing: 0.02em; text-transform: uppercase;
+    color: var(--text); margin-bottom: 10px;
+  }
+  .pillar-desc {
+    font-size: 14px; line-height: 1.7;
+    color: var(--muted); margin-bottom: 28px;
+  }
+  .pillar-divider {
+    width: 100%; height: 1px;
+    background: var(--border); margin-bottom: 20px;
+    position: relative;
+  }
+  .pillar-divider::after {
+    content: ''; position: absolute; left: 0; top: 0;
+    width: 40px; height: 1px; background: var(--accent);
+  }
+  .pillar-deliverables-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 14px;
+  }
+  .pillar-deliverables {
+    list-style: none; display: flex; flex-direction: column; gap: 7px;
+  }
+  .pillar-deliverables li {
+    font-size: 13px; color: var(--muted); line-height: 1.4;
+    padding-left: 16px; position: relative;
+  }
+  .pillar-deliverables li::before {
+    content: '—';
+    position: absolute; left: 0;
+    color: var(--muted2);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+  }
+
+  /* ── PRICING SECTION ── */
+  .pricing-intro {
+    font-size: 15px; line-height: 1.75; color: var(--muted);
+    max-width: 600px; margin-bottom: 56px;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 40px;
+    align-items: start;
+  }
+
+  .pricing-card {
+    background: var(--bg3);
+    padding: 44px 36px;
+    position: relative;
+    display: flex; flex-direction: column;
+  }
+  .pricing-card--featured {
+    background: var(--bg4);
+  }
+  .pricing-featured-bar {
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2), transparent);
+  }
+
+  .pricing-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 16px;
+  }
+  .pricing-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: 36px; letter-spacing: 0.02em;
+    text-transform: uppercase; color: var(--text);
+    margin-bottom: 12px;
+  }
+  .pricing-price {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 28px;
+    color: var(--accent); line-height: 1.1;
+    margin-bottom: 4px;
+  }
+  .pricing-cadence {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px; font-weight: 400;
+    color: var(--muted);
+  }
+  .pricing-cadence-block {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--muted);
+    letter-spacing: 0.06em; margin-bottom: 4px;
+  }
+  .pricing-tagline {
+    font-size: 13px; color: var(--muted);
+    line-height: 1.5; margin-bottom: 20px;
+  }
+  .pricing-best-for {
+    display: flex; flex-direction: column; gap: 4px;
+    padding: 14px 16px;
+    background: var(--bg); border: 1px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .pricing-best-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted2); display: block;
+  }
+  .pricing-best-for span:last-child {
+    font-size: 12px; color: var(--text); line-height: 1.4;
+  }
+  .pricing-divider {
+    width: 100%; height: 1px; background: var(--border); margin-bottom: 24px;
+  }
+  .pricing-features {
+    list-style: none; display: flex; flex-direction: column;
+    gap: 10px; margin-bottom: 24px; flex: 1;
+  }
+  .pricing-features li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 13px; color: var(--muted); line-height: 1.4;
+  }
+  .pricing-features li svg {
+    flex-shrink: 0; margin-top: 1px;
+    color: var(--accent);
+  }
+  .pricing-card--featured .pricing-features li svg { color: var(--accent2); }
+  .pricing-examples {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-bottom: 28px;
+  }
+  .pricing-cta {
+    width: 100%; text-align: center; display: block;
+  }
+
+  .pricing-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.06em; line-height: 1.7;
+    color: var(--muted2); text-align: center;
+    border-top: 1px solid var(--border); padding-top: 28px;
+  }
+
+  /* ── CTA STRIP ── */
+  .cta-strip {
+    padding: 100px 48px;
+    text-align: center;
+    position: relative; overflow: hidden;
+    background: var(--bg);
+  }
+  .cta-glow {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px; height: 400px;
+    background: radial-gradient(ellipse, rgba(232,146,10,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .cta-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+    position: relative; z-index: 1;
+  }
+  .cta-headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: clamp(48px, 6vw, 80px);
+    line-height: 0.92; text-transform: uppercase;
+    color: var(--text); margin-bottom: 20px;
+    position: relative; z-index: 1;
+  }
+  .cta-headline em { font-style: normal; color: var(--accent); display: block; }
+  .cta-sub {
+    font-size: 15px; color: var(--muted); margin-bottom: 44px;
+    position: relative; z-index: 1; max-width: 460px; margin-inline: auto;
+    line-height: 1.7;
+  }
+  .cta-actions {
+    display: flex; gap: 16px; justify-content: center;
+    align-items: center; flex-wrap: wrap;
+    position: relative; z-index: 1;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .page-hero-inner { padding: 60px 24px; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    .pillar-card,
+    .pillar-card:nth-child(4),
+    .pillar-card:nth-child(5) { grid-column: span 1; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .cta-strip { padding: 80px 24px; }
+    .meta-item { padding: 4px 0; }
+    .meta-divider { display: none; }
+  }
+</style>

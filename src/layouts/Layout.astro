@@ -1,0 +1,58 @@
+---
+import '../styles/global.css';
+export interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = 'DataForge delivers data analytics, intelligent systems, and web solutions that give Wichita businesses a measurable edge.' } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} | DataForge — Wichita, KS</title>
+  <meta name="description" content={description} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<slot name="head" />
+</head>
+<body>
+
+<nav id="nav">
+  <a href="/" class="nav-logo">DATA<span>—</span>FORGE</a>
+  <ul class="nav-links">
+    <li><a href="/services">Services</a></li>
+    <li><a href="/portfolio">Portfolio</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="/contact" class="nav-cta">Start a Project</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Open menu" id="hamburger">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<main>
+  <slot />
+</main>
+
+<footer>
+  <div class="footer-logo">DATA<span>—</span>FORGE</div>
+  <div class="footer-copy">© 2026 DataForge · Wichita, KS</div>
+  <ul class="footer-links">
+    <li><a href="/services">Services</a></li>
+    <li><a href="/portfolio">Portfolio</a></li>
+    <li><a href="/contact">Contact</a></li>
+  </ul>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav?.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+</script>
+</body>
+</html>
