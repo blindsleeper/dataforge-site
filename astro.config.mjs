@@ -1,8 +1,7 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://yourusername.github.io',
-  // When using a custom domain, remove the base line entirely.
-  // base: '/dataforge',
+  site: 'https://blindsleeper.github.io',
+  base: '/dataforge-site/',
   output: 'static',
 });
