@@ -4,8 +4,8 @@ import Layout from '../layouts/Layout.astro';
 const details = [
   {
     label: 'Email',
-    value: 'hello@dataforgewichita.com',
-    href:  'mailto:hello@dataforgewichita.com',
+    value: 'hello@dataforgeict.com',
+    href:  'mailto:hello@dataforgeict.com',
   },
   {
     label: 'Location',
@@ -59,8 +59,8 @@ const projectTypes = [
           <span class="form-label-top">// Send a Message</span>
         </div>
 
-        <!-- No backend yet — action/method to be wired up -->
-        <form class="contact-form" name="contact" method="POST" action="#" novalidate>
+        <form class="contact-form" name="contact" method="POST" action="https://formspree.io/f/PLACEHOLDER_ID" novalidate>
+          <input type="hidden" name="_replyto" value="hello@dataforgeict.com" />
 
           <div class="form-row">
             <div class="form-group">

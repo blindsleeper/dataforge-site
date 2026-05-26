@@ -65,7 +65,7 @@ nav.scrolled { border-color: var(--border2); }
 .nav-links a {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--muted); text-decoration: none; transition: color 0.2s;
+  color: #FFFFFF; text-decoration: none; transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--text); }
 
