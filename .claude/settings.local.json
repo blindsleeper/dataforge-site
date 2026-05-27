@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"from PIL import Image, ImageDraw, ImageFont; print\\('Pillow OK'\\)\")",
+      "PowerShell(New-Item -ItemType Directory -Force \"C:\\\\Users\\\\blee1\\\\OneDrive\\\\Desktop\\\\DataForge-Site\\\\public\")"
+    ]
+  }
+}

@@ -8,7 +8,7 @@ const featured = {
   year:     '2025',
   status:   'Live',
   url:      'https://www.adamsjones.com',
-  desc:     'A prominent Wichita law firm needed a site that matched their standing — professional, fast, and fully manageable by their own team. We rebuilt the entire site in Webflow with a structured CMS, a mobile-first layout, and zero developer dependency going forward.',
+  desc:     'A prominent Wichita law firm needed a site that matched their reputation — professional, fast, and fully manageable by their own team. We rebuilt the entire site in Webflow with a structured CMS, a mobile-first layout, and zero developer dependency going forward.',
   deliverables: [
     'New site architecture & information hierarchy',
     'Mobile-first responsive design across all breakpoints',
@@ -24,16 +24,19 @@ const placeholders = [
     category: 'Data Analytics',
     type:     'Dashboard & Reporting Pipeline',
     sector:   'Manufacturing',
+    status:   'In preparation',
   },
   {
     category: 'Systems & Automation',
     type:     'Workflow Automation Build',
     sector:   'Professional Services',
+    status:   'Available under NDA',
   },
   {
     category: 'AI-Augmented Workflows',
     type:     'Internal LLM Tool',
     sector:   'Healthcare Adjacent',
+    status:   'Coming soon',
   },
 ];
 ---
@@ -47,7 +50,7 @@ const placeholders = [
   <div class="page-hero-inner">
     <div class="page-eyebrow fade-up d1">// Portfolio</div>
     <h1 class="page-headline fade-up d2">
-      Our<br><em>Work</em>
+      My<br><em>Work</em>
     </h1>
     <p class="page-sub fade-up d3">
       Every project is scoped to a real problem and built to outlast the engagement.
@@ -181,7 +184,7 @@ const placeholders = [
           </div>
           <div class="placeholder-status">
             <span class="status-dot-dim"></span>
-            Case study in progress
+            {p.status}
           </div>
         </div>
       ))}

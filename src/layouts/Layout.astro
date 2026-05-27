@@ -16,11 +16,14 @@ const { title, description = 'DataForge delivers data analytics, intelligent sys
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+  <link rel="shortcut icon" href="/favicon.ico" />
 <slot name="head" />
 </head>
 <body>
 
-<nav id="nav">
+<nav id="df-nav-menu" role="navigation">
   <a href="/" class="nav-logo">DATAFORGE</a>
   <ul class="nav-links">
     <li><a href="/services">Services</a></li>
@@ -29,9 +32,19 @@ const { title, description = 'DataForge delivers data analytics, intelligent sys
     <li><a href="/contact">Contact</a></li>
     <li><a href="/contact" class="nav-cta">Start a Project</a></li>
   </ul>
-  <button class="nav-hamburger" aria-label="Open menu" id="hamburger">
+  <button class="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false" id="hamburger">
     <span></span><span></span><span></span>
   </button>
+  <!-- Mobile drawer -->
+  <div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+    <ul class="nav-drawer-links">
+      <li><a href="/services">Services</a></li>
+      <li><a href="/portfolio">Portfolio</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li><a href="/contact" class="nav-drawer-cta">Start a Project</a></li>
+    </ul>
+  </div>
 </nav>
 
 <main>
@@ -49,7 +62,42 @@ const { title, description = 'DataForge delivers data analytics, intelligent sys
 </footer>
 
 <script>
-  const nav = document.getElementById('nav');
+  const nav       = document.getElementById('df-nav-menu');
+  const hamburger = document.getElementById('hamburger');
+  const drawer    = document.getElementById('nav-drawer');
+
+  function openMenu() {
+    nav?.classList.add('is-open');
+    hamburger?.setAttribute('aria-expanded', 'true');
+    drawer?.setAttribute('aria-hidden', 'false');
+  }
+  function closeMenu() {
+    nav?.classList.remove('is-open');
+    hamburger?.setAttribute('aria-expanded', 'false');
+    drawer?.setAttribute('aria-hidden', 'true');
+  }
+
+  // Toggle on button click
+  hamburger?.addEventListener('click', () => {
+    nav?.classList.contains('is-open') ? closeMenu() : openMenu();
+  });
+
+  // Close when a drawer link is clicked
+  drawer?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // Close on resize above 768px
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) closeMenu();
+  }, { passive: true });
+
+  // Scroll-shadow effect (existing)
   window.addEventListener('scroll', () => {
     nav?.classList.toggle('scrolled', window.scrollY > 20);
   }, { passive: true });
