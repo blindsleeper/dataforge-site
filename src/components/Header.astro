@@ -1,0 +1,210 @@
+---
+// DataForge site header — navigation, hamburger menu, scroll behaviour
+---
+
+<nav id="df-nav-menu" role="navigation">
+  <a href="/" class="nav-logo">DATAFORGE</a>
+  <ul class="nav-links">
+    <li><a href="/services">Services</a></li>
+    <li><a href="/portfolio">Portfolio</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/contact">Contact</a></li>
+    <li><a href="/contact" class="nav-cta">Start a Project</a></li>
+  </ul>
+  <button class="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false" id="hamburger">
+    <span></span><span></span><span></span>
+  </button>
+  <!-- Mobile drawer -->
+  <div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+    <ul class="nav-drawer-links">
+      <li><a href="/services">Services</a></li>
+      <li><a href="/portfolio">Portfolio</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li><a href="/contact" class="nav-drawer-cta">Start a Project</a></li>
+    </ul>
+  </div>
+</nav>
+
+<style is:global>
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: var(--nav-h);
+  display: flex; align-items: center;
+  padding: 0 48px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(7,7,7,0.85);
+  backdrop-filter: blur(16px);
+  transition: border-color 0.3s;
+}
+nav.scrolled { border-color: var(--border2); }
+
+.nav-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 22px; letter-spacing: 0.06em;
+  color: var(--accent); text-decoration: none; flex-shrink: 0;
+}
+.nav-logo span { color: var(--text); opacity: 0.35; }
+
+.nav-links {
+  display: flex; align-items: center; gap: 36px;
+  list-style: none; margin-left: auto;
+}
+.nav-links a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: #FFFFFF; text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+
+.nav-cta {
+  margin-left: 8px; padding: 9px 22px;
+  border: 1px solid var(--accent3); background: transparent;
+  color: var(--accent) !important;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px !important; letter-spacing: 0.1em; text-transform: uppercase;
+  text-decoration: none; cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.nav-cta:hover { background: var(--adim2) !important; color: var(--accent2) !important; }
+
+.nav-hamburger { display: none; }
+
+/* ── MOBILE DRAWER (hidden on desktop) ── */
+.nav-drawer { display: none; }
+
+/* ── MOBILE NAV (≤768px) ── */
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+
+  /* Hamburger button */
+  .nav-hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #E8E8E8;
+    border-radius: 1px;
+    transition: transform 0.25s ease, opacity 0.2s ease, background 0.2s ease;
+    transform-origin: center;
+  }
+
+  /* Open state — bars animate to amber × */
+  .nav-hamburger[aria-expanded="true"] span { background: #E8920A; }
+  .nav-hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .nav-hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Drawer */
+  .nav-drawer {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #0D0D0D;
+    border-top: 1px solid rgba(232, 146, 10, 0.2);
+    opacity: 0;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    padding-bottom: 8px;
+  }
+  #df-nav-menu.is-open .nav-drawer {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* Drawer links */
+  .nav-drawer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .nav-drawer-links li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  .nav-drawer-links li:last-child { border-bottom: none; }
+  .nav-drawer-links a {
+    display: block;
+    padding: 1rem 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #B0B0B0;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+  .nav-drawer-links a:hover { color: #F0EAE0; }
+
+  /* CTA link in drawer */
+  .nav-drawer-cta {
+    display: inline-block !important;
+    color: #E8920A !important;
+    border: 1px solid rgba(232, 146, 10, 0.5) !important;
+    padding: 8px 18px !important;
+    margin: 16px 20px 20px !important;
+    font-size: 0.875rem !important;
+    transition: background 0.2s !important;
+  }
+  .nav-drawer-cta:hover { background: rgba(232, 146, 10, 0.08) !important; }
+}
+</style>
+
+<script>
+  const nav       = document.getElementById('df-nav-menu');
+  const hamburger = document.getElementById('hamburger');
+  const drawer    = document.getElementById('nav-drawer');
+
+  function openMenu() {
+    nav?.classList.add('is-open');
+    hamburger?.setAttribute('aria-expanded', 'true');
+    drawer?.setAttribute('aria-hidden', 'false');
+  }
+  function closeMenu() {
+    nav?.classList.remove('is-open');
+    hamburger?.setAttribute('aria-expanded', 'false');
+    drawer?.setAttribute('aria-hidden', 'true');
+  }
+
+  // Toggle on button click
+  hamburger?.addEventListener('click', () => {
+    nav?.classList.contains('is-open') ? closeMenu() : openMenu();
+  });
+
+  // Close when a drawer link is clicked
+  drawer?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // Close on resize above 768px
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) closeMenu();
+  }, { passive: true });
+
+  // Scroll-shadow effect
+  window.addEventListener('scroll', () => {
+    nav?.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+</script>

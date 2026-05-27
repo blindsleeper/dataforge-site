@@ -196,6 +196,75 @@ const placeholders = [
   </div>
 </div>
 
+<!-- ── INTERNAL TOOLS ── -->
+<div style="background: var(--bg); border-bottom: 1px solid var(--border);">
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Built Because<br><em>They Needed to Exist</em></h2>
+    </div>
+    <div class="section-rule"></div>
+
+    <p class="tools-intro">
+      Tools I built to solve recurring operational problems — not commissioned, just necessary.
+    </p>
+
+    <div class="tools-grid">
+
+      <!-- SortShelf -->
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <span class="tool-eyebrow">// Internal Tool</span>
+          <span class="status-live">
+            <span class="status-dot"></span>Live
+          </span>
+        </div>
+        <div class="tool-body">
+          <div class="tool-name">SortShelf</div>
+          <div class="tool-subtitle">File Organization Utility · Windows</div>
+          <p class="tool-desc">
+            A lightweight Windows utility that automatically sorts a target folder by file type —
+            documents, images, spreadsheets, scripts, and archives — into clean subdirectories.
+            Includes live sort and one-step undo. Built after one too many chaotic Downloads folders.
+          </p>
+          <div class="tool-tags">
+            <span class="tag">PowerShell</span>
+            <span class="tag">Windows</span>
+            <span class="tag">Automation</span>
+            <span class="tag">CLI</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- IT Logger -->
+      <div class="tool-card">
+        <div class="tool-card-header">
+          <span class="tool-eyebrow">// Internal Tool</span>
+          <span class="status-live">
+            <span class="status-dot"></span>Live
+          </span>
+        </div>
+        <div class="tool-body">
+          <div class="tool-name">IT Logger</div>
+          <div class="tool-subtitle">Internal Ticket Tracker · Local</div>
+          <p class="tool-desc">
+            A lightweight internal ticketing system built for environments that don't need — and
+            won't adopt — enterprise helpdesk software. Logs issues, tracks status, and runs locally
+            with zero external dependencies or licensing costs.
+          </p>
+          <div class="tool-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Flask</span>
+            <span class="tag">SQLite</span>
+            <span class="tag">Internal Tooling</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <!-- ── CTA ── -->
 <div class="cta-strip">
   <div class="cta-glow"></div>
@@ -513,6 +582,54 @@ const placeholders = [
     color: var(--muted2); margin-top: 32px;
   }
 
+  /* ── INTERNAL TOOLS ── */
+  .tools-intro {
+    font-size: 15px; line-height: 1.75; color: var(--muted);
+    max-width: 560px; margin-bottom: 48px;
+  }
+  .tools-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .tool-card {
+    background: var(--bg3);
+    transition: background 0.3s;
+    cursor: default;
+  }
+  .tool-card:hover { background: var(--bg4); }
+  .tool-card-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 28px 36px 0;
+  }
+  .tool-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .tool-body {
+    padding: 20px 36px 36px;
+  }
+  .tool-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: clamp(32px, 3vw, 44px);
+    letter-spacing: 0.01em; text-transform: uppercase;
+    color: var(--text); line-height: 0.95;
+    margin-bottom: 10px;
+  }
+  .tool-subtitle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+  }
+  .tool-desc {
+    font-size: 14px; line-height: 1.75; color: var(--muted);
+    margin-bottom: 28px;
+  }
+  .tool-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
   /* ── CTA STRIP ── */
   .cta-strip {
     padding: 100px 48px;
@@ -561,6 +678,7 @@ const placeholders = [
     .featured-body { padding: 28px 24px 32px; }
     .featured-footer { flex-direction: column; align-items: flex-start; }
     .placeholders-grid { grid-template-columns: 1fr; }
+    .tools-grid { grid-template-columns: 1fr; }
     .cta-strip { padding: 80px 24px; }
     .meta-divider { display: none; }
     .meta-item { padding: 4px 0; }

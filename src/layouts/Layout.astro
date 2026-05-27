@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Header from '../components/Header.astro';
 export interface Props {
   title: string;
   description?: string;
@@ -23,36 +24,14 @@ const { title, description = 'DataForge delivers data analytics, intelligent sys
 </head>
 <body>
 
-<nav id="df-nav-menu" role="navigation">
-  <a href="/" class="nav-logo">DATAFORGE</a>
-  <ul class="nav-links">
-    <li><a href="/services">Services</a></li>
-    <li><a href="/portfolio">Portfolio</a></li>
-    <li><a href="/about">About</a></li>
-    <li><a href="/contact">Contact</a></li>
-    <li><a href="/contact" class="nav-cta">Start a Project</a></li>
-  </ul>
-  <button class="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false" id="hamburger">
-    <span></span><span></span><span></span>
-  </button>
-  <!-- Mobile drawer -->
-  <div class="nav-drawer" id="nav-drawer" aria-hidden="true">
-    <ul class="nav-drawer-links">
-      <li><a href="/services">Services</a></li>
-      <li><a href="/portfolio">Portfolio</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/contact">Contact</a></li>
-      <li><a href="/contact" class="nav-drawer-cta">Start a Project</a></li>
-    </ul>
-  </div>
-</nav>
+<Header />
 
 <main>
   <slot />
 </main>
 
 <footer>
-  <div class="footer-logo">DATA<span>—</span>FORGE</div>
+  <div class="footer-logo">DATAFORGE</div>
   <div class="footer-copy">© 2026 DataForge · Wichita, KS</div>
   <ul class="footer-links">
     <li><a href="/services">Services</a></li>
@@ -61,46 +40,5 @@ const { title, description = 'DataForge delivers data analytics, intelligent sys
   </ul>
 </footer>
 
-<script>
-  const nav       = document.getElementById('df-nav-menu');
-  const hamburger = document.getElementById('hamburger');
-  const drawer    = document.getElementById('nav-drawer');
-
-  function openMenu() {
-    nav?.classList.add('is-open');
-    hamburger?.setAttribute('aria-expanded', 'true');
-    drawer?.setAttribute('aria-hidden', 'false');
-  }
-  function closeMenu() {
-    nav?.classList.remove('is-open');
-    hamburger?.setAttribute('aria-expanded', 'false');
-    drawer?.setAttribute('aria-hidden', 'true');
-  }
-
-  // Toggle on button click
-  hamburger?.addEventListener('click', () => {
-    nav?.classList.contains('is-open') ? closeMenu() : openMenu();
-  });
-
-  // Close when a drawer link is clicked
-  drawer?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
-
-  // Close on Escape
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeMenu();
-  });
-
-  // Close on resize above 768px
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) closeMenu();
-  }, { passive: true });
-
-  // Scroll-shadow effect (existing)
-  window.addEventListener('scroll', () => {
-    nav?.classList.toggle('scrolled', window.scrollY > 20);
-  }, { passive: true });
-</script>
 </body>
 </html>
