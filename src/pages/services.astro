@@ -415,7 +415,7 @@ const tiers = [
     background: var(--border);
     border: 1px solid var(--border);
     margin-bottom: 40px;
-    align-items: start;
+    isolation: isolate;
   }
 
   .pricing-card {
@@ -423,6 +423,7 @@ const tiers = [
     padding: 44px 36px;
     position: relative;
     display: flex; flex-direction: column;
+    overflow: hidden;
   }
   .pricing-card--featured {
     background: var(--bg4);
