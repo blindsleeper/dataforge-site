@@ -1,0 +1,884 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Dashboard Gallery">
+<Fragment slot="head">
+  <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+</Fragment>
+
+<!-- ── PAGE HERO ── -->
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-glow"></div>
+  <div class="page-hero-inner">
+    <div class="gal-eyebrow fade-up d1">// Dashboard Gallery</div>
+    <h1 class="gal-headline fade-up d2">What the Work<br><em>Actually Looks Like</em></h1>
+    <p class="gal-sub fade-up d3">
+      Representative dashboards built around real operational problems. The data is illustrative — the problems are not.
+    </p>
+  </div>
+</section>
+
+<!-- ── GALLERY BODY ── -->
+<div class="gallery-outer">
+  <div class="gallery-inner">
+
+    <!-- ══════════════════════════════════════
+         DASHBOARD 01 — Legal Billing
+    ══════════════════════════════════════ -->
+    <div class="db-section">
+
+      <div class="db-problem">
+        <div class="db-problem-head">
+          <span class="section-num">// 01</span>
+          <h2 class="db-scenario">Legal — <em>Billing Performance</em></h2>
+        </div>
+        <p class="db-problem-text">Attorneys had no visibility into their own billing performance without someone running a report manually.</p>
+      </div>
+
+      <div class="db-card">
+        <div class="db-header">
+          <div>
+            <div class="db-title">// DataForge · Legal</div>
+            <div class="db-subtitle">Billing Performance Dashboard</div>
+          </div>
+          <div class="db-period">Jan – May 2025</div>
+        </div>
+
+        <div class="db-metrics-grid">
+          <div class="db-mc">
+            <div class="db-mc-label">Total Billed</div>
+            <div class="db-mc-value">$847k</div>
+            <div class="db-mc-delta delta-green">↑ 12% vs prior period</div>
+          </div>
+          <div class="db-mc">
+            <div class="db-mc-label">Collected</div>
+            <div class="db-mc-value">$703k</div>
+            <div class="db-mc-delta delta-green">↑ 83% collection rate</div>
+          </div>
+          <div class="db-mc">
+            <div class="db-mc-label">Avg Days to Pay</div>
+            <div class="db-mc-value">38d</div>
+            <div class="db-mc-delta delta-red">↑ 6d vs target</div>
+          </div>
+          <div class="db-mc">
+            <div class="db-mc-label">Overdue &gt;60d</div>
+            <div class="db-mc-value">$64k</div>
+            <div class="db-mc-delta delta-red">↑ 8% vs prior period</div>
+          </div>
+        </div>
+
+        <div class="db-charts" style="grid-template-columns:1.4fr 1fr;">
+          <div class="db-chart-block">
+            <div class="db-chart-label">Billed vs Collected — by Attorney</div>
+            <div class="chart-wrap" style="height:180px;">
+              <canvas id="c1"></canvas>
+            </div>
+          </div>
+          <div class="db-chart-block">
+            <div class="db-chart-label">Invoice Aging Breakdown</div>
+            <div class="chart-wrap" style="height:210px;">
+              <canvas id="c2"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="db-table-wrap">
+          <div class="db-chart-label" style="margin-bottom:10px;">Matter Age by Practice Area</div>
+          <table class="db-table">
+            <thead><tr>
+              <th>Attorney</th><th>Practice Area</th><th>Billed</th><th>Collected</th><th>Oldest Open Matter</th><th>Status</th>
+            </tr></thead>
+            <tbody>
+              <tr><td>J. Harmon</td><td>Litigation</td><td>$218k</td><td>$196k</td><td>14d</td><td><span class="st-green">On Track</span></td></tr>
+              <tr><td>M. Delgado</td><td>Corporate</td><td>$194k</td><td>$171k</td><td>22d</td><td><span class="st-green">On Track</span></td></tr>
+              <tr><td>R. Okafor</td><td>Real Estate</td><td>$187k</td><td>$148k</td><td>61d</td><td><span class="st-amber">Review</span></td></tr>
+              <tr><td>S. Chen</td><td>Employment</td><td>$143k</td><td>$109k</td><td>88d</td><td><span class="st-red">Overdue</span></td></tr>
+              <tr><td>T. Briggs</td><td>Estate Plan.</td><td>$105k</td><td>$79k</td><td>104d</td><td><span class="st-red">Overdue</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="db-pills-row">
+        <span class="db-pill"><span class="pv">83%</span> collection rate</span>
+        <span class="db-pill"><span class="pv">38-day</span> avg payment cycle</span>
+        <span class="db-pill"><span class="pv">Invoice aging</span> by matter</span>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         DASHBOARD 02 — Professional Services
+    ══════════════════════════════════════ -->
+    <div class="db-section">
+
+      <div class="db-problem">
+        <div class="db-problem-head">
+          <span class="section-num">// 02</span>
+          <h2 class="db-scenario">Professional Services — <em>Intake &amp; Pipeline</em></h2>
+        </div>
+        <p class="db-problem-text">New client intake was managed through email and spreadsheets. Nothing was tracked consistently and leads were falling through the cracks.</p>
+      </div>
+
+      <div class="db-card">
+        <div class="db-header">
+          <div>
+            <div class="db-title">// DataForge · Professional Services</div>
+            <div class="db-subtitle">Intake &amp; Pipeline Dashboard</div>
+          </div>
+          <div class="db-period">Q1–Q2 2025</div>
+        </div>
+
+        <div class="db-metrics-grid">
+          <div class="db-mc">
+            <div class="db-mc-label">Leads This Quarter</div>
+            <div class="db-mc-value">84</div>
+            <div class="db-mc-delta delta-green">↑ 18% vs prior</div>
+          </div>
+          <div class="db-mc">
+            <div class="db-mc-label">Conversion Rate</div>
+            <div class="db-mc-value">31%</div>
+            <div class="db-mc-delta delta-red">↓ 4pts vs target</div>
+          </div>
+          <div class="db-mc">
+            <div class="db-mc-label">Avg Days to Close</div>
+            <div class="db-mc-value">22d</div>
+            <div class="db-mc-delta delta-gray">— no change</div>
+          </div>
+          <div class="db-mc">
+            <div class="db-mc-label">Pipeline Value</div>
+            <div class="db-mc-value">$218k</div>
+            <div class="db-mc-delta delta-green">↑ 9% vs prior</div>
+          </div>
+        </div>
+
+        <div class="db-charts" style="grid-template-columns:1fr 1fr;">
+          <div class="db-chart-block">
+            <div class="db-chart-label">Lead Funnel</div>
+            <div class="db-funnel">
+              <div class="funnel-row">
+                <div class="funnel-lbl">Inquiries</div>
+                <div class="funnel-track"><div class="funnel-bar" style="width:100%;background:rgba(232,146,10,0.7);"></div></div>
+                <div class="funnel-pct">100%</div>
+              </div>
+              <div class="funnel-row">
+                <div class="funnel-lbl">Qualified</div>
+                <div class="funnel-track"><div class="funnel-bar" style="width:71%;background:rgba(232,146,10,0.55);"></div></div>
+                <div class="funnel-pct">71%</div>
+              </div>
+              <div class="funnel-row">
+                <div class="funnel-lbl">Proposal Sent</div>
+                <div class="funnel-track"><div class="funnel-bar" style="width:48%;background:rgba(232,146,10,0.4);"></div></div>
+                <div class="funnel-pct">48%</div>
+              </div>
+              <div class="funnel-row">
+                <div class="funnel-lbl">Closed Won</div>
+                <div class="funnel-track"><div class="funnel-bar" style="width:31%;background:rgba(32,178,170,0.7);"></div></div>
+                <div class="funnel-pct">31%</div>
+              </div>
+              <div class="funnel-row">
+                <div class="funnel-lbl">Closed Lost</div>
+                <div class="funnel-track"><div class="funnel-bar" style="width:17%;background:rgba(239,68,68,0.5);"></div></div>
+                <div class="funnel-pct">17%</div>
+              </div>
+            </div>
+          </div>
+          <div class="db-chart-block">
+            <div class="db-chart-label">Lead Source Breakdown</div>
+            <div class="chart-wrap" style="height:200px;">
+              <canvas id="c3"></canvas>
+            </div>
+            <div class="db-legend">
+              <span class="leg-item"><span class="leg-dot" style="background:rgba(232,146,10,0.8);"></span>Referral 42%</span>
+              <span class="leg-item"><span class="leg-dot" style="background:rgba(32,178,170,0.8);"></span>Web 28%</span>
+              <span class="leg-item"><span class="leg-dot" style="background:rgba(55,138,221,0.8);"></span>LinkedIn 18%</span>
+              <span class="leg-item"><span class="leg-dot" style="background:rgba(160,160,160,0.6);"></span>Other 12%</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="db-table-wrap">
+          <div class="db-chart-label" style="margin-bottom:10px;">Open Pipeline — Active Prospects</div>
+          <table class="db-table">
+            <thead><tr>
+              <th>Prospect</th><th>Source</th><th>Est. Value</th><th>Days in Pipeline</th><th>Last Contact</th><th>Stage</th>
+            </tr></thead>
+            <tbody>
+              <tr><td>Meridian Accounting</td><td>Referral</td><td>$28k</td><td>8d</td><td>2d ago</td><td><span class="st-green">Proposal Sent</span></td></tr>
+              <tr><td>Flint &amp; Co.</td><td>Web</td><td>$14k</td><td>17d</td><td>5d ago</td><td><span class="st-green">Qualified</span></td></tr>
+              <tr><td>Vance Partners</td><td>LinkedIn</td><td>$41k</td><td>29d</td><td>11d ago</td><td><span class="st-amber">Stalled</span></td></tr>
+              <tr><td>Holloway Group</td><td>Referral</td><td>$19k</td><td>34d</td><td>14d ago</td><td><span class="st-amber">Stalled</span></td></tr>
+              <tr><td>Lark Industries</td><td>Web</td><td>$52k</td><td>48d</td><td>22d ago</td><td><span class="st-red">At Risk</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="db-pills-row">
+        <span class="db-pill"><span class="pv">31%</span> conversion rate</span>
+        <span class="db-pill"><span class="pv">5-stage</span> funnel visibility</span>
+        <span class="db-pill"><span class="pv">Lead source</span> attribution</span>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         DASHBOARD 03 — Small Business Ops
+    ══════════════════════════════════════ -->
+    <div class="db-section">
+
+      <div class="db-problem">
+        <div class="db-problem-head">
+          <span class="section-num">// 03</span>
+          <h2 class="db-scenario">Small Business — <em>Consolidated Operations</em></h2>
+        </div>
+        <p class="db-problem-text">Weekly reporting required 3.5 hours of manual copy-paste across five disconnected spreadsheets.</p>
+      </div>
+
+      <div class="db-card">
+        <div class="db-header">
+          <div>
+            <div class="db-title">// DataForge · Small Business</div>
+            <div class="db-subtitle">Consolidated Operations Dashboard</div>
+          </div>
+          <div class="db-period">Auto-refreshed · Wed May 27, 2025</div>
+        </div>
+
+        <div class="db-metrics-grid">
+          <div class="db-mc">
+            <div class="db-mc-label">Weekly Revenue</div>
+            <div class="db-mc-value">$34.2k</div>
+            <div class="db-mc-delta delta-green">↑ 6% vs last week</div>
+          </div>
+          <div class="db-mc">
+            <div class="db-mc-label">Open Orders</div>
+            <div class="db-mc-value">47</div>
+            <div class="db-mc-delta delta-red">↓ 3 past due</div>
+          </div>
+          <div class="db-mc">
+            <div class="db-mc-label">Fulfillment Rate</div>
+            <div class="db-mc-value">91%</div>
+            <div class="db-mc-delta delta-green">↑ 2pts vs prior</div>
+          </div>
+          <div class="db-mc">
+            <div class="db-mc-label">Report Build Time</div>
+            <div class="db-mc-value">0 min</div>
+            <div class="db-mc-delta delta-green">↓ from 3.5 hrs/wk</div>
+          </div>
+        </div>
+
+        <div class="db-charts" style="grid-template-columns:1.3fr 1fr;">
+          <div class="db-chart-block">
+            <div class="db-chart-label">Weekly Revenue — 12-Week Trend</div>
+            <div class="chart-wrap" style="height:180px;">
+              <canvas id="c4"></canvas>
+            </div>
+          </div>
+          <div class="db-chart-block">
+            <div class="db-chart-label">Source Data</div>
+            <div class="db-file-list">
+              <div class="file-row">
+                <span class="file-name">Sales_Tracker_FINAL_v3.xlsx</span>
+                <span class="file-badge badge-merged">Merged</span>
+                <span class="file-rows">1,840 rows</span>
+              </div>
+              <div class="file-row">
+                <span class="file-name">Inventory_Weekly.xlsx</span>
+                <span class="file-badge badge-merged">Merged</span>
+                <span class="file-rows">620 rows</span>
+              </div>
+              <div class="file-row">
+                <span class="file-name">Orders_Export_May.xlsx</span>
+                <span class="file-badge badge-merged">Merged</span>
+                <span class="file-rows">473 rows</span>
+              </div>
+              <div class="file-row">
+                <span class="file-name">Staff_Hours_Q2.xlsx</span>
+                <span class="file-badge badge-merged">Merged</span>
+                <span class="file-rows">288 rows</span>
+              </div>
+              <div class="file-row">
+                <span class="file-name">Expenses_Running.xlsx</span>
+                <span class="file-badge badge-merged">Merged</span>
+                <span class="file-rows">194 rows</span>
+              </div>
+              <div class="file-divider"></div>
+              <div class="file-row">
+                <span class="file-name" style="color:#F0EAE0;font-weight:600;">Unified Data Model</span>
+                <span class="file-badge badge-live">Live</span>
+                <span class="file-rows" style="color:#E8920A;font-weight:700;">3,415 rows</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="db-chart-block" style="margin-top:16px;">
+          <div class="db-chart-label">Order Status by Category</div>
+          <div class="chart-wrap" style="height:160px;">
+            <canvas id="c5"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="db-pills-row">
+        <span class="db-pill"><span class="pv">0 min</span> report build time</span>
+        <span class="db-pill"><span class="pv">3,415</span> rows unified</span>
+        <span class="db-pill"><span class="pv">Real-time</span> fulfillment tracking</span>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         DASHBOARD 04 — Office Operations
+    ══════════════════════════════════════ -->
+    <div class="db-section" style="margin-bottom:0;">
+
+      <div class="db-problem">
+        <div class="db-problem-head">
+          <span class="section-num">// 04</span>
+          <h2 class="db-scenario">Office Operations — <em>Records &amp; Compliance</em></h2>
+        </div>
+        <p class="db-problem-text">Compliance deadlines were tracked in a system that wasn't built for it. Nobody knew what was overdue until it already was.</p>
+      </div>
+
+      <div class="db-card">
+        <div class="db-header">
+          <div>
+            <div class="db-title">// DataForge · Office Operations</div>
+            <div class="db-subtitle">Records &amp; Compliance Tracker</div>
+          </div>
+          <div class="db-period">As of May 27, 2025</div>
+        </div>
+
+        <div class="db-metrics-grid">
+          <div class="db-mc">
+            <div class="db-mc-label">Total Records</div>
+            <div class="db-mc-value">1,284</div>
+            <div class="db-mc-delta delta-gray">Across 6 departments</div>
+          </div>
+          <div class="db-mc">
+            <div class="db-mc-label">Current</div>
+            <div class="db-mc-value">1,091</div>
+            <div class="db-mc-delta delta-green">85% compliant</div>
+          </div>
+          <div class="db-mc">
+            <div class="db-mc-label">Due This Month</div>
+            <div class="db-mc-value">38</div>
+            <div class="db-mc-delta delta-gray">Action required</div>
+          </div>
+          <div class="db-mc">
+            <div class="db-mc-label">Overdue</div>
+            <div class="db-mc-value">24</div>
+            <div class="db-mc-delta delta-red">↑ 6 vs last month</div>
+          </div>
+        </div>
+
+        <div class="db-charts" style="grid-template-columns:1fr 1.4fr;">
+          <div class="db-chart-block">
+            <div class="db-chart-label">Compliance Rate</div>
+            <div class="chart-wrap donut-wrap" style="height:140px;">
+              <canvas id="c6"></canvas>
+              <div class="donut-center">
+                <div class="donut-pct">85%</div>
+                <div class="donut-lbl">Current</div>
+              </div>
+            </div>
+            <div class="donut-legend">
+              <div class="dl-row"><span class="dl-icon" style="color:#20b2aa;">✓</span><span class="dl-lbl">Current:</span><span style="color:#20b2aa;">1,091</span></div>
+              <div class="dl-row"><span class="dl-icon" style="color:#E8920A;">⚠</span><span class="dl-lbl">Due Soon:</span><span style="color:#E8920A;">169</span></div>
+              <div class="dl-row"><span class="dl-icon" style="color:#ef4444;">✗</span><span class="dl-lbl">Overdue:</span><span style="color:#ef4444;">24</span></div>
+            </div>
+          </div>
+          <div class="db-chart-block">
+            <div class="db-chart-label">Status by Department</div>
+            <div class="chart-wrap" style="height:240px;">
+              <canvas id="c7"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="db-table-wrap">
+          <div class="db-chart-label" style="margin-bottom:10px;">Upcoming &amp; Overdue — Needs Attention</div>
+          <table class="db-table">
+            <thead><tr>
+              <th>Record Type</th><th>Department</th><th>Count</th><th>Deadline</th><th>Assigned</th><th>Status</th>
+            </tr></thead>
+            <tbody>
+              <tr><td>Annual Certifications</td><td>HR</td><td>12</td><td>Jun 1</td><td>K. Morris</td><td><span class="st-amber">Due Soon</span></td></tr>
+              <tr><td>Vendor Contracts</td><td>Finance</td><td>7</td><td>Jun 15</td><td>T. Reeves</td><td><span class="st-amber">Due Soon</span></td></tr>
+              <tr><td>Safety Inspections</td><td>Facilities</td><td>9</td><td>May 15</td><td>J. Walsh</td><td><span class="st-red">Overdue</span></td></tr>
+              <tr><td>License Renewals</td><td>Operations</td><td>6</td><td>May 1</td><td>Unassigned</td><td><span class="st-red">Overdue</span></td></tr>
+              <tr><td>Policy Acknowledgments</td><td>Legal</td><td>19</td><td>Jun 30</td><td>M. Obi</td><td><span class="st-green">On Track</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="db-pills-row">
+        <span class="db-pill"><span class="pv">85%</span> compliance rate</span>
+        <span class="db-pill"><span class="pv">1,284</span> records tracked</span>
+        <span class="db-pill"><span class="pv">Dept-level</span> status at a glance</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── CTA ── -->
+<div class="gal-cta">
+  <div class="gal-cta-glow"></div>
+  <div class="gal-cta-eyebrow">// Work With Us</div>
+  <h2 class="gal-cta-headline">Your Data<br><em>Deserves a Dashboard.</em></h2>
+  <p class="gal-cta-sub">These examples represent the kinds of problems we solve every day. Let's talk about yours.</p>
+  <div class="gal-cta-actions">
+    <a href="/contact" class="btn-primary">Start a Conversation</a>
+    <a href="/portfolio" class="btn-ghost">See All Work</a>
+  </div>
+</div>
+
+</Layout>
+
+<style>
+/* ── PAGE HERO ── */
+.page-hero {
+  min-height: 48vh;
+  padding-top: var(--nav-h);
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+.page-hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 20%, transparent 100%);
+  pointer-events: none;
+}
+.page-hero-glow {
+  position: absolute; top: -10%; right: 5%;
+  width: 700px; height: 500px;
+  background: radial-gradient(ellipse, rgba(232,146,10,0.055) 0%, transparent 65%);
+  pointer-events: none;
+}
+.page-hero-inner {
+  position: relative; z-index: 2;
+  max-width: 1200px; margin: 0 auto;
+  padding: 80px 48px; width: 100%;
+}
+.gal-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 20px;
+}
+.gal-headline {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900; font-size: clamp(56px, 7vw, 96px);
+  line-height: 0.9; letter-spacing: -0.01em;
+  text-transform: uppercase; color: var(--text);
+  margin-bottom: 28px;
+}
+.gal-headline em { font-style: normal; color: var(--accent); display: block; }
+.gal-sub {
+  font-size: 16px; line-height: 1.7; color: var(--muted);
+  max-width: 520px;
+}
+
+/* ── GALLERY LAYOUT ── */
+.gallery-outer { background: var(--bg2); border-bottom: 1px solid var(--border); }
+.gallery-inner {
+  max-width: 1200px; margin: 0 auto;
+  padding: 80px 48px;
+}
+
+/* ── DASHBOARD SECTION ── */
+.db-section { margin-bottom: 80px; }
+
+/* ── PROBLEM BLOCK ── */
+.db-problem { margin-bottom: 20px; }
+.db-problem-head {
+  display: flex; align-items: baseline; gap: 20px;
+  margin-bottom: 12px;
+}
+.db-scenario {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: clamp(28px, 3.5vw, 44px);
+  letter-spacing: -0.01em; text-transform: uppercase;
+  color: var(--text); line-height: 1;
+}
+.db-scenario em { font-style: normal; color: var(--accent); }
+.db-problem-text {
+  font-size: 14px; line-height: 1.7; color: var(--muted);
+  max-width: 680px; padding-left: 0;
+}
+
+/* ── DASHBOARD CARD ── */
+.db-card {
+  background: #0D0D0D;
+  border: 1px solid rgba(232,146,10,0.15);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 16px 0 8px 0;
+  overflow: hidden;
+}
+
+/* ── CARD HEADER ── */
+.db-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 16px; padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.db-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 4px;
+}
+.db-subtitle {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 18px; text-transform: uppercase;
+  color: var(--text); letter-spacing: 0.02em;
+}
+.db-period {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; color: var(--muted2); letter-spacing: 0.08em;
+  white-space: nowrap; margin-top: 4px;
+}
+
+/* ── METRIC CARDS ── */
+.db-metrics-grid {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 8px; margin-bottom: 20px;
+}
+.db-mc {
+  background: #141414;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 6px; padding: 12px 14px;
+}
+.db-mc-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted2); margin-bottom: 6px;
+}
+.db-mc-value {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 26px;
+  color: var(--text); line-height: 1; margin-bottom: 4px;
+}
+.db-mc-delta { font-size: 11px; line-height: 1.3; }
+.delta-green { color: #4ade80; }
+.delta-red   { color: #f87171; }
+.delta-gray  { color: var(--muted2); }
+
+/* ── CHARTS GRID ── */
+.db-charts { display: grid; gap: 16px; margin-bottom: 4px; }
+.db-chart-block { }
+.db-chart-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted2); margin-bottom: 10px;
+}
+.chart-wrap { position: relative; }
+
+/* ── TABLE ── */
+.db-table-wrap { margin-top: 16px; overflow-x: auto; }
+.db-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.db-table th {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted2); padding: 8px 12px; text-align: left;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.db-table td {
+  padding: 8px 12px; color: var(--muted);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.db-table tr:last-child td { border-bottom: none; }
+.st-green { color: #4ade80; }
+.st-amber { color: var(--accent); }
+.st-red   { color: #f87171; }
+
+/* ── METRIC PILLS ── */
+.db-pills-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.db-pill {
+  background: #161616;
+  border: 1px solid rgba(232,146,10,0.2);
+  border-radius: 20px; padding: 6px 14px;
+  font-size: 12px; color: #C0C0C0;
+  display: inline-flex; align-items: center; gap: 5px;
+}
+.pv { color: #E8920A; font-weight: 700; }
+
+/* ── FUNNEL ── */
+.db-funnel { display: flex; flex-direction: column; gap: 10px; padding-top: 4px; }
+.funnel-row { display: flex; align-items: center; gap: 10px; }
+.funnel-lbl {
+  font-size: 11px; color: var(--muted2);
+  width: 96px; flex-shrink: 0;
+}
+.funnel-track {
+  flex: 1; height: 24px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 3px; overflow: hidden;
+}
+.funnel-bar { height: 100%; border-radius: 3px; }
+.funnel-pct {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; color: var(--muted2);
+  width: 34px; text-align: right; flex-shrink: 0;
+}
+
+/* ── DOUGHNUT LEGEND (pipeline) ── */
+.db-legend {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  margin-top: 10px; justify-content: center;
+}
+.leg-item {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 11px; color: var(--muted2);
+}
+.leg-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+/* ── FILE LIST ── */
+.db-file-list { display: flex; flex-direction: column; gap: 7px; padding-top: 4px; }
+.file-row { display: flex; align-items: center; gap: 8px; }
+.file-name {
+  flex: 1; font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; color: var(--muted2);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.file-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 2px 7px; border-radius: 3px; flex-shrink: 0;
+}
+.badge-merged { background: rgba(232,146,10,0.12); color: var(--accent); }
+.badge-live   { background: rgba(32,178,170,0.12); color: #20b2aa; }
+.file-rows {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; color: var(--muted2); flex-shrink: 0;
+}
+.file-divider { height: 1px; background: rgba(232,146,10,0.3); margin: 4px 0; }
+
+/* ── DONUT CENTER ── */
+.donut-wrap { position: relative; }
+.donut-center {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center; pointer-events: none; z-index: 1;
+}
+.donut-pct {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 30px;
+  color: var(--text); line-height: 1;
+}
+.donut-lbl {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted2);
+}
+.donut-legend { margin-top: 14px; display: flex; flex-direction: column; gap: 6px; }
+.dl-row { display: flex; align-items: center; gap: 8px; font-size: 12px; }
+.dl-icon { width: 16px; text-align: center; flex-shrink: 0; }
+.dl-lbl { color: var(--muted2); flex: 1; }
+
+/* ── CTA ── */
+.gal-cta {
+  padding: 100px 48px; text-align: center;
+  position: relative; overflow: hidden;
+  background: var(--bg);
+}
+.gal-cta-glow {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 800px; height: 400px;
+  background: radial-gradient(ellipse, rgba(232,146,10,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+.gal-cta-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 20px;
+  position: relative; z-index: 1;
+}
+.gal-cta-headline {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900; font-size: clamp(48px,6vw,80px);
+  line-height: 0.92; text-transform: uppercase;
+  color: var(--text); margin-bottom: 20px;
+  position: relative; z-index: 1;
+}
+.gal-cta-headline em { font-style: normal; color: var(--accent); display: block; }
+.gal-cta-sub {
+  font-size: 15px; color: var(--muted); margin-bottom: 44px;
+  max-width: 460px; margin-inline: auto; line-height: 1.7;
+  position: relative; z-index: 1;
+}
+.gal-cta-actions {
+  display: flex; gap: 16px; justify-content: center;
+  align-items: center; flex-wrap: wrap;
+  position: relative; z-index: 1;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .page-hero-inner { padding: 60px 24px; }
+  .gallery-inner   { padding: 48px 20px; }
+  .db-charts       { grid-template-columns: 1fr !important; }
+  .db-metrics-grid { grid-template-columns: repeat(2,1fr); }
+  .gal-cta         { padding: 80px 24px; }
+}
+</style>
+
+<script is:inline>
+(function () {
+  var amber = function(a){ return 'rgba(232,146,10,'+a+')'; };
+  var teal  = function(a){ return 'rgba(32,178,170,'+a+')'; };
+  var red   = function(a){ return 'rgba(239,68,68,'+a+')'; };
+  var blue  = function(a){ return 'rgba(55,138,221,'+a+')'; };
+
+  var gridColor  = 'rgba(255,255,255,0.04)';
+  var axisColor  = 'rgba(255,255,255,0.06)';
+  var labelColor = '#B0ABA6';
+  var tickFont   = { size: 10 };
+
+  Chart.defaults.color = labelColor;
+  Chart.defaults.font.family = "'DM Sans', sans-serif";
+  Chart.defaults.font.size = 11;
+
+  /* ── C1: Grouped Bar — Billed vs Collected ── */
+  new Chart(document.getElementById('c1'), {
+    type: 'bar',
+    data: {
+      labels: ['Harmon','Delgado','Okafor','Chen','Briggs'],
+      datasets: [
+        { label: 'Billed',    data: [218,194,187,143,105], backgroundColor: amber(0.75), borderWidth: 0 },
+        { label: 'Collected', data: [196,171,148,109,79],  backgroundColor: teal(0.75),  borderWidth: 0 }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { labels: { color: labelColor, font: tickFont, boxWidth: 10, padding: 14 } } },
+      scales: {
+        x: { ticks: { color: labelColor, font: tickFont }, grid: { color: gridColor }, border: { color: axisColor } },
+        y: { ticks: { color: labelColor, font: tickFont, callback: function(v){ return '$'+v+'k'; } }, grid: { color: gridColor }, border: { color: axisColor } }
+      }
+    }
+  });
+
+  /* ── C2: Doughnut — Invoice Aging ── */
+  new Chart(document.getElementById('c2'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Current','30–60 days','60+ days'],
+      datasets: [{ data: [58,25,17], backgroundColor: [teal(0.8), amber(0.8), red(0.8)], borderWidth: 0, hoverOffset: 4 }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false, cutout: '65%',
+      plugins: { legend: { position: 'bottom', labels: { color: labelColor, font: tickFont, boxWidth: 10, padding: 12 } } }
+    }
+  });
+
+  /* ── C3: Doughnut — Lead Source ── */
+  new Chart(document.getElementById('c3'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Referral','Web','LinkedIn','Other'],
+      datasets: [{ data: [42,28,18,12], backgroundColor: [amber(0.8), teal(0.8), blue(0.8), 'rgba(160,160,160,0.6)'], borderWidth: 0, hoverOffset: 4 }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false, cutout: '65%',
+      plugins: { legend: { display: false } }
+    }
+  });
+
+  /* ── C4: Line — Weekly Revenue ── */
+  new Chart(document.getElementById('c4'), {
+    type: 'line',
+    data: {
+      labels: ['W1','W2','W3','W4','W5','W6','W7','W8','W9','W10','W11','W12'],
+      datasets: [
+        {
+          label: 'Revenue',
+          data: [28.4,31.1,29.8,33.2,30.5,34.8,31.9,35.4,32.1,36.0,33.8,34.2],
+          borderColor: amber(0.9), backgroundColor: amber(0.08),
+          tension: 0.4, fill: true,
+          pointRadius: 3, pointBackgroundColor: amber(0.9), borderWidth: 2
+        },
+        {
+          label: 'Target',
+          data: [32,32,32,32,32,32,32,32,32,32,32,32],
+          borderColor: teal(0.5), borderDash: [5,5],
+          tension: 0, fill: false, pointRadius: 0, borderWidth: 1.5
+        }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { labels: { color: labelColor, font: tickFont, boxWidth: 10, padding: 14 } } },
+      scales: {
+        x: { ticks: { color: labelColor, font: tickFont }, grid: { color: gridColor }, border: { color: axisColor } },
+        y: {
+          min: 24, max: 40,
+          ticks: { color: labelColor, font: tickFont, callback: function(v){ return '$'+v+'k'; } },
+          grid: { color: gridColor }, border: { color: axisColor }
+        }
+      }
+    }
+  });
+
+  /* ── C5: Horizontal Stacked Bar — Order Status ── */
+  new Chart(document.getElementById('c5'), {
+    type: 'bar',
+    data: {
+      labels: ['Hardware','Services','Supplies','Equipment'],
+      datasets: [
+        { label: 'Fulfilled', data: [18,12,9,4], backgroundColor: teal(0.75), borderWidth: 0 },
+        { label: 'Pending',   data: [5,4,6,2],   backgroundColor: amber(0.75), borderWidth: 0 },
+        { label: 'Past Due',  data: [1,0,2,0],   backgroundColor: red(0.75),   borderWidth: 0 }
+      ]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { labels: { color: labelColor, font: tickFont, boxWidth: 10, padding: 14 } } },
+      scales: {
+        x: { stacked: true, ticks: { color: labelColor, font: tickFont }, grid: { color: gridColor }, border: { color: axisColor } },
+        y: { stacked: true, ticks: { color: labelColor, font: tickFont }, grid: { display: false }, border: { color: axisColor } }
+      }
+    }
+  });
+
+  /* ── C6: Doughnut — Compliance Rate ── */
+  new Chart(document.getElementById('c6'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Current','Due Soon','Overdue'],
+      datasets: [{ data: [1091,169,24], backgroundColor: [teal(0.8), amber(0.7), red(0.7)], borderWidth: 0, hoverOffset: 4 }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false, cutout: '70%',
+      plugins: { legend: { display: false } }
+    }
+  });
+
+  /* ── C7: Stacked Bar — Status by Department ── */
+  new Chart(document.getElementById('c7'), {
+    type: 'bar',
+    data: {
+      labels: ['HR','Finance','Legal','Operations','IT','Facilities'],
+      datasets: [
+        { label: 'Current',  data: [210,188,224,196,142,131], backgroundColor: teal(0.75),  borderWidth: 0 },
+        { label: 'Due Soon', data: [28,34,12,44,31,20],       backgroundColor: amber(0.7),  borderWidth: 0 },
+        { label: 'Overdue',  data: [4,2,0,9,0,9],             backgroundColor: red(0.7),    borderWidth: 0 }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { labels: { color: labelColor, font: tickFont, boxWidth: 10, padding: 14 } } },
+      scales: {
+        x: { stacked: true, ticks: { color: labelColor, font: tickFont }, grid: { color: gridColor }, border: { color: axisColor } },
+        y: { stacked: true, ticks: { color: labelColor, font: tickFont }, grid: { color: gridColor }, border: { color: axisColor } }
+      }
+    }
+  });
+})();
+</script>

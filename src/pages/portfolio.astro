@@ -265,6 +265,11 @@ const placeholders = [
   </div>
 </div>
 
+<!-- ── GALLERY LINK ── -->
+<div style="background:var(--bg);border-bottom:1px solid var(--border);padding:32px 48px;display:flex;justify-content:center;">
+  <a href="/dashboard-gallery" class="gallery-link">View Dashboard Gallery →</a>
+</div>
+
 <!-- ── CTA ── -->
 <div class="cta-strip">
   <div class="cta-glow"></div>
@@ -629,6 +634,23 @@ const placeholders = [
     margin-bottom: 28px;
   }
   .tool-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  /* ── GALLERY LINK ── */
+  .gallery-link {
+    display: inline-block;
+    border: 1px solid rgba(232,146,10,0.5);
+    color: #E8920A;
+    padding: 10px 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px; letter-spacing: 1px;
+    text-transform: uppercase; text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .gallery-link:hover {
+    background: rgba(232,146,10,0.08);
+    border-color: rgba(232,146,10,0.8);
+  }
 
   /* ── CTA STRIP ── */
   .cta-strip {
