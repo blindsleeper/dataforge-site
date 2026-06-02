@@ -1,0 +1,433 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Tools">
+
+<!-- ── INTRO BLOCK (accounts for fixed nav) ── -->
+<div class="tools-intro-block">
+  <div class="tools-intro-inner">
+    <div class="section-header fade-up d1">
+      <span class="section-num">04</span>
+      <h1 class="section-title">BUILT TO SOLVE<br><em>// REAL PROBLEMS</em></h1>
+    </div>
+    <div class="section-rule"></div>
+    <p class="tools-page-intro fade-up d2">
+      Tools I built because the problem was real and the solution didn't exist yet.
+    </p>
+  </div>
+</div>
+
+<!-- ── SORTSHELF ── -->
+<div style="background: var(--bg); border-bottom: 1px solid var(--border);">
+  <div class="section">
+
+    <div class="ss-card fade-up d1">
+      <div class="ss-accent-bar"></div>
+
+      <div class="ss-card-top">
+        <div class="ss-title-block">
+          <div class="ss-eyebrow">// File Organization Utility</div>
+          <div class="ss-name">SORTSHELF</div>
+          <div class="ss-subtitle">FILE ORGANIZATION UTILITY · WINDOWS · v0.3</div>
+        </div>
+        <span class="status-live">
+          <span class="status-dot"></span>Live
+        </span>
+      </div>
+
+      <div class="ss-card-body">
+        <div class="ss-info">
+          <p class="ss-desc">
+            Your Downloads folder is chaos. SortShelf scans a target folder, categorizes every
+            file by type, previews the moves before anything happens, then sorts with one click.
+            Safe by default — dry run mode is always on. One-step undo if you change your mind.
+          </p>
+
+          <div class="ss-features-label">Features</div>
+          <ul class="ss-features">
+            <li>Sorts into 10 categories automatically</li>
+            <li>Preview every move before execution</li>
+            <li>Safe by default — nothing moves without approval</li>
+            <li>One-step undo</li>
+            <li>Watches folders for new files automatically</li>
+            <li>Protected path block — never touches your project directories</li>
+          </ul>
+
+          <div class="ss-gallery">
+            <button class="ss-panel" aria-label="View BEFORE screenshot full size">
+              <div class="ss-panel-label">BEFORE</div>
+              <img src="/images/sortshelf-before.png" alt="Downloads folder before SortShelf — mixed unsorted files" class="ss-panel-img" />
+            </button>
+            <button class="ss-panel" aria-label="View SORT PREVIEW screenshot full size">
+              <div class="ss-panel-label">SORT PREVIEW</div>
+              <img src="/images/sortshelf-hero.png" alt="SortShelf app showing file categorization in action" class="ss-panel-img" />
+            </button>
+            <button class="ss-panel" aria-label="View AFTER screenshot full size">
+              <div class="ss-panel-label">AFTER</div>
+              <img src="/images/sortshelf-after.png" alt="Downloads folder after SortShelf — clean category subfolders" class="ss-panel-img" />
+            </button>
+          </div>
+
+          <div class="ss-actions">
+            <a href="#" class="btn-primary">GET SORTSHELF — $9.99</a>
+            <a href="#" class="btn-ghost">VIEW ON GITHUB</a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- ── IT LOGGER ── -->
+<div style="background: var(--bg2); border-bottom: 1px solid var(--border);">
+  <div class="section it-section">
+
+    <div class="it-card fade-up d1">
+      <div class="it-card-top">
+        <span class="tool-eyebrow">// Internal Tool</span>
+        <span class="status-live">
+          <span class="status-dot"></span>Live
+        </span>
+      </div>
+      <div class="it-card-body">
+        <div class="it-info">
+          <div class="it-name">IT LOGGER</div>
+          <div class="it-subtitle">INTERNAL TICKET TRACKER · LOCAL · OPEN SOURCE</div>
+          <p class="it-desc">
+            A lightweight internal ticketing system for environments that won't adopt enterprise
+            helpdesk software. Logs issues, tracks status, runs locally with zero dependencies.
+          </p>
+          <div class="it-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Flask</span>
+            <span class="tag">SQLite</span>
+          </div>
+        </div>
+        <div class="it-cta">
+          <a href="#" class="btn-ghost">VIEW ON GITHUB</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── CTA ── -->
+<div class="cta-strip">
+  <div class="cta-glow"></div>
+  <div class="cta-eyebrow">// Work With Us</div>
+  <h2 class="cta-headline">Your Project<br><em>Could Be Next.</em></h2>
+  <p class="cta-sub">
+    We take on a limited number of engagements at a time. If you have a problem worth solving,
+    let's talk scope.
+  </p>
+  <div class="cta-actions">
+    <a href="/contact" class="btn-primary">Start a Conversation</a>
+    <a href="/services" class="btn-ghost">See What We Build</a>
+  </div>
+</div>
+
+<!-- ── LIGHTBOX ── -->
+<div id="ss-lightbox" class="ss-lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Image lightbox">
+  <img id="ss-lightbox-img" src="" alt="" class="ss-lightbox-img" />
+</div>
+
+</Layout>
+
+<style>
+/* ── INTRO BLOCK ── */
+.tools-intro-block {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding-top: var(--nav-h);
+}
+.tools-intro-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 72px 48px 72px;
+}
+.tools-page-intro {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--muted);
+  max-width: 540px;
+}
+
+/* ── SORTSHELF CARD ── */
+.ss-card {
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  position: relative;
+}
+.ss-accent-bar {
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2) 40%, transparent);
+}
+.ss-card-top {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  padding: 36px 40px 0;
+}
+.ss-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 10px;
+}
+.ss-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900; font-size: clamp(56px, 7vw, 88px);
+  letter-spacing: -0.01em; text-transform: uppercase;
+  color: var(--text); line-height: 0.88;
+  margin-bottom: 12px;
+}
+.ss-subtitle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent);
+}
+
+.ss-card-body {
+  padding: 36px 40px 32px;
+}
+
+.ss-desc {
+  font-size: 15px; line-height: 1.8; color: var(--muted);
+  margin-bottom: 32px; max-width: 520px;
+}
+
+.ss-features-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 16px;
+}
+.ss-features {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 10px;
+  margin-bottom: 40px;
+}
+.ss-features li {
+  font-size: 14px; color: var(--muted); line-height: 1.5;
+  padding-left: 20px; position: relative;
+}
+.ss-features li::before {
+  content: '—';
+  position: absolute; left: 0;
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace; font-size: 10px;
+}
+.ss-actions {
+  display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+/* ── GALLERY ── */
+.ss-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border-top: 1px solid var(--border);
+}
+.ss-panel {
+  background: var(--bg4);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex; flex-direction: column;
+  text-align: left;
+  transition: box-shadow 0.2s;
+}
+.ss-panel:hover {
+  box-shadow: inset 0 0 0 2px rgba(232,146,10,0.45);
+}
+.ss-panel-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--accent);
+  padding: 10px 16px 8px;
+}
+.ss-panel-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  border-top: 1px solid var(--border);
+}
+
+/* ── LIGHTBOX ── */
+.ss-lightbox {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(0,0,0,0.92);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+.ss-lightbox.is-open {
+  opacity: 1; pointer-events: auto;
+}
+.ss-lightbox-img {
+  max-width: 90vw; max-height: 88vh;
+  display: block;
+  border: 1px solid rgba(232,146,10,0.3);
+  cursor: default;
+}
+
+/* ── IT LOGGER ── */
+.it-section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+.it-card {
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+}
+.it-card-top {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 28px 36px 0;
+}
+.tool-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--muted);
+}
+.it-card-body {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 40px; flex-wrap: wrap;
+  padding: 24px 36px 36px;
+}
+.it-info { flex: 1; min-width: 260px; }
+.it-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: clamp(36px, 4vw, 52px);
+  letter-spacing: 0.01em; text-transform: uppercase;
+  color: var(--text); line-height: 0.95;
+  margin-bottom: 10px;
+}
+.it-subtitle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 20px;
+}
+.it-desc {
+  font-size: 14px; line-height: 1.75; color: var(--muted);
+  margin-bottom: 24px; max-width: 520px;
+}
+.it-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.it-cta { flex-shrink: 0; align-self: flex-end; }
+
+/* ── STATUS ── */
+.status-live {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 5px 14px;
+  background: rgba(34,197,94,0.08);
+  border: 1px solid rgba(34,197,94,0.2);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: #4ade80;
+  white-space: nowrap; flex-shrink: 0;
+}
+.status-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 6px rgba(74,222,128,0.6);
+  animation: pulse-live 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+@keyframes pulse-live {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.45; }
+}
+
+/* ── CTA STRIP ── */
+.cta-strip {
+  padding: 100px 48px;
+  text-align: center;
+  position: relative; overflow: hidden;
+  background: var(--bg);
+}
+.cta-glow {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 800px; height: 400px;
+  background: radial-gradient(ellipse, rgba(232,146,10,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+.cta-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 20px;
+  position: relative; z-index: 1;
+}
+.cta-headline {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900; font-size: clamp(48px, 6vw, 80px);
+  line-height: 0.92; text-transform: uppercase;
+  color: var(--text); margin-bottom: 20px;
+  position: relative; z-index: 1;
+}
+.cta-headline em { font-style: normal; color: var(--accent); display: block; }
+.cta-sub {
+  font-size: 15px; color: var(--muted); margin-bottom: 44px;
+  max-width: 460px; margin-inline: auto; line-height: 1.7;
+  position: relative; z-index: 1;
+}
+.cta-actions {
+  display: flex; gap: 16px; justify-content: center;
+  align-items: center; flex-wrap: wrap;
+  position: relative; z-index: 1;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .tools-intro-inner { padding: 56px 24px; }
+  .ss-card-top { padding: 28px 24px 0; flex-wrap: wrap; gap: 16px; }
+  .ss-card-body { padding: 24px 24px 24px; }
+  .ss-gallery { grid-template-columns: 1fr; }
+  .ss-actions { flex-direction: column; align-items: flex-start; }
+  .it-card-top { padding: 24px 24px 0; }
+  .it-card-body { padding: 20px 24px 28px; flex-direction: column; }
+  .it-cta { align-self: flex-start; }
+  .cta-strip { padding: 80px 24px; }
+}
+</style>
+
+<script>
+  const panels    = document.querySelectorAll('.ss-panel');
+  const lightbox  = document.getElementById('ss-lightbox') as HTMLElement;
+  const lbImg     = document.getElementById('ss-lightbox-img') as HTMLImageElement;
+
+  function openLightbox(src: string, alt: string) {
+    lbImg.src = src;
+    lbImg.alt = alt;
+    lightbox.setAttribute('aria-hidden', 'false');
+    lightbox.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  panels.forEach(panel => {
+    panel.addEventListener('click', () => {
+      const img = panel.querySelector('.ss-panel-img') as HTMLImageElement;
+      openLightbox(img.src, img.alt);
+    });
+  });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
+  });
+</script>

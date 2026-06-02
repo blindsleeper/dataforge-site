@@ -227,11 +227,13 @@ const placeholders = [
             documents, images, spreadsheets, scripts, and archives — into clean subdirectories.
             Includes live sort and one-step undo. Built after one too many chaotic Downloads folders.
           </p>
-          <div class="tool-tags">
-            <span class="tag">PowerShell</span>
-            <span class="tag">Windows</span>
-            <span class="tag">Automation</span>
-            <span class="tag">CLI</span>
+          <div class="tool-footer">
+            <div class="tool-tags">
+              <span class="tag">Python</span>
+              <span class="tag">PyQt6</span>
+              <span class="tag">Windows</span>
+            </div>
+            <a href="/tools" class="tool-learn-link">Learn More →</a>
           </div>
         </div>
       </div>
@@ -633,7 +635,18 @@ const placeholders = [
     font-size: 14px; line-height: 1.75; color: var(--muted);
     margin-bottom: 28px;
   }
+  .tool-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; flex-wrap: wrap;
+  }
   .tool-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tool-learn-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent); text-decoration: none; white-space: nowrap;
+    transition: color 0.2s;
+  }
+  .tool-learn-link:hover { color: var(--accent2); }
 
   /* ── GALLERY LINK ── */
   .gallery-link {
