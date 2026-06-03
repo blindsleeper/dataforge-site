@@ -1,0 +1,506 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const meta = {
+  category: 'Systems & Automation',
+  tags:     ['Python', 'Flask', 'SQLite', 'Internal Tooling'],
+  readTime: '6 min read',
+};
+
+const tickets = [
+  { id: '001', reporter: 'Legal Asst. A', dept: 'Legal Assistants', issue: 'Printer Jam / Paper Feed',         priority: 'Medium', status: 'Resolved',    days: '1' },
+  { id: '002', reporter: 'Legal Asst. B', dept: 'Legal Assistants', issue: 'Printer Offline – Network',        priority: 'High',   status: 'Resolved',    days: '2' },
+  { id: '003', reporter: 'Admin A',        dept: 'Administration',   issue: 'Software Login Issue',             priority: 'Medium', status: 'Resolved',    days: '1' },
+  { id: '004', reporter: 'Legal Asst. C', dept: 'Legal Assistants', issue: 'Printer Ink / Toner Empty',        priority: 'Low',    status: 'Resolved',    days: '3' },
+  { id: '005', reporter: 'Legal Asst. A', dept: 'Legal Assistants', issue: 'Training – Document Management',   priority: 'Medium', status: 'In Progress', days: '—' },
+  { id: '006', reporter: 'Admin B',        dept: 'Administration',   issue: 'Training – New Software Rollout', priority: 'High',   status: 'Resolved',    days: '4' },
+  { id: '007', reporter: 'Legal Asst. D', dept: 'Legal Assistants', issue: 'Printer Jam / Paper Feed',         priority: 'Medium', status: 'Resolved',    days: '1' },
+  { id: '008', reporter: 'Legal Asst. B', dept: 'Legal Assistants', issue: 'Training – Workflow Process',      priority: 'Low',    status: 'Open',        days: '—' },
+];
+---
+
+<Layout title="When Nobody Owns IT">
+
+<!-- ── ARTICLE HERO ── -->
+<section class="art-hero">
+  <div class="art-hero-grid"></div>
+  <div class="art-hero-glow"></div>
+  <div class="art-hero-inner">
+
+    <a href="/work" class="back-link fade-up d1">← Back to Work</a>
+
+    <div class="art-eyebrow fade-up d2">// {meta.category}</div>
+    <h1 class="art-headline fade-up d3">
+      When Nobody<br>Owns <em>IT</em>
+    </h1>
+    <p class="art-subheadline fade-up d4">
+      Building a Triage System for a Professional Office
+    </p>
+
+    <div class="art-meta fade-up d5">
+      <div class="art-tags">
+        {meta.tags.map((t) => <span class="tag">{t}</span>)}
+      </div>
+      <span class="art-read-time">{meta.readTime}</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── ARTICLE BODY ── -->
+<div class="art-body-wrap">
+  <article class="art-body">
+
+    <!-- 01 The Situation -->
+    <section class="art-section">
+      <div class="art-section-num">01</div>
+      <h2 class="art-section-heading">The Situation</h2>
+      <p>
+        The office has 18 staff, one IT contract vendor called in for major failures,
+        and no internal system for anything smaller. When a printer jams or a workstation
+        loses network access, the resolution path is: notice it, mention it to whoever
+        is nearby, hope they mention it to someone with the credentials to fix it.
+        Sometimes that chain works in an hour. Sometimes it takes three days.
+      </p>
+      <p>
+        I came in as a coordinator and watched this happen a dozen times before I started
+        keeping notes. The notes revealed the problem.
+      </p>
+    </section>
+
+    <!-- 02 The Problem -->
+    <section class="art-section">
+      <div class="art-section-num">02</div>
+      <h2 class="art-section-heading">The Problem with Reactive IT</h2>
+      <p>
+        Without a log, every issue looks like a one-off. The printer jammed again —
+        but "again" exists only in people's heads, and people's heads disagree on how
+        often "again" actually is. There's no timestamp, no resolution path, no record
+        of whether the same machine failed in the same way two weeks ago.
+      </p>
+      <p>
+        The practical consequence: you can't prioritize by impact because you don't
+        know impact. You can't make the case for replacing a failing printer because
+        you can't demonstrate the load it creates. You can't identify whether a "training
+        issue" is an isolated knowledge gap or a rollout that nobody fully understood.
+      </p>
+      <p>
+        Every systemic problem stays invisible because the only data you have is anecdotal.
+      </p>
+    </section>
+
+    <!-- 03 The Approach -->
+    <section class="art-section">
+      <div class="art-section-num">03</div>
+      <h2 class="art-section-heading">The Approach</h2>
+      <p>
+        I built IT Logger — a lightweight internal ticket system designed to answer one
+        question: where is IT time actually going?
+      </p>
+      <p>
+        The requirements were deliberately minimal. No ticket queue, no SLA tracking,
+        no ITIL compliance. Just: who reported it, what department, what type of issue,
+        what priority, when it was logged, and when it was closed. Everything runs
+        locally — Python backend, Flask for the UI, SQLite for storage. No external
+        dependencies, no licensing costs, no learning curve.
+      </p>
+      <p>
+        The harder problem was adoption. A system nobody uses is just documentation debt.
+        I designed the intake form to take under two minutes, with a small dropdown set
+        for issue type that forced categorization without creating friction. Staff could
+        self-report or I could log on their behalf. Either path worked.
+      </p>
+    </section>
+
+    <!-- 04 What the Data Showed -->
+    <section class="art-section">
+      <div class="art-section-num">04</div>
+      <h2 class="art-section-heading">What the Data Showed</h2>
+      <p>
+        After three months of logging, the distribution was clear enough to act on.
+        Below is a sample from the ticket log — names anonymized, issue types cleaned
+        up but representative of the real breakdown.
+      </p>
+
+      <div class="table-wrap">
+        <table class="ticket-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Reported By</th>
+              <th>Department</th>
+              <th>Issue Type</th>
+              <th>Priority</th>
+              <th>Status</th>
+              <th>Days</th>
+            </tr>
+          </thead>
+          <tbody>
+            {tickets.map((t) => (
+              <tr>
+                <td class="mono">{t.id}</td>
+                <td>{t.reporter}</td>
+                <td>{t.dept}</td>
+                <td>{t.issue}</td>
+                <td>
+                  <span class:list={['priority-badge', `priority-${t.priority.toLowerCase()}`]}>
+                    {t.priority}
+                  </span>
+                </td>
+                <td>
+                  <span class:list={['status-badge', `status-${t.status.toLowerCase().replace(/\s+/g, '-')}`]}>
+                    {t.status}
+                  </span>
+                </td>
+                <td class="mono">{t.days}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 05 The Pattern -->
+    <section class="art-section">
+      <div class="art-section-num">05</div>
+      <h2 class="art-section-heading">The Pattern</h2>
+      <p>
+        Printer issues account for the largest single category of IT load in the office,
+        and they concentrate almost entirely in the Legal Assistants department — a group
+        with high document throughput and shared hardware.
+      </p>
+      <p>
+        What looked like random friction was a systemic gap. The same two printers
+        appeared repeatedly. One was past its rated duty cycle. The other was a network
+        printer with a configuration that disconnected under a specific set of conditions —
+        conditions that occurred daily.
+      </p>
+      <p>
+        The training issues told a parallel story. They weren't random knowledge gaps.
+        They clustered around a document management software rollout that had happened
+        six months earlier without a structured handoff. People had built their own
+        workarounds, and those workarounds didn't match the system's design.
+      </p>
+    </section>
+
+    <!-- 06 The Outcome -->
+    <section class="art-section">
+      <div class="art-section-num">06</div>
+      <h2 class="art-section-heading">The Outcome</h2>
+      <p>
+        Visibility. That's the whole outcome, and it's enough.
+      </p>
+      <p>
+        Before the triage system, leadership had a vague sense that IT issues were a
+        time sink. After three months, they had a dashboard: issue volume by type,
+        by department, by priority, by resolution time. Printer-related issues were
+        consuming roughly 40% of logged IT time. The two highest-volume machines
+        were both past their recommended replacement window.
+      </p>
+      <p>
+        One printer was replaced. A 90-minute training refresher was scheduled for
+        the document management system. Two recurring issue types dropped off the log
+        entirely. The contract IT vendor now gets a summary report before each visit
+        instead of starting every call from scratch.
+      </p>
+
+      <div class="outcome-stats">
+        <div class="outcome-stat">
+          <div class="outcome-val">40%</div>
+          <div class="outcome-label">of IT time was printer-related</div>
+        </div>
+        <div class="outcome-divider"></div>
+        <div class="outcome-stat">
+          <div class="outcome-val">&lt;2 min</div>
+          <div class="outcome-label">to log each ticket</div>
+        </div>
+        <div class="outcome-divider"></div>
+        <div class="outcome-stat">
+          <div class="outcome-val">$0</div>
+          <div class="outcome-label">ongoing operating cost</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 What This Means for Your Business -->
+    <section class="art-section art-section--last">
+      <div class="art-section-num">07</div>
+      <h2 class="art-section-heading">What This Means for Your Business</h2>
+      <p>
+        If you run a small professional office — law, accounting, consulting, medical
+        admin — you almost certainly have a version of this problem. Not an IT crisis.
+        Just an IT blind spot.
+      </p>
+      <p>
+        The issues are getting handled. They're just not being counted, which means
+        they're not being learned from. A lightweight logging system doesn't require
+        a dedicated IT person. It requires someone willing to spend two minutes per
+        ticket and a few hours building the thing.
+      </p>
+      <p>
+        That's it. The compound value comes from the log, not from any individual ticket.
+      </p>
+    </section>
+
+  </article>
+</div>
+
+<!-- ── CTA ── -->
+<div class="cta-strip">
+  <div class="cta-glow"></div>
+  <div class="cta-eyebrow">// Have a Similar Problem?</div>
+  <h2 class="cta-headline">Let's Build<br><em>Something That Sticks.</em></h2>
+  <p class="cta-sub">
+    Discovery calls are free and take 30 minutes. Come with a problem —
+    leave knowing whether I'm the right fit to solve it.
+  </p>
+  <div class="cta-actions">
+    <a href="/contact" class="btn-primary">Start a Conversation</a>
+    <a href="/work" class="btn-ghost">More Write-Ups</a>
+  </div>
+</div>
+
+</Layout>
+
+<style>
+  /* ── HERO ── */
+  .art-hero {
+    padding-top: var(--nav-h);
+    border-bottom: 1px solid var(--border);
+    position: relative; overflow: hidden;
+  }
+  .art-hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 20%, transparent 100%);
+    pointer-events: none;
+  }
+  .art-hero-glow {
+    position: absolute; top: -10%; right: 5%;
+    width: 700px; height: 600px;
+    background: radial-gradient(ellipse, rgba(232,146,10,0.05) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .art-hero-inner {
+    position: relative; z-index: 2;
+    max-width: 860px; margin: 0 auto;
+    padding: 64px 48px 72px;
+  }
+
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted2); text-decoration: none;
+    margin-bottom: 36px;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--accent); }
+
+  .art-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+  }
+  .art-headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: clamp(52px, 7vw, 88px);
+    line-height: 0.9; letter-spacing: -0.01em;
+    text-transform: uppercase; color: var(--text);
+    margin-bottom: 16px;
+  }
+  .art-headline em { font-style: normal; color: var(--accent); }
+  .art-subheadline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600; font-size: clamp(20px, 2.5vw, 28px);
+    letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 36px;
+  }
+  .art-meta {
+    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  }
+  .art-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .art-read-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted2);
+  }
+
+  /* ── ARTICLE BODY ── */
+  .art-body-wrap {
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    padding: 0 48px;
+  }
+  .art-body {
+    max-width: 760px; margin: 0 auto;
+    padding: 80px 0 100px;
+    border-left: 1px solid var(--border);
+    padding-left: 48px;
+  }
+
+  /* ── SECTIONS ── */
+  .art-section {
+    margin-bottom: 64px;
+    padding-bottom: 64px;
+    border-bottom: 1px solid var(--border);
+  }
+  .art-section--last {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .art-section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 10px;
+  }
+  .art-section-heading {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: clamp(28px, 3vw, 40px);
+    letter-spacing: 0.02em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 28px; line-height: 1;
+  }
+
+  .art-section p {
+    font-size: 15px; line-height: 1.85; color: var(--muted);
+    margin-bottom: 18px;
+  }
+  .art-section p:last-of-type { margin-bottom: 0; }
+
+  /* ── TABLE ── */
+  .table-wrap {
+    margin-top: 36px;
+    overflow-x: auto;
+    border: 1px solid var(--border2);
+  }
+  .ticket-table {
+    width: 100%; border-collapse: collapse;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+  }
+  .ticket-table thead tr {
+    background: var(--bg4);
+    border-bottom: 1px solid var(--border2);
+  }
+  .ticket-table th {
+    padding: 12px 16px;
+    text-align: left;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent); font-weight: 500;
+    white-space: nowrap;
+  }
+  .ticket-table tbody tr {
+    border-bottom: 1px solid var(--border);
+    background: var(--bg3);
+    transition: background 0.15s;
+  }
+  .ticket-table tbody tr:last-child { border-bottom: none; }
+  .ticket-table tbody tr:hover { background: var(--bg4); }
+  .ticket-table td {
+    padding: 11px 16px;
+    color: var(--muted); letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+  .ticket-table td.mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; color: var(--muted2);
+  }
+
+  /* Priority badges */
+  .priority-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid;
+  }
+  .priority-high   { color: #f87171; border-color: rgba(248,113,113,0.3); background: rgba(248,113,113,0.07); }
+  .priority-medium { color: var(--accent); border-color: var(--adim3); background: var(--adim); }
+  .priority-low    { color: var(--muted2); border-color: var(--border2); background: transparent; }
+
+  /* Status badges */
+  .status-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid;
+  }
+  .status-resolved    { color: #4ade80; border-color: rgba(74,222,128,0.25); background: rgba(74,222,128,0.07); }
+  .status-in-progress { color: var(--accent); border-color: var(--adim3); background: var(--adim); }
+  .status-open        { color: var(--muted2); border-color: var(--border2); background: transparent; }
+
+  /* ── OUTCOME STATS ── */
+  .outcome-stats {
+    display: flex; align-items: stretch;
+    border: 1px solid var(--border2);
+    margin-top: 40px;
+  }
+  .outcome-stat {
+    flex: 1; padding: 24px 28px;
+  }
+  .outcome-val {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 36px;
+    color: var(--accent); line-height: 1; margin-bottom: 6px;
+  }
+  .outcome-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted2); line-height: 1.5;
+  }
+  .outcome-divider {
+    width: 1px; background: var(--border2); flex-shrink: 0;
+  }
+
+  /* ── CTA STRIP ── */
+  .cta-strip {
+    padding: 100px 48px; text-align: center;
+    position: relative; overflow: hidden; background: var(--bg);
+  }
+  .cta-glow {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px; height: 400px;
+    background: radial-gradient(ellipse, rgba(232,146,10,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .cta-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px; position: relative; z-index: 1;
+  }
+  .cta-headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: clamp(40px, 5vw, 68px);
+    line-height: 0.92; text-transform: uppercase;
+    color: var(--text); margin-bottom: 20px; position: relative; z-index: 1;
+  }
+  .cta-headline em { font-style: normal; color: var(--accent); display: block; }
+  .cta-sub {
+    font-size: 15px; color: var(--muted); margin-bottom: 44px;
+    max-width: 440px; margin-inline: auto; line-height: 1.7;
+    position: relative; z-index: 1;
+  }
+  .cta-actions {
+    display: flex; gap: 16px; justify-content: center;
+    align-items: center; flex-wrap: wrap; position: relative; z-index: 1;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .art-hero-inner { padding: 48px 24px 56px; }
+    .art-body-wrap  { padding: 0 24px; }
+    .art-body       { padding: 60px 0 80px; padding-left: 24px; }
+    .cta-strip      { padding: 80px 24px; }
+    .outcome-stats  { flex-direction: column; }
+    .outcome-divider { width: 100%; height: 1px; }
+  }
+  @media (max-width: 600px) {
+    .art-body { border-left: none; padding-left: 0; }
+    .table-wrap { border-left: none; border-right: none; margin-left: -24px; margin-right: -24px; }
+  }
+</style>
