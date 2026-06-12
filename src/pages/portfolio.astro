@@ -169,12 +169,6 @@ const placeholders = [
     <div class="placeholders-grid">
       {placeholders.map((p, i) => (
         <div class="placeholder-card">
-          <div class="placeholder-lock" aria-hidden="true">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="3" y="11" width="18" height="11" rx="1"/>
-              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-            </svg>
-          </div>
           <div class="placeholder-num">0{i + 2}</div>
           <div class="placeholder-category">{p.category}</div>
           <div class="placeholder-type">{p.type}</div>
@@ -191,7 +185,7 @@ const placeholders = [
     </div>
 
     <p class="placeholders-note">
-      Additional case studies are being prepared. Some engagements are under NDA — results are available on request.
+      Additional case studies are in progress.
     </p>
   </div>
 </div>
@@ -540,12 +534,10 @@ const placeholders = [
     filter: grayscale(0.3);
     cursor: default;
     transition: opacity 0.3s;
+    display: flex;
+    flex-direction: column;
   }
   .placeholder-card:hover { opacity: 0.6; }
-  .placeholder-lock {
-    position: absolute; top: 40px; right: 36px;
-    color: var(--muted2);
-  }
   .placeholder-num {
     font-family: 'JetBrains Mono', monospace;
     font-size: 10px; letter-spacing: 0.12em;
@@ -565,6 +557,7 @@ const placeholders = [
   .placeholder-sector {
     font-size: 13px; color: var(--muted);
     display: flex; flex-direction: column; gap: 4px;
+    margin-top: auto;
     margin-bottom: 28px;
   }
   .placeholder-sector-label {
