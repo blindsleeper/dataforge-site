@@ -1,0 +1,411 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const meta = {
+  category: 'Systems & Process',
+  tags:     ['Access Control', 'IT Audit', 'Onboarding', 'Internal Process'],
+  readTime: '5 min read',
+};
+---
+
+<Layout title="The 30-Day Window">
+
+<!-- ── ARTICLE HERO ── -->
+<section class="art-hero">
+  <div class="art-hero-grid"></div>
+  <div class="art-hero-glow"></div>
+  <div class="art-hero-inner">
+
+    <a href="/work" class="back-link fade-up d1">← Back to Work</a>
+
+    <div class="art-eyebrow fade-up d2">// {meta.category}</div>
+    <h1 class="art-headline fade-up d3">
+      The 30-Day<br>Window
+    </h1>
+    <p class="art-subheadline fade-up d4">
+      Why Offboarding Is Where Security Actually Breaks
+    </p>
+
+    <div class="art-meta fade-up d5">
+      <div class="art-tags">
+        {meta.tags.map((t) => <span class="tag">{t}</span>)}
+      </div>
+      <span class="art-read-time">{meta.readTime}</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── ARTICLE BODY ── -->
+<div class="art-body-wrap">
+  <article class="art-body">
+
+    <!-- 01 The Situation -->
+    <section class="art-section">
+      <div class="art-section-num">01</div>
+      <h2 class="art-section-heading">The Situation</h2>
+      <p>
+        A small office hires and loses people the way every business does — a few
+        times a year, sometimes more. Each time, someone gets added to email, shared
+        drives, software licenses, maybe a building access code. When someone leaves,
+        in theory the reverse happens. In practice, "in theory" is doing a lot of work
+        in that sentence.
+      </p>
+    </section>
+
+    <!-- 02 The Problem with Assumed Offboarding -->
+    <section class="art-section">
+      <div class="art-section-num">02</div>
+      <h2 class="art-section-heading">The Problem with Assumed Offboarding</h2>
+      <p>
+        Onboarding has urgency — a new hire can't work without access, so it gets done.
+        Offboarding has no urgency from the departing person's side, and often gets
+        handled informally: IT removes the obvious stuff (email, maybe), and everything
+        else — shared drive folders, third-party software seats, vendor portals — sits
+        untouched because nobody owns the full list.
+      </p>
+      <p>
+        The result is a slow accumulation of "ghost access": accounts tied to people
+        who no longer work there, quietly racking up license costs or, worse, sitting
+        as unmonitored entry points.
+      </p>
+    </section>
+
+    <!-- 03 The Approach -->
+    <section class="art-section">
+      <div class="art-section-num">03</div>
+      <h2 class="art-section-heading">The Approach</h2>
+      <p>
+        The fix isn't a big security platform — it's a checklist that actually gets
+        followed. I built a simple audit framework: a single inventory of every system
+        a person could have access to (email, drives, software, physical access, vendor
+        portals), cross-referenced against current staff.
+      </p>
+      <p>
+        Onboarding and offboarding both run through the same list, in opposite
+        directions. Adding access and removing it become mirror-image procedures,
+        which makes gaps visible immediately — if there's no "remove" step for
+        something that has an "add" step, that's the gap.
+      </p>
+    </section>
+
+    <!-- 04 What the Audit Found -->
+    <section class="art-section">
+      <div class="art-section-num">04</div>
+      <h2 class="art-section-heading">What the Audit Found</h2>
+      <p>
+        Running this against an existing staff roster surfaced exactly the pattern
+        you'd expect: a handful of accounts tied to people who'd left months ago, two
+        unused software licenses still being billed, and one shared-drive folder with
+        edit access for a former contractor.
+      </p>
+      <p>
+        None of this was a crisis. All of it was invisible until someone wrote it down
+        in one place.
+      </p>
+    </section>
+
+    <!-- 05 The Outcome -->
+    <section class="art-section">
+      <div class="art-section-num">05</div>
+      <h2 class="art-section-heading">The Outcome</h2>
+      <p>
+        The compounding cost of ghost access is invisible until you list it out.
+        Once it's listed, it's a five-minute fix.
+      </p>
+
+      <div class="outcome-stats">
+        <div class="outcome-stat">
+          <div class="outcome-val">1</div>
+          <div class="outcome-label">master access inventory replacing scattered tribal knowledge</div>
+        </div>
+        <div class="outcome-divider"></div>
+        <div class="outcome-stat">
+          <div class="outcome-val">30 min</div>
+          <div class="outcome-label">to run the checklist per hire or departure</div>
+        </div>
+        <div class="outcome-divider"></div>
+        <div class="outcome-stat">
+          <div class="outcome-val">$0</div>
+          <div class="outcome-label">ongoing operating cost</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 What This Means for Your Business -->
+    <section class="art-section art-section--last">
+      <div class="art-section-num">06</div>
+      <h2 class="art-section-heading">What This Means for Your Business</h2>
+      <p>
+        If your offboarding process is "IT will handle it," you likely have ghost
+        accounts right now. This doesn't require new software or a security
+        consultant — it requires one spreadsheet, one person who owns it, and 30
+        minutes per hire/departure to keep it current.
+      </p>
+      <p>
+        The compound value comes from the list, not from any individual entry.
+      </p>
+    </section>
+
+  </article>
+</div>
+
+<!-- ── CTA ── -->
+<div class="cta-strip">
+  <div class="cta-glow"></div>
+  <div class="cta-eyebrow">// Have a Similar Problem?</div>
+  <h2 class="cta-headline">Let's Build<br><em>Something That Sticks.</em></h2>
+  <p class="cta-sub">
+    Discovery calls are free and take 30 minutes. Come with a problem —
+    leave knowing whether I'm the right fit to solve it.
+  </p>
+  <div class="cta-actions">
+    <a href="/contact" class="btn-primary">Start a Conversation</a>
+    <a href="/work" class="btn-ghost">More Write-Ups</a>
+  </div>
+</div>
+
+</Layout>
+
+<style>
+  /* ── HERO ── */
+  .art-hero {
+    padding-top: var(--nav-h);
+    border-bottom: 1px solid var(--border);
+    position: relative; overflow: hidden;
+  }
+  .art-hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 20%, transparent 100%);
+    pointer-events: none;
+  }
+  .art-hero-glow {
+    position: absolute; top: -10%; right: 5%;
+    width: 700px; height: 600px;
+    background: radial-gradient(ellipse, rgba(232,146,10,0.05) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .art-hero-inner {
+    position: relative; z-index: 2;
+    max-width: 860px; margin: 0 auto;
+    padding: 64px 48px 72px;
+  }
+
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted2); text-decoration: none;
+    margin-bottom: 36px;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--accent); }
+
+  .art-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+  }
+  .art-headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: clamp(52px, 7vw, 88px);
+    line-height: 0.9; letter-spacing: -0.01em;
+    text-transform: uppercase; color: var(--text);
+    margin-bottom: 16px;
+  }
+  .art-headline em { font-style: normal; color: var(--accent); }
+  .art-subheadline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600; font-size: clamp(20px, 2.5vw, 28px);
+    letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 36px;
+  }
+  .art-meta {
+    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  }
+  .art-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .art-read-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted2);
+  }
+
+  /* ── ARTICLE BODY ── */
+  .art-body-wrap {
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    padding: 0 48px;
+  }
+  .art-body {
+    max-width: 760px; margin: 0 auto;
+    padding: 80px 0 100px;
+    border-left: 1px solid var(--border);
+    padding-left: 48px;
+  }
+
+  /* ── SECTIONS ── */
+  .art-section {
+    margin-bottom: 64px;
+    padding-bottom: 64px;
+    border-bottom: 1px solid var(--border);
+  }
+  .art-section--last {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .art-section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 10px;
+  }
+  .art-section-heading {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: clamp(28px, 3vw, 40px);
+    letter-spacing: 0.02em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 28px; line-height: 1;
+  }
+
+  .art-section p {
+    font-size: 15px; line-height: 1.85; color: var(--muted);
+    margin-bottom: 18px;
+  }
+  .art-section p:last-of-type { margin-bottom: 0; }
+
+  /* ── TABLE ── */
+  .table-wrap {
+    margin-top: 36px;
+    overflow-x: auto;
+    border: 1px solid var(--border2);
+  }
+  .ticket-table {
+    width: 100%; border-collapse: collapse;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+  }
+  .ticket-table thead tr {
+    background: var(--bg4);
+    border-bottom: 1px solid var(--border2);
+  }
+  .ticket-table th {
+    padding: 12px 16px;
+    text-align: left;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent); font-weight: 500;
+    white-space: nowrap;
+  }
+  .ticket-table tbody tr {
+    border-bottom: 1px solid var(--border);
+    background: var(--bg3);
+    transition: background 0.15s;
+  }
+  .ticket-table tbody tr:last-child { border-bottom: none; }
+  .ticket-table tbody tr:hover { background: var(--bg4); }
+  .ticket-table td {
+    padding: 11px 16px;
+    color: var(--muted); letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+  .ticket-table td.mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; color: var(--muted2);
+  }
+
+  /* Priority badges */
+  .priority-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid;
+  }
+  .priority-high   { color: #f87171; border-color: rgba(248,113,113,0.3); background: rgba(248,113,113,0.07); }
+  .priority-medium { color: var(--accent); border-color: var(--adim3); background: var(--adim); }
+  .priority-low    { color: var(--muted2); border-color: var(--border2); background: transparent; }
+
+  /* Status badges */
+  .status-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid;
+  }
+  .status-resolved    { color: #4ade80; border-color: rgba(74,222,128,0.25); background: rgba(74,222,128,0.07); }
+  .status-in-progress { color: var(--accent); border-color: var(--adim3); background: var(--adim); }
+  .status-open        { color: var(--muted2); border-color: var(--border2); background: transparent; }
+
+  /* ── OUTCOME STATS ── */
+  .outcome-stats {
+    display: flex; align-items: stretch;
+    border: 1px solid var(--border2);
+    margin-top: 40px;
+  }
+  .outcome-stat {
+    flex: 1; padding: 24px 28px;
+  }
+  .outcome-val {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 36px;
+    color: var(--accent); line-height: 1; margin-bottom: 6px;
+  }
+  .outcome-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted2); line-height: 1.5;
+  }
+  .outcome-divider {
+    width: 1px; background: var(--border2); flex-shrink: 0;
+  }
+
+  /* ── CTA STRIP ── */
+  .cta-strip {
+    padding: 100px 48px; text-align: center;
+    position: relative; overflow: hidden; background: var(--bg);
+  }
+  .cta-glow {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px; height: 400px;
+    background: radial-gradient(ellipse, rgba(232,146,10,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .cta-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px; position: relative; z-index: 1;
+  }
+  .cta-headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: clamp(40px, 5vw, 68px);
+    line-height: 0.92; text-transform: uppercase;
+    color: var(--text); margin-bottom: 20px; position: relative; z-index: 1;
+  }
+  .cta-headline em { font-style: normal; color: var(--accent); display: block; }
+  .cta-sub {
+    font-size: 15px; color: var(--muted); margin-bottom: 44px;
+    max-width: 440px; margin-inline: auto; line-height: 1.7;
+    position: relative; z-index: 1;
+  }
+  .cta-actions {
+    display: flex; gap: 16px; justify-content: center;
+    align-items: center; flex-wrap: wrap; position: relative; z-index: 1;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .art-hero-inner { padding: 48px 24px 56px; }
+    .art-body-wrap  { padding: 0 24px; }
+    .art-body       { padding: 60px 0 80px; padding-left: 24px; }
+    .cta-strip      { padding: 80px 24px; }
+    .outcome-stats  { flex-direction: column; }
+    .outcome-divider { width: 100%; height: 1px; }
+  }
+  @media (max-width: 600px) {
+    .art-body { border-left: none; padding-left: 0; }
+    .table-wrap { border-left: none; border-right: none; margin-left: -24px; margin-right: -24px; }
+  }
+</style>
