@@ -95,7 +95,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="it-card-body">
         <div class="it-info">
           <div class="it-name">IT LOGGER</div>
-          <div class="it-subtitle">INTERNAL TICKET TRACKER · LOCAL · OPEN SOURCE</div>
+          <div class="it-subtitle">INTERNAL TICKET TRACKER · BUILT FOR ADAMS JONES LAW FIRM</div>
           <p class="it-desc">
             A lightweight internal ticketing system for environments that won't adopt enterprise
             helpdesk software. Logs issues, tracks status, runs locally with zero dependencies.
@@ -104,12 +104,63 @@ import Layout from '../layouts/Layout.astro';
             <span class="tag">Python</span>
             <span class="tag">Flask</span>
             <span class="tag">SQLite</span>
+            <span class="tag">Internal Tooling</span>
           </div>
         </div>
-        <div class="it-cta">
-          <a href="#" class="btn-ghost">VIEW ON GITHUB</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── CASELENS ── -->
+<div style="background: var(--bg); border-bottom: 1px solid var(--border);">
+  <div class="section">
+
+    <div class="ss-card fade-up d1">
+      <div class="ss-accent-bar"></div>
+
+      <div class="ss-card-top">
+        <div class="ss-title-block">
+          <div class="ss-eyebrow">// Legal Tech</div>
+          <div class="ss-name">CASELENS</div>
+          <div class="ss-subtitle">DOCUMENT REVIEW DESKTOP APP · WINDOWS</div>
+        </div>
+        <span class="status-dev">
+          <span class="status-dot-dev"></span>RC1 — In Development
+        </span>
+      </div>
+
+      <div class="ss-card-body">
+        <div class="ss-info">
+          <p class="ss-desc">
+            A desktop tool for reviewing exported case data — built around message-export
+            datasets for legal discovery. CaseLens loads a case file, lets a reviewer browse,
+            search, and filter messages, then export findings to CSV without touching the
+            source data.
+          </p>
+
+          <div class="ss-features-label">Features</div>
+          <ul class="ss-features">
+            <li>Browse message threads with sender, timestamp, and channel context</li>
+            <li>Keyword search across the full case dataset</li>
+            <li>Filter results by channel or sender</li>
+            <li>Export search results to CSV with metadata headers intact</li>
+            <li>Light / dark theme toggle for extended review sessions</li>
+            <li>Read-only case states (Published / Review Only) to protect source data</li>
+          </ul>
+
+          <div class="ss-footer">
+            <div class="ss-tags">
+              <span class="tag">Python</span>
+              <span class="tag">PyQt6</span>
+              <span class="tag">Windows</span>
+            </div>
+            <span class="ss-note">In internal testing — not yet distributed</span>
+          </div>
         </div>
       </div>
+
     </div>
 
   </div>
@@ -223,6 +274,18 @@ import Layout from '../layouts/Layout.astro';
   padding-top: 24px;
   border-top: 1px solid var(--border);
 }
+.ss-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.ss-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.ss-note {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted2); white-space: nowrap;
+}
 
 /* ── GALLERY ── */
 .ss-gallery {
@@ -318,7 +381,6 @@ import Layout from '../layouts/Layout.astro';
   margin-bottom: 24px; max-width: 520px;
 }
 .it-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-.it-cta { flex-shrink: 0; align-self: flex-end; }
 
 /* ── STATUS ── */
 .status-live {
@@ -341,6 +403,21 @@ import Layout from '../layouts/Layout.astro';
 @keyframes pulse-live {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0.45; }
+}
+.status-dev {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 5px 14px;
+  background: var(--adim);
+  border: 1px solid var(--adim3);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap; flex-shrink: 0;
+}
+.status-dot-dev {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
 }
 
 /* ── CTA STRIP ── */
@@ -389,9 +466,9 @@ import Layout from '../layouts/Layout.astro';
   .ss-card-body { padding: 24px 24px 24px; }
   .ss-gallery { grid-template-columns: 1fr; }
   .ss-actions { flex-direction: column; align-items: flex-start; }
+  .ss-footer { flex-direction: column; align-items: flex-start; }
   .it-card-top { padding: 24px 24px 0; }
   .it-card-body { padding: 20px 24px 28px; flex-direction: column; }
-  .it-cta { align-self: flex-start; }
   .cta-strip { padding: 80px 24px; }
 }
 </style>
