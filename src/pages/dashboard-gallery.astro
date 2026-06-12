@@ -329,7 +329,7 @@ import Layout from '../layouts/Layout.astro';
     <!-- ══════════════════════════════════════
          DASHBOARD 04 — Office Operations
     ══════════════════════════════════════ -->
-    <div class="db-section" style="margin-bottom:0;">
+    <div class="db-section">
 
       <div class="db-problem">
         <div class="db-problem-head">
@@ -416,6 +416,100 @@ import Layout from '../layouts/Layout.astro';
         <span class="db-pill"><span class="pv">85%</span> compliance rate</span>
         <span class="db-pill"><span class="pv">1,284</span> records tracked</span>
         <span class="db-pill"><span class="pv">Dept-level</span> status at a glance</span>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         DASHBOARD 05 — Records Management
+    ══════════════════════════════════════ -->
+    <div class="db-section" style="margin-bottom:0;">
+
+      <div class="db-problem">
+        <div class="db-problem-head">
+          <span class="section-num">// 05</span>
+          <h2 class="db-scenario">Records Management — <em>Retention &amp; Audit Trail</em></h2>
+        </div>
+        <p class="db-problem-text">Retention schedules existed in a policy document, but nobody could say which records were due for review, eligible for destruction, or under litigation hold — let alone who had accessed them and when.</p>
+      </div>
+
+      <div class="db-card">
+        <div class="db-header">
+          <div>
+            <div class="db-title">// DataForge · Records Management</div>
+            <div class="db-subtitle">Retention &amp; Audit Trail Dashboard</div>
+          </div>
+          <div class="db-period">Last 12 Weeks · as of Jun 2, 2025</div>
+        </div>
+
+        <div class="db-metrics-grid">
+          <div class="db-mc">
+            <div class="db-mc-label">Total Records</div>
+            <div class="db-mc-value">2,140</div>
+            <div class="db-mc-delta delta-gray">Active record inventory</div>
+          </div>
+          <div class="db-mc">
+            <div class="db-mc-label">Pending Review</div>
+            <div class="db-mc-value">312</div>
+            <div class="db-mc-delta delta-gray">Flagged for retention review</div>
+          </div>
+          <div class="db-mc">
+            <div class="db-mc-label">Overdue Actions</div>
+            <div class="db-mc-value">14</div>
+            <div class="db-mc-delta delta-red">↑ 3 vs last month</div>
+          </div>
+          <div class="db-mc">
+            <div class="db-mc-label">Hold Exceptions</div>
+            <div class="db-mc-value">5</div>
+            <div class="db-mc-delta delta-gray">Active litigation holds</div>
+          </div>
+        </div>
+
+        <div class="db-charts" style="grid-template-columns:1fr 1.4fr;">
+          <div class="db-chart-block">
+            <div class="db-chart-label">Retention Status</div>
+            <div class="chart-wrap donut-wrap" style="height:140px;">
+              <canvas id="c8"></canvas>
+              <div class="donut-center">
+                <div class="donut-pct">81%</div>
+                <div class="donut-lbl">Active</div>
+              </div>
+            </div>
+            <div class="donut-legend">
+              <div class="dl-row"><span class="dl-icon" style="color:#20b2aa;">✓</span><span class="dl-lbl">Active:</span><span style="color:#20b2aa;">1,742</span></div>
+              <div class="dl-row"><span class="dl-icon" style="color:#E8920A;">⚠</span><span class="dl-lbl">Due for Review:</span><span style="color:#E8920A;">312</span></div>
+              <div class="dl-row"><span class="dl-icon" style="color:#A0A0A0;">○</span><span class="dl-lbl">Eligible for Destruction:</span><span style="color:#A0A0A0;">71</span></div>
+              <div class="dl-row"><span class="dl-icon" style="color:#378ADD;">⚑</span><span class="dl-lbl">Litigation Hold:</span><span style="color:#378ADD;">15</span></div>
+            </div>
+          </div>
+          <div class="db-chart-block">
+            <div class="db-chart-label">Audit Trail Activity — Access &amp; Modification Events</div>
+            <div class="chart-wrap" style="height:240px;">
+              <canvas id="c9"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="db-table-wrap">
+          <div class="db-chart-label" style="margin-bottom:10px;">Recent Audit Log Activity</div>
+          <table class="db-table">
+            <thead><tr>
+              <th>Document</th><th>Action</th><th>Department</th><th>User</th><th>Timestamp</th><th>Flag</th>
+            </tr></thead>
+            <tbody>
+              <tr><td>Master_Services_Agreement_2023.pdf</td><td>Accessed</td><td>Legal</td><td>M. Obi</td><td>Jun 2, 9:14 AM</td><td><span class="st-green">Logged</span></td></tr>
+              <tr><td>Client_Intake_Form_0419.docx</td><td>Modified</td><td>Operations</td><td>K. Morris</td><td>Jun 2, 8:02 AM</td><td><span class="st-green">Logged</span></td></tr>
+              <tr><td>Vendor_Contract_Reeves_Co.pdf</td><td>Downloaded</td><td>Finance</td><td>T. Reeves</td><td>Jun 1, 4:47 PM</td><td><span class="st-amber">Review</span></td></tr>
+              <tr><td>Litigation_Hold_Notice_Lark.pdf</td><td>Accessed</td><td>Legal</td><td>J. Walsh</td><td>Jun 1, 2:15 PM</td><td><span class="st-red">Hold</span></td></tr>
+              <tr><td>Employee_File_0231.pdf</td><td>Modified</td><td>HR</td><td>K. Morris</td><td>May 30, 11:30 AM</td><td><span class="st-green">Logged</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="db-pills-row">
+        <span class="db-pill"><span class="pv">2,140</span> records tracked</span>
+        <span class="db-pill"><span class="pv">12-week</span> audit visibility</span>
+        <span class="db-pill"><span class="pv">4-category</span> retention status</span>
       </div>
     </div>
 
@@ -877,6 +971,50 @@ import Layout from '../layouts/Layout.astro';
       scales: {
         x: { stacked: true, ticks: { color: labelColor, font: tickFont }, grid: { color: gridColor }, border: { color: axisColor } },
         y: { stacked: true, ticks: { color: labelColor, font: tickFont }, grid: { color: gridColor }, border: { color: axisColor } }
+      }
+    }
+  });
+
+  /* ── C8: Doughnut — Retention Status ── */
+  new Chart(document.getElementById('c8'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Active','Due for Review','Eligible for Destruction','Litigation Hold'],
+      datasets: [{ data: [1742,312,71,15], backgroundColor: [teal(0.8), amber(0.7), 'rgba(160,160,160,0.5)', blue(0.8)], borderWidth: 0, hoverOffset: 4 }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false, cutout: '70%',
+      plugins: { legend: { display: false } }
+    }
+  });
+
+  /* ── C9: Line — Audit Trail Activity ── */
+  new Chart(document.getElementById('c9'), {
+    type: 'line',
+    data: {
+      labels: ['W1','W2','W3','W4','W5','W6','W7','W8','W9','W10','W11','W12'],
+      datasets: [
+        {
+          label: 'Access Events',
+          data: [184,201,176,219,238,205,224,247,231,256,219,242],
+          borderColor: amber(0.9), backgroundColor: amber(0.08),
+          tension: 0.4, fill: true,
+          pointRadius: 3, pointBackgroundColor: amber(0.9), borderWidth: 2
+        },
+        {
+          label: 'Modifications',
+          data: [42,38,51,47,55,49,58,62,54,67,60,71],
+          borderColor: teal(0.8), borderDash: [5,5],
+          tension: 0.4, fill: false, pointRadius: 0, borderWidth: 1.5
+        }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { labels: { color: labelColor, font: tickFont, boxWidth: 10, padding: 14 } } },
+      scales: {
+        x: { ticks: { color: labelColor, font: tickFont }, grid: { color: gridColor }, border: { color: axisColor } },
+        y: { ticks: { color: labelColor, font: tickFont }, grid: { color: gridColor }, border: { color: axisColor } }
       }
     }
   });
