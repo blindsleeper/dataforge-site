@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Local env and config
+.env
+.env.*
+.claude/
+
+# OS files
+Desktop.ini
+.DS_Store
+Thumbs.db
+
+# Sensitive files
+backup codes/
+*.txt
+!README.txt
