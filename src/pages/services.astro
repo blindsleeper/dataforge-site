@@ -79,7 +79,7 @@ const tiers = [
     id: 'starter',
     label: 'Starter',
     badge: 'Project-Based',
-    price: '$500 – $1,500',
+    price: '$500–$1,500',
     cadence: 'per project',
     tagline: 'Scoped deliverables, fast turnaround.',
     best: 'One-time projects & early-stage businesses',
@@ -98,8 +98,8 @@ const tiers = [
     id: 'growth',
     label: 'Growth',
     badge: 'Monthly Retainer',
-    price: '$1,500 – $3,000',
-    cadence: 'per month',
+    price: '$1,500–$3,000',
+    cadence: 'month',
     tagline: 'Ongoing partnership, continuous delivery.',
     best: 'Growing businesses with recurring data or dev needs',
     features: [
@@ -115,8 +115,8 @@ const tiers = [
   },
   {
     id: 'custom',
-    label: 'Custom',
-    badge: 'Enterprise Scope',
+    label: 'Strategic',
+    badge: 'Scoped After Discovery',
     price: 'Quoted',
     cadence: 'after discovery call',
     tagline: 'Complex problems, tailored solutions.',
@@ -128,7 +128,7 @@ const tiers = [
       'Custom SLA & review cadence',
       'Flexible engagement model',
     ],
-    examples: ['Full system builds', 'Multi-dept rollouts', 'Strategic retainers'],
+    examples: ['System builds', 'Multi-dept rollouts', 'Retainers'],
     cta: 'Book a Discovery Call',
     featured: false,
   },
@@ -215,9 +215,10 @@ const tiers = [
           <div class="pricing-label">{t.label}</div>
           <div class="pricing-price">
             {t.price}
-            {t.id !== 'custom' && <span class="pricing-cadence">/ {t.cadence}</span>}
+            {t.id === 'starter' && <span class="pricing-cadence"> {t.cadence}</span>}
+            {t.id === 'growth' && <span class="pricing-cadence">/{t.cadence}</span>}
+            {t.id === 'custom' && <span class="pricing-cadence"> {t.cadence}</span>}
           </div>
-          {t.id === 'custom' && <div class="pricing-cadence-block">{t.cadence}</div>}
           <div class="pricing-tagline">{t.tagline}</div>
           <div class="pricing-best-for">
             <span class="pricing-best-label">Best for</span>
@@ -455,11 +456,6 @@ const tiers = [
     font-family: 'DM Sans', sans-serif;
     font-size: 13px; font-weight: 400;
     color: var(--muted);
-  }
-  .pricing-cadence-block {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px; color: var(--muted);
-    letter-spacing: 0.06em; margin-bottom: 4px;
   }
   .pricing-tagline {
     font-size: 13px; color: var(--muted);

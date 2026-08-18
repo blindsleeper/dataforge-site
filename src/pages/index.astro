@@ -42,7 +42,7 @@ import Layout from '../layouts/Layout.astro';
       <h2 class="section-title">What I<br><em>Build</em></h2>
     </div>
     <div class="section-rule"></div>
-    <div class="services-grid">
+    <div class="services-grid services-grid--2col">
       <div class="service-card">
         <div class="service-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18M7 16l4-4 4 4 4-8"/></svg>
@@ -72,6 +72,16 @@ import Layout from '../layouts/Layout.astro';
         <div class="service-desc">Professional websites and CMS platforms that convert visitors into clients. Hand-coded or Webflow — built to perform.</div>
         <div class="service-tags"><span class="tag">Webflow</span><span class="tag">Custom Dev</span><span class="tag">CMS</span><span class="tag">Performance</span></div>
         <span class="service-arrow">↗</span>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a7 7 0 0 1 7 7c0 3.5-2 6-5 7v2H10v-2c-3-1-5-3.5-5-7a7 7 0 0 1 7-7z"/><path d="M9 17v2a3 3 0 0 0 6 0v-2"/><path d="M9.5 9.5a2.5 2.5 0 0 1 5 0c0 1.5-1 2.5-2.5 3v1"/></svg>
+        </div>
+        <span class="service-num">04</span>
+        <div class="service-name">AI-Augmented Workflows</div>
+        <div class="service-desc">Embed large language models and AI tooling into your existing processes — document analysis, content generation, and decision support.</div>
+        <div class="service-tags"><span class="tag">LLM Tools</span><span class="tag">Document Parsing</span><span class="tag">Prompt Engineering</span><span class="tag">Chatbots</span></div>
+        <a href="/services" class="service-arrow" style="text-decoration:none;" aria-label="View AI-Augmented Workflows on Services">↗</a>
       </div>
     </div>
     <div style="margin-top:32px;text-align:right;">
@@ -217,7 +227,9 @@ import Layout from '../layouts/Layout.astro';
   .hero-sub { font-size: 17px; line-height: 1.7; color: var(--muted); margin-bottom: 44px; }
   .hero-sub strong { color: var(--text); font-weight: 500; }
   .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  .services-grid--2col { grid-template-columns: repeat(2, 1fr); }
   @media (max-width: 900px) {
     .hero-inner { padding: 40px 24px; }
+    .services-grid--2col { grid-template-columns: 1fr; }
   }
 </style>
