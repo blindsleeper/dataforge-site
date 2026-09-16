@@ -168,9 +168,9 @@ import Layout from '../layouts/Layout.astro';
 
       <div class="ss-card-top">
         <div class="ss-title-block">
-          <div class="ss-eyebrow">// Legal Tech · incl. Evidence Processing Suite (EPS)</div>
+          <div class="ss-eyebrow">// Legal Tech</div>
           <div class="ss-name">CASELENS</div>
-          <div class="ss-subtitle">DOCUMENT REVIEW &amp; EVIDENCE PROCESSING · WINDOWS</div>
+          <div class="ss-subtitle">DOCUMENT REVIEW DESKTOP APP · WINDOWS</div>
         </div>
         <span class="status-dev">
           <span class="status-dot-dev"></span>Internal Deployment
@@ -186,7 +186,7 @@ import Layout from '../layouts/Layout.astro';
             source data.
           </p>
 
-          <div class="ss-features-label">Case Review</div>
+          <div class="ss-features-label">Features</div>
           <ul class="ss-features">
             <li>Browse message threads with sender, timestamp, and channel context</li>
             <li>Keyword search across the full case dataset</li>
@@ -196,12 +196,55 @@ import Layout from '../layouts/Layout.astro';
             <li>Read-only case states to protect source data from modification</li>
           </ul>
 
-          <div class="ss-features-label ss-features-label--eps">Evidence Processing Suite (EPS)</div>
+          <div class="ss-footer">
+            <div class="ss-tags">
+              <span class="tag">Python</span>
+              <span class="tag">PyQt6</span>
+              <span class="tag">Windows</span>
+            </div>
+            <span class="ss-note">Internal deployment — Adams Jones Law Firm</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- ── EVIDENCE PROCESSING SUITE (EPS) ── -->
+<div style="background: var(--bg2); border-bottom: 1px solid var(--border);">
+  <div class="section">
+
+    <div class="ss-card fade-up d1">
+      <div class="ss-accent-bar"></div>
+
+      <div class="ss-card-top">
+        <div class="ss-title-block">
+          <div class="ss-eyebrow">// Legal Tech · Evidence &amp; Media Processing</div>
+          <div class="ss-name">EPS</div>
+          <div class="ss-subtitle">EVIDENCE PROCESSING SUITE · WINDOWS</div>
+        </div>
+        <span class="status-dev">
+          <span class="status-dot-dev"></span>Internal Deployment
+        </span>
+      </div>
+
+      <div class="ss-card-body">
+        <div class="ss-info">
+          <p class="ss-desc">
+            A standalone media processing pipeline for legal evidence — extracts frames from
+            video, runs OCR on images and screenshots, generates attorney-ready contact sheets,
+            and verifies file integrity with SHA-256 hashing. Built to run on any evidence set,
+            independent of CaseLens.
+          </p>
+
+          <div class="ss-features-label">Features</div>
           <ul class="ss-features">
             <li>Frame extraction from video evidence, with timestamped output</li>
             <li>OCR text extraction from image and screenshot evidence</li>
             <li>Contact sheet generation — grid-format PDFs for fast attorney review</li>
-            <li>Automated evidence pipeline — extract, OCR, package, and verify in one step</li>
+            <li>Automated pipeline — extract, OCR, package, and verify in one step</li>
             <li>SHA-256 file verification for chain of custody integrity</li>
             <li>Structured evidence PDF packages, formatted for legal use</li>
           </ul>
@@ -210,6 +253,8 @@ import Layout from '../layouts/Layout.astro';
             <div class="ss-tags">
               <span class="tag">Python</span>
               <span class="tag">PyQt6</span>
+              <span class="tag">FFmpeg</span>
+              <span class="tag">Tesseract</span>
               <span class="tag">Windows</span>
             </div>
             <span class="ss-note">Internal deployment — Adams Jones Law Firm</span>
@@ -309,11 +354,6 @@ import Layout from '../layouts/Layout.astro';
   font-family: 'JetBrains Mono', monospace;
   font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--accent); margin-bottom: 16px;
-}
-.ss-features-label--eps {
-  margin-top: 28px;
-  padding-top: 24px;
-  border-top: 1px solid var(--border);
 }
 .ss-features {
   list-style: none;
