@@ -168,7 +168,7 @@ import Layout from '../layouts/Layout.astro';
 
       <div class="ss-card-top">
         <div class="ss-title-block">
-          <div class="ss-eyebrow">// Legal Tech</div>
+          <div class="ss-eyebrow">// Legal Tech · incl. Evidence Processing Suite (EPS)</div>
           <div class="ss-name">CASELENS</div>
           <div class="ss-subtitle">DOCUMENT REVIEW &amp; EVIDENCE PROCESSING · WINDOWS</div>
         </div>
@@ -186,18 +186,24 @@ import Layout from '../layouts/Layout.astro';
             source data.
           </p>
 
-          <div class="ss-features-label">Features</div>
+          <div class="ss-features-label">Case Review</div>
           <ul class="ss-features">
             <li>Browse message threads with sender, timestamp, and channel context</li>
             <li>Keyword search across the full case dataset</li>
             <li>Filter results by channel or sender</li>
             <li>Export findings to CSV with metadata headers intact</li>
-            <li>Evidence media processing — extract video frames, generate contact sheets</li>
-            <li>OCR text extraction from image and screenshot evidence</li>
-            <li>Automated evidence pipeline — extract, OCR, package, and verify in one step</li>
-            <li>SHA-256 file verification for chain of custody integrity</li>
             <li>Light / dark theme toggle for extended review sessions</li>
             <li>Read-only case states to protect source data from modification</li>
+          </ul>
+
+          <div class="ss-features-label ss-features-label--eps">Evidence Processing Suite (EPS)</div>
+          <ul class="ss-features">
+            <li>Frame extraction from video evidence, with timestamped output</li>
+            <li>OCR text extraction from image and screenshot evidence</li>
+            <li>Contact sheet generation — grid-format PDFs for fast attorney review</li>
+            <li>Automated evidence pipeline — extract, OCR, package, and verify in one step</li>
+            <li>SHA-256 file verification for chain of custody integrity</li>
+            <li>Structured evidence PDF packages, formatted for legal use</li>
           </ul>
 
           <div class="ss-footer">
@@ -303,6 +309,11 @@ import Layout from '../layouts/Layout.astro';
   font-family: 'JetBrains Mono', monospace;
   font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--accent); margin-bottom: 16px;
+}
+.ss-features-label--eps {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
 }
 .ss-features {
   list-style: none;
