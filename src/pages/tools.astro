@@ -55,22 +55,47 @@ import Layout from '../layouts/Layout.astro';
           </ul>
 
           <div class="ss-gallery">
-            <button class="ss-panel" aria-label="View BEFORE screenshot full size">
+            <div class="ss-panel ss-panel--ph">
               <div class="ss-panel-label">BEFORE</div>
-              <img src="/images/sortshelf-before.png" alt="Downloads folder before SortShelf — mixed unsorted files" class="ss-panel-img" />
-            </button>
-            <button class="ss-panel" aria-label="View SORT PREVIEW screenshot full size">
+              <div class="ss-panel-ph-body">
+                <div class="ss-ph-line" style="width:82%"></div>
+                <div class="ss-ph-line" style="width:67%"></div>
+                <div class="ss-ph-line" style="width:91%"></div>
+                <div class="ss-ph-line" style="width:54%"></div>
+                <div class="ss-ph-line" style="width:73%"></div>
+                <div class="ss-ph-line" style="width:88%"></div>
+                <span class="ss-ph-note">Screenshot coming</span>
+              </div>
+            </div>
+            <div class="ss-panel ss-panel--ph">
               <div class="ss-panel-label">SORT PREVIEW</div>
-              <img src="/images/sortshelf-hero.png" alt="SortShelf app showing file categorization in action" class="ss-panel-img" />
-            </button>
-            <button class="ss-panel" aria-label="View AFTER screenshot full size">
+              <div class="ss-panel-ph-body">
+                <div class="ss-ph-line" style="width:82%"></div>
+                <div class="ss-ph-line" style="width:67%"></div>
+                <div class="ss-ph-line" style="width:91%"></div>
+                <div class="ss-ph-line" style="width:54%"></div>
+                <div class="ss-ph-line" style="width:73%"></div>
+                <div class="ss-ph-line" style="width:88%"></div>
+                <span class="ss-ph-note">Screenshot coming</span>
+              </div>
+            </div>
+            <div class="ss-panel ss-panel--ph">
               <div class="ss-panel-label">AFTER</div>
-              <img src="/images/sortshelf-after.png" alt="Downloads folder after SortShelf — clean category subfolders" class="ss-panel-img" />
-            </button>
+              <div class="ss-panel-ph-body">
+                <div class="ss-ph-line" style="width:82%"></div>
+                <div class="ss-ph-line" style="width:67%"></div>
+                <div class="ss-ph-line" style="width:91%"></div>
+                <div class="ss-ph-line" style="width:54%"></div>
+                <div class="ss-ph-line" style="width:73%"></div>
+                <div class="ss-ph-line" style="width:88%"></div>
+                <span class="ss-ph-note">Screenshot coming</span>
+              </div>
+            </div>
           </div>
 
           <div class="ss-actions">
-            <a href="https://dataforge16.gumroad.com/l/roalza" target="_blank" rel="noopener noreferrer" class="btn-primary">GET SORTSHELF — $9.99</a>
+            <a href="/contact" class="btn-ghost">Inquire About SortShelf →</a>
+            <span class="ss-note">Available for direct distribution — contact for details</span>
           </div>
         </div>
 
@@ -83,31 +108,52 @@ import Layout from '../layouts/Layout.astro';
 
 <!-- ── IT LOGGER ── -->
 <div style="background: var(--bg2); border-bottom: 1px solid var(--border);">
-  <div class="section it-section">
+  <div class="section">
 
-    <div class="it-card fade-up d1">
-      <div class="it-card-top">
-        <span class="tool-eyebrow">// Internal Tool</span>
+    <div class="ss-card fade-up d1">
+      <div class="ss-accent-bar"></div>
+
+      <div class="ss-card-top">
+        <div class="ss-title-block">
+          <div class="ss-eyebrow">// Internal Tooling</div>
+          <div class="ss-name">IT LOGGER</div>
+          <div class="ss-subtitle">INTERNAL TICKET TRACKER · PYTHON · FLASK · SQLITE</div>
+        </div>
         <span class="status-live">
           <span class="status-dot"></span>Live
         </span>
       </div>
-      <div class="it-card-body">
-        <div class="it-info">
-          <div class="it-name">IT LOGGER</div>
-          <div class="it-subtitle">INTERNAL TICKET TRACKER · BUILT FOR ADAMS JONES LAW FIRM</div>
-          <p class="it-desc">
-            A lightweight internal ticketing system for environments that won't adopt enterprise
-            helpdesk software. Logs issues, tracks status, runs locally with zero dependencies.
+
+      <div class="ss-card-body">
+        <div class="ss-info">
+          <p class="ss-desc">
+            A lightweight internal ticketing system built for environments that won’t adopt
+            enterprise helpdesk software. Logs issues, tracks status, and runs locally with
+            zero external dependencies or licensing costs. Built for Adams Jones Law Firm.
           </p>
-          <div class="it-tags">
-            <span class="tag">Python</span>
-            <span class="tag">Flask</span>
-            <span class="tag">SQLite</span>
-            <span class="tag">Internal Tooling</span>
+
+          <div class="ss-features-label">Features</div>
+          <ul class="ss-features">
+            <li>Log IT issues with title, category, and description</li>
+            <li>Track ticket status — Open, In Progress, Resolved</li>
+            <li>Filter and search issue history at a glance</li>
+            <li>Lightweight local setup — runs on any machine with Python</li>
+            <li>Zero external dependencies or licensing costs</li>
+            <li>Built for environments that need a log, not a full helpdesk</li>
+          </ul>
+
+          <div class="ss-footer">
+            <div class="ss-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Flask</span>
+              <span class="tag">SQLite</span>
+              <span class="tag">Internal Tooling</span>
+            </div>
+            <span class="ss-note">Internal deployment — Adams Jones Law Firm</span>
           </div>
         </div>
       </div>
+
     </div>
 
   </div>
@@ -124,10 +170,10 @@ import Layout from '../layouts/Layout.astro';
         <div class="ss-title-block">
           <div class="ss-eyebrow">// Legal Tech</div>
           <div class="ss-name">CASELENS</div>
-          <div class="ss-subtitle">DOCUMENT REVIEW DESKTOP APP · WINDOWS</div>
+          <div class="ss-subtitle">DOCUMENT REVIEW &amp; EVIDENCE PROCESSING · WINDOWS</div>
         </div>
         <span class="status-dev">
-          <span class="status-dot-dev"></span>RC1 — In Development
+          <span class="status-dot-dev"></span>Internal Deployment
         </span>
       </div>
 
@@ -145,9 +191,13 @@ import Layout from '../layouts/Layout.astro';
             <li>Browse message threads with sender, timestamp, and channel context</li>
             <li>Keyword search across the full case dataset</li>
             <li>Filter results by channel or sender</li>
-            <li>Export search results to CSV with metadata headers intact</li>
+            <li>Export findings to CSV with metadata headers intact</li>
+            <li>Evidence media processing — extract video frames, generate contact sheets</li>
+            <li>OCR text extraction from image and screenshot evidence</li>
+            <li>Automated evidence pipeline — extract, OCR, package, and verify in one step</li>
+            <li>SHA-256 file verification for chain of custody integrity</li>
             <li>Light / dark theme toggle for extended review sessions</li>
-            <li>Read-only case states (Published / Review Only) to protect source data</li>
+            <li>Read-only case states to protect source data from modification</li>
           </ul>
 
           <div class="ss-footer">
@@ -156,7 +206,7 @@ import Layout from '../layouts/Layout.astro';
               <span class="tag">PyQt6</span>
               <span class="tag">Windows</span>
             </div>
-            <span class="ss-note">In internal testing — not yet distributed</span>
+            <span class="ss-note">Internal deployment — Adams Jones Law Firm</span>
           </div>
         </div>
       </div>
@@ -320,6 +370,23 @@ import Layout from '../layouts/Layout.astro';
   display: block;
   border-top: 1px solid var(--border);
 }
+.ss-panel--ph { cursor: default; display: flex; flex-direction: column; }
+.ss-panel-ph-body {
+  flex: 1;
+  display: flex; flex-direction: column; gap: 9px;
+  padding: 20px 20px 36px;
+  position: relative; min-height: 220px; justify-content: center;
+  border-top: 1px solid var(--border);
+}
+.ss-ph-line {
+  height: 5px; background: var(--border2); border-radius: 1px;
+}
+.ss-ph-note {
+  position: absolute; bottom: 14px; left: 20px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted2);
+}
 
 /* ── LIGHTBOX ── */
 .ss-lightbox {
@@ -340,47 +407,6 @@ import Layout from '../layouts/Layout.astro';
   cursor: default;
 }
 
-/* ── IT LOGGER ── */
-.it-section {
-  padding-top: 80px;
-  padding-bottom: 80px;
-}
-.it-card {
-  background: var(--bg3);
-  border: 1px solid var(--border2);
-}
-.it-card-top {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 28px 36px 0;
-}
-.tool-eyebrow {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--muted);
-}
-.it-card-body {
-  display: flex; align-items: flex-end; justify-content: space-between;
-  gap: 40px; flex-wrap: wrap;
-  padding: 24px 36px 36px;
-}
-.it-info { flex: 1; min-width: 260px; }
-.it-name {
-  font-family: 'Barlow Condensed', sans-serif;
-  font-weight: 800; font-size: clamp(36px, 4vw, 52px);
-  letter-spacing: 0.01em; text-transform: uppercase;
-  color: var(--text); line-height: 0.95;
-  margin-bottom: 10px;
-}
-.it-subtitle {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 20px;
-}
-.it-desc {
-  font-size: 14px; line-height: 1.75; color: var(--muted);
-  margin-bottom: 24px; max-width: 520px;
-}
-.it-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 
 /* ── STATUS ── */
 .status-live {

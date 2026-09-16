@@ -22,21 +22,24 @@ const featured = {
 const placeholders = [
   {
     category: 'Legal Tech',
-    type:     'Document Review Desktop App',
+    type:     'CaseLens — Document Review & Evidence Processing',
     sector:   'Legal Operations',
-    status:   'In Development — RC1',
+    status:   'Internal Deployment — Adams Jones',
+    desc:     'A Windows desktop tool for legal discovery — browse exported case data, search message threads, process multimedia evidence with OCR and frame extraction, and export findings without touching source files. Built for and deployed at Adams Jones Law Firm.',
   },
   {
     category: 'Legal Operations',
-    type:     'Records & Workflow Coordination Model',
+    type:     'Law Firm Data Coordination Model',
     sector:   'Law Firm — Internal Role',
     status:   'Complete — 2025–2026',
+    desc:     'A forensic audit and remediation of a law firm's matter records database — identifying gaps, deduplicating entries, standardizing formats, and delivering a coordination model for ongoing data governance.',
   },
   {
     category: 'Nonprofit Web Presence',
-    type:     'Nonprofit Services Site (Concept)',
+    type:     'Nonprofit Services Site',
     sector:   'Nonprofit / Community Services',
-    status:   'Concept Build',
+    status:   'Concept Phase',
+    desc:     'A clean, fast web presence for a local nonprofit — structured for content independence and built to convert visitors into donors without ongoing developer dependency.',
   },
 ];
 ---
@@ -59,7 +62,7 @@ const placeholders = [
     <div class="page-hero-meta fade-up d4">
       <div class="meta-item"><span class="meta-dot"></span>1 Live Case Study</div>
       <div class="meta-divider"></div>
-      <div class="meta-item"><span class="meta-dot"></span>More Coming Soon</div>
+      <div class="meta-item"><span class="meta-dot"></span>3 Projects In Progress</div>
       <div class="meta-divider"></div>
       <div class="meta-item"><span class="meta-dot"></span>Wichita, KS</div>
     </div>
@@ -162,7 +165,7 @@ const placeholders = [
   <div class="section">
     <div class="section-header">
       <span class="section-num">02</span>
-      <h2 class="section-title">More<br><em>Incoming</em></h2>
+      <h2 class="section-title">Active Work<br><em>&amp; Pipeline</em></h2>
     </div>
     <div class="section-rule"></div>
 
@@ -172,6 +175,7 @@ const placeholders = [
           <div class="placeholder-num">0{i + 2}</div>
           <div class="placeholder-category">{p.category}</div>
           <div class="placeholder-type">{p.type}</div>
+          {p.desc && <p class="placeholder-desc">{p.desc}</p>}
           <div class="placeholder-sector">
             <span class="placeholder-sector-label">Sector</span>
             {p.sector}
@@ -552,7 +556,11 @@ const placeholders = [
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 700; font-size: 22px;
     letter-spacing: 0.02em; text-transform: uppercase;
-    color: var(--text); margin-bottom: 20px;
+    color: var(--text); margin-bottom: 14px;
+  }
+  .placeholder-desc {
+    font-size: 13px; line-height: 1.75; color: var(--muted);
+    margin-bottom: 20px;
   }
   .placeholder-sector {
     font-size: 13px; color: var(--muted);

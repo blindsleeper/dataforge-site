@@ -1,0 +1,300 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Nine Phases to Production: Building a Legal Discovery Tool for a Working Law Firm">
+
+<!-- ── PAGE HERO ── -->
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-glow"></div>
+  <div class="page-hero-inner">
+    <div class="page-eyebrow fade-up d1">// Write-Up · Legal Tech</div>
+    <h1 class="page-headline fade-up d2">
+      Nine Phases<br><em>to Production</em>
+    </h1>
+    <p class="page-sub fade-up d3">
+      Building a legal discovery tool for a working law firm — from message browser to evidence processing suite.
+    </p>
+    <div class="page-hero-meta fade-up d4">
+      <div class="meta-item"><span class="meta-dot"></span>Python · PyQt6</div>
+      <div class="meta-divider"></div>
+      <div class="meta-item"><span class="meta-dot"></span>7 min read</div>
+      <div class="meta-divider"></div>
+      <div class="meta-item"><span class="meta-dot"></span>Legal Tech · Windows</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WRITEUP BODY ── -->
+<div style="border-bottom: 1px solid var(--border);">
+  <div class="section">
+    <div class="writeup-layout">
+
+      <aside class="writeup-sidebar">
+        <div class="sidebar-block">
+          <div class="sidebar-label">// Tool</div>
+          <div class="sidebar-value">CaseLens — incl. Evidence Processing Suite</div>
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-label">// Stack</div>
+          <div class="sidebar-value">Python, PyQt6, FFmpeg, Tesseract, PyInstaller</div>
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-label">// Deployment</div>
+          <div class="sidebar-value">Adams Jones Law Firm — internal server</div>
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-label">// Build</div>
+          <div class="sidebar-value">9 phases, single .exe distribution</div>
+        </div>
+        <a href="/tools" class="sidebar-link">View on Tools Page →</a>
+      </aside>
+
+      <article class="writeup-body">
+
+        <h2 class="section-heading">The Starting Point</h2>
+        <p>
+          The original CaseLens was a message browser. Law firms working on cases involving
+          digital evidence — Slack exports, email archives, internal chat logs — need a way to
+          review that data without handing it to an expensive third-party e-discovery platform
+          or, worse, opening raw JSON files in a text editor.
+        </p>
+        <p>
+          The first build handled the core use case: load a structured case export, browse message
+          threads with full sender and timestamp context, keyword search across the dataset, filter
+          by channel or sender, and export findings to CSV. Read-only case states protected the
+          source data from accidental modification. Light and dark themes for extended review sessions.
+        </p>
+        <p>
+          That was a complete, useful tool. Then the problem got bigger.
+        </p>
+
+        <h2 class="section-heading">Phase 1–3: Distribution and the MOTW Problem</h2>
+        <p>
+          Getting CaseLens onto a law firm's server introduced the first real constraint: Windows
+          blocks DLLs from loading off network share paths. A <code>--onedir</code> PyInstaller
+          build that worked perfectly on a local drive failed immediately when run from a mapped
+          server path, because the runtime couldn't load its own dependencies.
+        </p>
+        <p>
+          The fix was <code>--onefile</code>: a single .exe that self-extracts to <code>%TEMP%</code>
+          on launch. Slower startup, but no path restrictions and no directory to manage. That became
+          permanent packaging discipline — every subsequent build ships as a single, self-contained executable.
+        </p>
+        <p>
+          The Mark of the Web (MOTW) flag is a related nuisance. Files distributed from external sources
+          get tagged by Windows as potentially unsafe, which causes execution warnings and, in some
+          enterprise environments, outright blocks. Stripping MOTW as a build step was added to the
+          standard pipeline before any distribution.
+        </p>
+
+        <h2 class="section-heading">Phases 4–6: The Evidence Processing Suite</h2>
+        <p>
+          Legal discovery isn't just text. Cases increasingly involve video recordings, photographs,
+          screenshots, and other media that need to be reviewed, catalogued, and included in evidence
+          documentation. That's what the Evidence Processing Suite (EPS) addressed.
+        </p>
+        <p>
+          Phase 4 added frame extraction from video evidence using vendored FFmpeg — bundled directly
+          into the executable so there's no separate install required on the target machine. Given a
+          video file, CaseLens extracts frames at a specified interval, names them with timestamps,
+          and writes them to a structured output directory.
+        </p>
+        <p>
+          Phase 5 added OCR via Tesseract, also vendored and bundled. Extracted frames (or any image
+          evidence) can be run through OCR to produce machine-readable text — useful for screenshots
+          of text conversations, document photographs, or any image where the text content matters
+          more than the visual.
+        </p>
+        <p>
+          Phase 6 produced contact sheets: grid-format PDFs of extracted frames with timestamps,
+          designed for efficient attorney review. Instead of opening 200 individual images, a reviewer
+          gets a document that shows the full timeline at a glance and can flag the frames that matter.
+        </p>
+
+        <h2 class="section-heading">Phases 7–9: Chain of Custody and Pipeline Automation</h2>
+        <p>
+          Legal evidence has an integrity requirement that most software doesn't: you need to be able
+          to prove that what you're reviewing is what was originally collected, and that it hasn't
+          been modified.
+        </p>
+        <p>
+          Phase 7 added SHA-256 hash verification for all evidence files. Every file in a case gets
+          a hash computed at intake, stored in the case record, and verified on subsequent loads.
+          Tampering shows up immediately as a hash mismatch.
+        </p>
+        <p>
+          Phase 8 built out the evidence PDF pipeline — packaging extracted frames, OCR output,
+          contact sheets, and metadata into structured PDF evidence packages formatted for legal use.
+        </p>
+        <p>
+          Phase 9 was the automated pipeline button: a single UI control that runs the full
+          evidence processing sequence — extract frames, run OCR, generate contact sheets,
+          compute hashes, produce evidence PDFs — in one operation. What had been a multi-step
+          manual process became one click.
+        </p>
+
+        <h2 class="section-heading">Deployment</h2>
+        <p>
+          CaseLens was deployed to <code>P:\Support Staff\Tools\CaseLens</code> on the Adams Jones
+          server. The initial <code>--onedir</code> build failed (the DLL load issue described above).
+          The repackaged <code>--onefile</code> build — a single <code>CaseLens.exe</code> at ~22MB —
+          validated cleanly and has been in active internal use since deployment.
+        </p>
+        <p>
+          No third-party licensing. No install procedure. One file, copied to the server, available
+          to every machine on the network that can reach that share.
+        </p>
+
+        <h2 class="section-heading">What Nine Phases Actually Means</h2>
+        <p>
+          This didn't get planned as a nine-phase build. It got planned as "build a message browser"
+          and then expanded as the real use case revealed itself in a working environment. Each phase
+          addressed something that only became visible once the previous one was actually being used.
+        </p>
+        <p>
+          That's not scope creep — that's the difference between building for an imagined user and
+          building for a real one. The tool that got deployed is substantially more valuable than
+          the tool that was originally scoped, because the scope was informed by what the real
+          workflow actually required.
+        </p>
+
+        <div class="writeup-footer-nav">
+          <a href="/work" class="btn-ghost">← Back to Work</a>
+          <a href="/tools" class="btn-ghost">View CaseLens on Tools →</a>
+        </div>
+
+      </article>
+    </div>
+  </div>
+</div>
+
+<!-- ── CTA ── -->
+<div class="cta-strip">
+  <div class="cta-glow"></div>
+  <div class="cta-eyebrow">// Have a Problem Worth Solving?</div>
+  <h2 class="cta-headline">Let's Figure<br><em>It Out.</em></h2>
+  <p class="cta-sub">
+    Discovery calls are free and take 30 minutes.
+  </p>
+  <div class="cta-actions">
+    <a href="/contact" class="btn-primary">Start a Conversation</a>
+    <a href="/work" class="btn-ghost">More Write-Ups</a>
+  </div>
+</div>
+
+</Layout>
+
+<style>
+  .page-hero {
+    min-height: 50vh; padding-top: var(--nav-h);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+  .page-hero-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 20%, transparent 100%);
+    pointer-events: none;
+  }
+  .page-hero-glow {
+    position: absolute; top: -10%; right: 5%;
+    width: 700px; height: 500px;
+    background: radial-gradient(ellipse, rgba(232,146,10,0.055) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .page-hero-inner {
+    position: relative; z-index: 2;
+    max-width: 1200px; margin: 0 auto;
+    padding: 80px 48px; width: 100%;
+  }
+  .page-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+  }
+  .page-headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: clamp(64px, 8vw, 100px);
+    line-height: 0.9; text-transform: uppercase; color: var(--text);
+    margin-bottom: 28px;
+  }
+  .page-headline em { font-style: normal; color: var(--accent); display: block; }
+  .page-sub { font-size: 16px; line-height: 1.7; color: var(--muted); max-width: 520px; margin-bottom: 40px; }
+  .page-hero-meta { display: flex; align-items: center; flex-wrap: wrap; }
+  .meta-item {
+    display: flex; align-items: center; gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); padding: 0 20px 0 0;
+  }
+  .meta-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  .meta-divider { width: 1px; height: 12px; background: var(--border2); margin-right: 20px; }
+
+  .writeup-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .writeup-sidebar {
+    position: sticky; top: calc(var(--nav-h) + 32px);
+    display: flex; flex-direction: column; gap: 28px;
+  }
+  .sidebar-block { display: flex; flex-direction: column; gap: 6px; }
+  .sidebar-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted2);
+  }
+  .sidebar-value { font-size: 13px; line-height: 1.5; color: var(--muted); }
+  .sidebar-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent); text-decoration: none; transition: color 0.2s;
+  }
+  .sidebar-link:hover { color: var(--accent2); }
+
+  .writeup-body { padding: 80px 0; max-width: 680px; }
+  .section-heading {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: clamp(22px, 2.5vw, 30px);
+    letter-spacing: 0.02em; text-transform: uppercase;
+    color: var(--text); margin: 48px 0 20px;
+    padding-top: 48px; border-top: 1px solid var(--border);
+  }
+  .writeup-body h2:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
+  .writeup-body p { font-size: 15px; line-height: 1.85; color: var(--muted); margin-bottom: 20px; }
+  .writeup-body code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; color: var(--accent);
+    background: var(--adim); padding: 2px 6px;
+  }
+  .writeup-footer-nav {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    padding-top: 48px; margin-top: 48px;
+    border-top: 1px solid var(--border);
+  }
+
+  .cta-strip { padding: 100px 48px; text-align: center; position: relative; overflow: hidden; background: var(--bg); }
+  .cta-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 800px; height: 400px; background: radial-gradient(ellipse, rgba(232,146,10,0.06) 0%, transparent 60%); pointer-events: none; }
+  .cta-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; position: relative; z-index: 1; }
+  .cta-headline { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(48px, 6vw, 80px); line-height: 0.92; text-transform: uppercase; color: var(--text); margin-bottom: 20px; position: relative; z-index: 1; }
+  .cta-headline em { font-style: normal; color: var(--accent); display: block; }
+  .cta-sub { font-size: 15px; color: var(--muted); margin-bottom: 44px; max-width: 440px; margin-inline: auto; line-height: 1.7; position: relative; z-index: 1; }
+  .cta-actions { display: flex; gap: 16px; justify-content: center; align-items: center; flex-wrap: wrap; position: relative; z-index: 1; }
+
+  @media (max-width: 900px) {
+    .page-hero-inner { padding: 60px 24px; }
+    .writeup-layout { grid-template-columns: 1fr; gap: 0; }
+    .writeup-sidebar { position: static; flex-direction: row; flex-wrap: wrap; gap: 20px; padding: 40px 24px; border-bottom: 1px solid var(--border); }
+    .writeup-body { padding: 48px 24px; }
+    .cta-strip { padding: 80px 24px; }
+    .meta-divider { display: none; }
+    .meta-item { padding: 4px 0; }
+  }
+</style>

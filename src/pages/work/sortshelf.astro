@@ -1,0 +1,300 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Sorting Out Downloads: Building and Shipping a File Organization Utility">
+
+<!-- ── PAGE HERO ── -->
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-glow"></div>
+  <div class="page-hero-inner">
+    <div class="page-eyebrow fade-up d1">// Write-Up · Desktop Tooling</div>
+    <h1 class="page-headline fade-up d2">
+      Sorting Out<br><em>Downloads</em>
+    </h1>
+    <p class="page-sub fade-up d3">
+      Building and shipping a file organization utility — from Tkinter prototype to PyQt6 release.
+    </p>
+    <div class="page-hero-meta fade-up d4">
+      <div class="meta-item"><span class="meta-dot"></span>Python · PyQt6</div>
+      <div class="meta-divider"></div>
+      <div class="meta-item"><span class="meta-dot"></span>5 min read</div>
+      <div class="meta-divider"></div>
+      <div class="meta-item"><span class="meta-dot"></span>Desktop · Packaging</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WRITEUP BODY ── -->
+<div style="border-bottom: 1px solid var(--border);">
+  <div class="section">
+    <div class="writeup-layout">
+
+      <aside class="writeup-sidebar">
+        <div class="sidebar-block">
+          <div class="sidebar-label">// Tool</div>
+          <div class="sidebar-value">SortShelf v0.3</div>
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-label">// Stack</div>
+          <div class="sidebar-value">Python, PyQt6, PyInstaller</div>
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-label">// Distribution</div>
+          <div class="sidebar-value">Direct — Windows executable</div>
+        </div>
+        <div class="sidebar-block">
+          <div class="sidebar-label">// Status</div>
+          <div class="sidebar-value">v0.3.1 Packaged</div>
+        </div>
+        <a href="/tools" class="sidebar-link">View on Tools Page →</a>
+      </aside>
+
+      <article class="writeup-body">
+
+        <h2 class="section-heading">The Problem</h2>
+        <p>
+          The Downloads folder is where order goes to die. Not dramatically — it just quietly accumulates.
+          A PDF from six months ago. A zip file you extracted and forgot to delete. Installers for software
+          you may or may not have actually installed. Three different versions of the same spreadsheet with
+          names like <code>final_FINAL_v3_USE_THIS.xlsx</code>.
+        </p>
+        <p>
+          I'd cleaned mine out manually enough times to know that the problem wasn't discipline — it was that
+          the friction of sorting files by hand was always higher than just leaving them there. I needed
+          something that would do it for me, preview what it was about to do, and let me undo it if it got it wrong.
+        </p>
+
+        <h2 class="section-heading">The First Build (Tkinter)</h2>
+        <p>
+          The initial version was a Tkinter app — fast to build, functional, and immediately annoying to look at.
+          Tkinter gets you to working faster than almost anything else in Python, but the result feels like something
+          assembled from a 2003 parts bin. It did the core job: scan a folder, group files by extension, move them
+          to typed subdirectories.
+        </p>
+        <p>
+          The sorting logic was straightforward: map extension groups (documents, images, spreadsheets, scripts,
+          archives, audio, video, executables, fonts) to target folders, then move anything that matched. The harder
+          part was handling edge cases — what happens when a target folder already exists, when a file has no
+          extension, when the user's pointing it at a directory that contains project files they definitely
+          don't want touched.
+        </p>
+
+        <h2 class="section-heading">The PyQt6 Migration (v0.2 → v0.3)</h2>
+        <p>
+          The jump from Tkinter to PyQt6 was the right call and I delayed it longer than I should have.
+          PyQt6 gives you a real UI framework — native-feeling widgets, proper layouts, signals and slots
+          that make sense, and styling that doesn't require fighting the framework.
+        </p>
+        <p>
+          v0.2 added the features that mattered most in practice: a preview mode that showed you exactly what
+          would move where before anything happened, a one-step undo that reversed the last sort batch, and
+          folder watching via <code>watchdog</code> — so SortShelf could monitor a folder continuously and
+          sort new files as they arrived. That last feature changed how the tool felt to use. It went from
+          "something you run when things get bad" to "something you leave running."
+        </p>
+        <p>
+          v0.3 added a Scripts category and bumped the default font size — a small change that surfaced from
+          actually using the app daily. Real usage feedback beats imagined user stories every time.
+        </p>
+
+        <h2 class="section-heading">Packaging and Distribution</h2>
+        <p>
+          Getting a Python app to run on a Windows machine that doesn't have Python installed is where projects
+          like this go to die if you're not prepared for it. PyInstaller handles most of the work, but "most"
+          leaves a lot of room for issues.
+        </p>
+        <p>
+          The main lessons from packaging SortShelf:
+        </p>
+        <ul class="writeup-list">
+          <li><strong>Hidden imports will find you.</strong> PyQt6 has enough dynamically loaded components
+          that you'll almost certainly hit a "module not found" error at runtime that wasn't visible at build time.</li>
+          <li><strong>Test on a clean machine.</strong> Your dev machine has things installed that the target
+          machine won't. The only honest test is a clean Windows environment with nothing extra on it.</li>
+          <li><strong>Mark of the Web is a real problem.</strong> Files downloaded from the internet get
+          flagged by Windows as potentially unsafe. A PyInstaller bundle downloaded from Gumroad would
+          trigger this by default — stripping the MOTW flag as a build discipline step became standard practice.</li>
+          <li><strong>The single-file build is slower but simpler for the end user.</strong> <code>--onefile</code>
+          produces one .exe that self-extracts to %TEMP% on launch. The startup is slower, but it's one file
+          with no install step and no directory to manage.</li>
+        </ul>
+
+        <h2 class="section-heading">What It Taught Me</h2>
+        <p>
+          The gap between "working on my machine" and "something another person can use without friction"
+          is larger than any single feature. SortShelf was useful to me from v0.1. It took until v0.3 to be
+          something I'd hand to someone else without caveats.
+        </p>
+        <p>
+          That gap is mostly packaging, edge case handling, and the kind of UI polish that only shows up
+          when someone who isn't you tries to use the thing. Every real tool I've built since has gone through
+          a deliberate "hand it to a human" step before I'd call it done.
+        </p>
+
+        <div class="writeup-footer-nav">
+          <a href="/work" class="btn-ghost">← Back to Work</a>
+          <a href="/tools" class="btn-ghost">View SortShelf on Tools →</a>
+        </div>
+
+      </article>
+    </div>
+  </div>
+</div>
+
+<!-- ── CTA ── -->
+<div class="cta-strip">
+  <div class="cta-glow"></div>
+  <div class="cta-eyebrow">// Have a Problem Worth Solving?</div>
+  <h2 class="cta-headline">Let's Figure<br><em>It Out.</em></h2>
+  <p class="cta-sub">
+    Discovery calls are free and take 30 minutes.
+  </p>
+  <div class="cta-actions">
+    <a href="/contact" class="btn-primary">Start a Conversation</a>
+    <a href="/work" class="btn-ghost">More Write-Ups</a>
+  </div>
+</div>
+
+</Layout>
+
+<style>
+  .page-hero {
+    min-height: 50vh; padding-top: var(--nav-h);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+  .page-hero-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 20%, transparent 100%);
+    pointer-events: none;
+  }
+  .page-hero-glow {
+    position: absolute; top: -10%; right: 5%;
+    width: 700px; height: 500px;
+    background: radial-gradient(ellipse, rgba(232,146,10,0.055) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .page-hero-inner {
+    position: relative; z-index: 2;
+    max-width: 1200px; margin: 0 auto;
+    padding: 80px 48px; width: 100%;
+  }
+  .page-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+  }
+  .page-headline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900; font-size: clamp(64px, 8vw, 100px);
+    line-height: 0.9; text-transform: uppercase; color: var(--text);
+    margin-bottom: 28px;
+  }
+  .page-headline em { font-style: normal; color: var(--accent); display: block; }
+  .page-sub { font-size: 16px; line-height: 1.7; color: var(--muted); max-width: 520px; margin-bottom: 40px; }
+  .page-hero-meta { display: flex; align-items: center; flex-wrap: wrap; }
+  .meta-item {
+    display: flex; align-items: center; gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); padding: 0 20px 0 0;
+  }
+  .meta-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  .meta-divider { width: 1px; height: 12px; background: var(--border2); margin-right: 20px; }
+
+  /* Layout */
+  .writeup-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  /* Sidebar */
+  .writeup-sidebar {
+    position: sticky; top: calc(var(--nav-h) + 32px);
+    display: flex; flex-direction: column; gap: 28px;
+  }
+  .sidebar-block { display: flex; flex-direction: column; gap: 6px; }
+  .sidebar-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted2);
+  }
+  .sidebar-value {
+    font-size: 13px; line-height: 1.5; color: var(--muted);
+  }
+  .sidebar-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .sidebar-link:hover { color: var(--accent2); }
+
+  /* Article body */
+  .writeup-body {
+    padding: 80px 0;
+    max-width: 680px;
+  }
+  .section-heading {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: clamp(22px, 2.5vw, 30px);
+    letter-spacing: 0.02em; text-transform: uppercase;
+    color: var(--text); margin: 48px 0 20px;
+    padding-top: 48px; border-top: 1px solid var(--border);
+  }
+  .writeup-body h2:first-of-type { margin-top: 0; padding-top: 0; border-top: none; }
+  .writeup-body p {
+    font-size: 15px; line-height: 1.85; color: var(--muted);
+    margin-bottom: 20px;
+  }
+  .writeup-body code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; color: var(--accent);
+    background: var(--adim); padding: 2px 6px;
+  }
+  .writeup-list {
+    list-style: none; display: flex; flex-direction: column; gap: 14px;
+    margin: 0 0 24px;
+  }
+  .writeup-list li {
+    font-size: 14px; line-height: 1.75; color: var(--muted);
+    padding-left: 20px; position: relative;
+  }
+  .writeup-list li::before {
+    content: '—'; position: absolute; left: 0;
+    color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 10px;
+  }
+  .writeup-list li strong { color: var(--text); font-weight: 500; }
+
+  .writeup-footer-nav {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    padding-top: 48px; margin-top: 48px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* CTA */
+  .cta-strip { padding: 100px 48px; text-align: center; position: relative; overflow: hidden; background: var(--bg); }
+  .cta-glow { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 800px; height: 400px; background: radial-gradient(ellipse, rgba(232,146,10,0.06) 0%, transparent 60%); pointer-events: none; }
+  .cta-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; position: relative; z-index: 1; }
+  .cta-headline { font-family: 'Barlow Condensed', sans-serif; font-weight: 900; font-size: clamp(48px, 6vw, 80px); line-height: 0.92; text-transform: uppercase; color: var(--text); margin-bottom: 20px; position: relative; z-index: 1; }
+  .cta-headline em { font-style: normal; color: var(--accent); display: block; }
+  .cta-sub { font-size: 15px; color: var(--muted); margin-bottom: 44px; max-width: 440px; margin-inline: auto; line-height: 1.7; position: relative; z-index: 1; }
+  .cta-actions { display: flex; gap: 16px; justify-content: center; align-items: center; flex-wrap: wrap; position: relative; z-index: 1; }
+
+  @media (max-width: 900px) {
+    .page-hero-inner { padding: 60px 24px; }
+    .writeup-layout { grid-template-columns: 1fr; gap: 0; }
+    .writeup-sidebar { position: static; flex-direction: row; flex-wrap: wrap; gap: 20px; padding: 40px 24px; border-bottom: 1px solid var(--border); }
+    .writeup-body { padding: 48px 24px; }
+    .cta-strip { padding: 80px 24px; }
+    .meta-divider { display: none; }
+    .meta-item { padding: 4px 0; }
+  }
+</style>
