@@ -6,6 +6,9 @@ export interface Props {
   description?: string;
 }
 const { title, description = 'DataForge delivers data analytics, intelligent systems, and web solutions that give Wichita businesses a measurable edge.' } = Astro.props;
+
+const canonicalPath = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const canonicalURL = new URL(canonicalPath, Astro.site);
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +17,7 @@ const { title, description = 'DataForge delivers data analytics, intelligent sys
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title} | DataForge — Wichita, KS</title>
   <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -34,12 +38,12 @@ const { title, description = 'DataForge delivers data analytics, intelligent sys
   <div class="footer-logo">DATAFORGE</div>
   <div class="footer-copy">© 2026 DataForge · Wichita, KS</div>
   <ul class="footer-links">
-    <li><a href="/services">Services</a></li>
-    <li><a href="/portfolio">Portfolio</a></li>
-    <li><a href="/work">Work</a></li>
-    <li><a href="/tools">Tools</a></li>
-    <li><a href="/about">About</a></li>
-    <li><a href="/contact">Contact</a></li>
+    <li><a href="/services/">Services</a></li>
+    <li><a href="/portfolio/">Portfolio</a></li>
+    <li><a href="/work/">Work</a></li>
+    <li><a href="/tools/">Tools</a></li>
+    <li><a href="/about/">About</a></li>
+    <li><a href="/contact/">Contact</a></li>
   </ul>
 </footer>
 
