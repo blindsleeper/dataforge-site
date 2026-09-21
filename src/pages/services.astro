@@ -202,6 +202,24 @@ const retainers = [
   </div>
 </section>
 
+<!-- ── CHAOS → ORDER ── -->
+<div id="chaos-order" style="border-bottom: 1px solid var(--border);">
+  <div class="section chaos-order-section">
+    <div class="chaos-order-grid">
+      <div class="chaos-order-copy reveal">
+        <div class="chaos-order-eyebrow">// The Problem</div>
+        <h2 class="chaos-order-title">Scattered Data.<br><em>Brought to Order.</em></h2>
+        <p class="chaos-order-desc">
+          Spreadsheets nobody trusts, tools that don't talk to each other, processes that live in
+          one person's head — most small businesses aren't short on data, they're short on structure.
+          That's the gap every engagement here closes.
+        </p>
+      </div>
+      <div class="chaos-box reveal" id="chaos-box" aria-hidden="true"></div>
+    </div>
+  </div>
+</div>
+
 <!-- ── SERVICE PILLARS ── -->
 <div id="pillars" style="border-bottom: 1px solid var(--border);">
   <div class="section">
@@ -434,6 +452,38 @@ const retainers = [
   .meta-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
   .meta-divider { width: 1px; height: 12px; background: var(--border2); margin-right: 20px; }
 
+  /* ── CHAOS → ORDER ── */
+  .chaos-order-section { padding-top: 90px; padding-bottom: 90px; }
+  .chaos-order-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+  }
+  .chaos-order-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+  }
+  .chaos-order-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: clamp(32px, 3.6vw, 46px);
+    line-height: 0.98; letter-spacing: -0.01em; text-transform: uppercase;
+    color: var(--text); margin-bottom: 22px;
+  }
+  .chaos-order-title em { font-style: normal; color: var(--accent); }
+  .chaos-order-desc { font-size: 15px; line-height: 1.75; color: var(--muted); max-width: 440px; }
+  .chaos-box {
+    position: relative; height: 300px;
+    background: var(--bg2); border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  /* :global — these are created via document.createElement in the script
+     below, so they never receive Astro's scoped-style attribute and a
+     normal scoped rule here would silently never match them. */
+  :global(.chaos-dot) {
+    position: absolute; top: 0; left: 0; width: 6px; height: 6px; margin: -3px;
+    background: var(--accent2); border-radius: 50%;
+    transition: transform 1.1s cubic-bezier(0.34,1.2,0.4,1);
+  }
+
   /* ── PILLARS GRID ── */
   .pillars-grid {
     display: grid;
@@ -458,6 +508,26 @@ const retainers = [
   .pillar-card:hover { background: var(--bg3); }
   .pillar-card:hover .service-icon { border-color: var(--adim3); }
 
+  /* Card micro-interaction: top-border draw-in + a divider that grows
+     into a full underline. No hover lift here — these cards share hairline
+     borders edge-to-edge in the grid, and a translateY would open a visible
+     gap against the still-static neighbor. */
+  .pillar-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: var(--accent); transform: scaleX(0); transform-origin: left;
+    transition: transform 0.45s ease;
+  }
+  .pillar-card:hover::before,
+  .pillar-card:focus-within::before { transform: scaleX(1); }
+  .pillar-card:hover .pillar-divider::after,
+  .pillar-card:focus-within .pillar-divider::after { width: 100%; }
+  /* Touch devices can't hover — show the interaction state by default
+     instead of gating it behind an unreachable :hover. */
+  @media (hover: none) {
+    .pillar-card::before { transform: scaleX(1); }
+    .pillar-card .pillar-divider::after { width: 100%; }
+  }
+
   .pillar-top {
     display: flex; justify-content: space-between; align-items: flex-start;
     margin-bottom: 24px;
@@ -480,6 +550,7 @@ const retainers = [
   .pillar-divider::after {
     content: ''; position: absolute; left: 0; top: 0;
     width: 40px; height: 1px; background: var(--accent);
+    transition: width 0.4s ease;
   }
   .pillar-deliverables-label {
     font-family: 'JetBrains Mono', monospace;
@@ -658,6 +729,9 @@ const retainers = [
   /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     .page-hero-inner { padding: 60px 24px; }
+    .chaos-order-grid { grid-template-columns: 1fr; gap: 36px; }
+    .chaos-order-desc { max-width: none; }
+    .chaos-box { height: 220px; }
     .pillars-grid { grid-template-columns: 1fr; }
     .pillar-card,
     .pillar-card:nth-child(4),
@@ -669,3 +743,70 @@ const retainers = [
     .meta-divider { display: none; }
   }
 </style>
+
+<script>
+  // Chaos → Order: a grid of dots seeded at random positions, snapped into
+  // a clean grid the first time the box scrolls into view. One-shot, like
+  // every other .reveal on the site — no replay on re-scroll.
+  (function () {
+    const box = document.getElementById('chaos-box');
+    if (!box) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let dots = [];
+    let ordered = false;
+
+    function build() {
+      box.innerHTML = '';
+      dots = [];
+      const r = box.getBoundingClientRect();
+      // Reduce the dot grid on mobile — 12x6 is dense enough to look busy,
+      // not "ordered," on a narrow box.
+      const mobile = window.innerWidth < 700;
+      const cols = mobile ? 6 : 12;
+      const rows = mobile ? 4 : 6;
+      for (let i = 0; i < cols * rows; i++) {
+        const d = document.createElement('div');
+        d.className = 'chaos-dot';
+        const col = i % cols;
+        const row = Math.floor(i / cols);
+        const ox = (col + 0.5) * (r.width / cols);
+        const oy = (row + 0.5) * (r.height / rows);
+        d.dataset.ox = String(ox);
+        d.dataset.oy = String(oy);
+        d.style.transitionDelay = Math.random() * 0.3 + 's';
+        const cx = Math.random() * r.width;
+        const cy = Math.random() * r.height;
+        d.style.transform = `translate(${(reduceMotion || ordered) ? ox : cx}px,${(reduceMotion || ordered) ? oy : cy}px)`;
+        box.appendChild(d);
+        dots.push(d);
+      }
+    }
+
+    function toOrder() {
+      ordered = true;
+      dots.forEach((d) => {
+        d.style.transform = `translate(${d.dataset.ox}px,${d.dataset.oy}px)`;
+      });
+    }
+
+    build();
+    window.addEventListener('resize', build);
+
+    if (reduceMotion) return; // dots are already seeded directly into the ordered grid
+
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            toOrder();
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      io.observe(box);
+    } else {
+      toOrder();
+    }
+  })();
+</script>

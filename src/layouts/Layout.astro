@@ -78,10 +78,10 @@ const localBusinessSchema = {
 
 <footer>
   <div class="footer-brand">
-    <svg class="footer-mono reveal" viewBox="0 0 240 160" aria-hidden="true">
-      <circle class="mono-ring" cx="120" cy="82" r="68" />
-      <path class="mono-d" pathLength="1" d="M50,30 L50,130 L85,130 C107,130 118,108 118,80 C118,52 107,30 85,30 Z" />
-      <path class="mono-f" pathLength="1" d="M150,30 L150,130 M150,30 L200,30 M150,84 L190,84" />
+    <svg class="footer-mono" viewBox="0 0 260 160" aria-hidden="true">
+      <circle class="mono-ring" cx="130" cy="80" r="72" />
+      <path class="mono-d" pathLength="1" d="M30,140 L30,20 C85,20 110,45 110,80 C110,115 85,140 30,140 Z" />
+      <path class="mono-f" pathLength="1" d="M140,20 L140,140 M140,20 L210,20 M140,85 L195,85" />
     </svg>
     <div class="footer-logo">DATAFORGE</div>
   </div>
@@ -112,6 +112,29 @@ const localBusinessSchema = {
     document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
   } else {
     document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-visible'));
+  }
+
+  // Footer monogram: same draw-in trigger, but its own observer. It sits
+  // at the very bottom of the document, so the shared observer's
+  // rootMargin (which shrinks the bottom edge by 10% of viewport height,
+  // tuned for content with room to scroll further) can never be satisfied
+  // once the page is scrolled to its max — there's nothing left below to
+  // scroll past. threshold: 0 / rootMargin: '0px' just needs a pixel in view.
+  const footerMono = document.querySelector('.footer-mono');
+  if (footerMono) {
+    if ('IntersectionObserver' in window) {
+      const monoObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            monoObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0, rootMargin: '0px' });
+      monoObserver.observe(footerMono);
+    } else {
+      footerMono.classList.add('is-visible');
+    }
   }
 </script>
 

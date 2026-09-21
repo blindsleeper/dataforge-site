@@ -124,6 +124,16 @@ body {
 .tag { padding: 4px 10px; background: var(--bg4); border: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: var(--muted); }
 .service-arrow { font-size: 18px; color: var(--muted2); transition: transform 0.2s, color 0.2s; display: inline-block; }
 
+/* ── SPARKLINE TEXTURE STRIP ── */
+/* See SparklinePattern.astro. currentColor is set here (not inline) since
+   SVG presentation attributes can't read a CSS custom property directly. */
+.sparkline-defs { position: absolute; color: var(--accent); }
+.sparkline-strip { position: absolute; inset: 0; width: 100%; height: 100%; }
+.sparkline-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(90deg, var(--bg) 10%, rgba(7,7,7,0.35) 60%, rgba(7,7,7,0.75));
+}
+
 /* ── SECTION DIVIDERS (line-art) ── */
 /* Alternative to .section-rule where a page benefits from a little
    visual variety — assigned per page (see Divider.astro usage), not
@@ -140,11 +150,11 @@ footer {
   display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;
 }
 .footer-brand { display: flex; align-items: center; gap: 12px; }
-.footer-mono { width: 34px; height: 23px; overflow: visible; flex-shrink: 0; }
-.footer-mono .mono-ring { fill: none; stroke: var(--border2); stroke-width: 1; opacity: 0; transition: opacity 1s ease; }
+.footer-mono { width: 37px; height: 23px; overflow: visible; flex-shrink: 0; }
+.footer-mono .mono-ring { fill: none; stroke: var(--border); stroke-width: 1; opacity: 0; transition: opacity 1s ease; }
 .footer-mono.is-visible .mono-ring { opacity: 1; }
 .footer-mono .mono-d, .footer-mono .mono-f {
-  fill: none; stroke: var(--accent2); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;
+  fill: none; stroke: var(--accent); stroke-width: 28; stroke-linecap: square; stroke-linejoin: round;
   stroke-dasharray: 1; stroke-dashoffset: 1;
 }
 .footer-mono.is-visible .mono-d { animation: mono-draw 1.3s cubic-bezier(0.4,0,0.2,1) forwards; }

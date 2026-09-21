@@ -1,12 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Divider from '../components/Divider.astro';
+import SparklinePattern from '../components/SparklinePattern.astro';
 ---
 
 <Layout title="Tools" description="Explore SortShelf, IT Logger, CaseLens, and the Evidence Processing Suite — four tools DataForge built to solve real file, ticketing, and legal-discovery problems.">
 
 <!-- ── INTRO BLOCK (accounts for fixed nav) ── -->
 <div class="tools-intro-block">
+  <SparklinePattern id="tools-sparkline" />
   <div class="tools-intro-inner">
     <div class="section-header fade-up d1">
       <span class="section-num">04</span>
@@ -31,6 +33,7 @@ import Divider from '../components/Divider.astro';
           <div class="ss-eyebrow">// File Organization Utility</div>
           <h2 class="ss-name">SORTSHELF</h2>
           <div class="ss-subtitle">FILE ORGANIZATION UTILITY · WINDOWS · v0.3</div>
+          <div class="ss-underline"></div>
         </div>
         <span class="status-live">
           <span class="status-dot"></span>Live
@@ -119,6 +122,7 @@ import Divider from '../components/Divider.astro';
           <div class="ss-eyebrow">// Internal Tooling</div>
           <h2 class="ss-name">IT LOGGER</h2>
           <div class="ss-subtitle">INTERNAL TICKET TRACKER · PYTHON · FLASK · SQLITE</div>
+          <div class="ss-underline"></div>
         </div>
         <span class="status-live">
           <span class="status-dot"></span>Live
@@ -172,6 +176,7 @@ import Divider from '../components/Divider.astro';
           <div class="ss-eyebrow">// Legal Tech</div>
           <h2 class="ss-name">CASELENS</h2>
           <div class="ss-subtitle">DOCUMENT REVIEW DESKTOP APP · WINDOWS</div>
+          <div class="ss-underline"></div>
         </div>
         <span class="status-dev">
           <span class="status-dot-dev"></span>Internal Deployment
@@ -225,6 +230,7 @@ import Divider from '../components/Divider.astro';
           <div class="ss-eyebrow">// Legal Tech · Evidence &amp; Media Processing</div>
           <h2 class="ss-name">EPS</h2>
           <div class="ss-subtitle">EVIDENCE PROCESSING SUITE · WINDOWS</div>
+          <div class="ss-underline"></div>
         </div>
         <span class="status-dev">
           <span class="status-dot-dev"></span>Internal Deployment
@@ -296,8 +302,12 @@ import Divider from '../components/Divider.astro';
   background: var(--bg);
   border-bottom: 1px solid var(--border);
   padding-top: var(--nav-h);
+  position: relative;
+  overflow: hidden;
 }
 .tools-intro-inner {
+  position: relative;
+  z-index: 2;
   max-width: 1200px;
   margin: 0 auto;
   padding: 72px 48px 72px;
@@ -314,6 +324,12 @@ import Divider from '../components/Divider.astro';
   background: var(--bg3);
   border: 1px solid var(--border2);
   position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.ss-card:hover,
+.ss-card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 34px rgba(0,0,0,0.4);
 }
 .ss-accent-bar {
   position: absolute; top: 0; left: 0; right: 0;
@@ -340,6 +356,16 @@ import Divider from '../components/Divider.astro';
   font-family: 'JetBrains Mono', monospace;
   font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
   color: var(--accent);
+}
+.ss-underline {
+  height: 2px; background: var(--accent); width: 0; margin-top: 12px;
+  transition: width 0.4s ease;
+}
+.ss-card:hover .ss-underline,
+.ss-card:focus-within .ss-underline { width: 60%; }
+/* Touch devices can't hover — show the interaction state by default. */
+@media (hover: none) {
+  .ss-underline { width: 60%; }
 }
 
 .ss-card-body {

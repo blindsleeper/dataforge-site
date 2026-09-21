@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Divider from '../components/Divider.astro';
+import SparklinePattern from '../components/SparklinePattern.astro';
 
 const featured = {
   client:   'Adams Jones Law Firm',
@@ -49,7 +50,7 @@ const placeholders = [
 
 <!-- ── PAGE HERO ── -->
 <section class="page-hero">
-  <div class="page-hero-grid"></div>
+  <SparklinePattern id="portfolio-sparkline" />
   <div class="page-hero-glow"></div>
   <div class="page-hero-inner">
     <div class="page-eyebrow fade-up d1">// Portfolio</div>
@@ -299,15 +300,6 @@ const placeholders = [
     display: flex; align-items: center;
     position: relative; overflow: hidden;
     border-bottom: 1px solid var(--border);
-  }
-  .page-hero-grid {
-    position: absolute; inset: 0;
-    background-image:
-      linear-gradient(var(--border) 1px, transparent 1px),
-      linear-gradient(90deg, var(--border) 1px, transparent 1px);
-    background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 20%, transparent 100%);
-    pointer-events: none;
   }
   .page-hero-glow {
     position: absolute; top: -10%; right: 5%;
