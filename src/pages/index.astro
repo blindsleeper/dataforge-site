@@ -37,13 +37,13 @@ import Layout from '../layouts/Layout.astro';
 <!-- SERVICES -->
 <div id="services" style="border-bottom: 1px solid var(--border);">
   <div class="section">
-    <div class="section-header">
+    <div class="section-header reveal">
       <span class="section-num">01</span>
       <h2 class="section-title">What I<br><em>Build</em></h2>
     </div>
     <div class="section-rule"></div>
     <div class="services-grid services-grid--2col">
-      <div class="service-card">
+      <div class="service-card reveal">
         <div class="service-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
         </div>
@@ -53,7 +53,7 @@ import Layout from '../layouts/Layout.astro';
         <div class="service-tags"><span class="tag">Webflow</span><span class="tag">Custom Dev</span><span class="tag">CMS</span><span class="tag">Performance</span></div>
         <span class="service-arrow">↗</span>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal">
         <div class="service-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="1"/><path d="M8 21h8M12 17v4"/></svg>
         </div>
@@ -63,7 +63,7 @@ import Layout from '../layouts/Layout.astro';
         <div class="service-tags"><span class="tag">Automation</span><span class="tag">Integrations</span><span class="tag">Custom Tools</span><span class="tag">AI Workflows</span></div>
         <span class="service-arrow">↗</span>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal">
         <div class="service-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18M7 16l4-4 4 4 4-8"/></svg>
         </div>
@@ -73,7 +73,7 @@ import Layout from '../layouts/Layout.astro';
         <div class="service-tags"><span class="tag">Dashboards</span><span class="tag">SQL</span><span class="tag">Reporting</span><span class="tag">KPI Tracking</span></div>
         <span class="service-arrow">↗</span>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal">
         <div class="service-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a7 7 0 0 1 7 7c0 3.5-2 6-5 7v2H10v-2c-3-1-5-3.5-5-7a7 7 0 0 1 7-7z"/><path d="M9 17v2a3 3 0 0 0 6 0v-2"/><path d="M9.5 9.5a2.5 2.5 0 0 1 5 0c0 1.5-1 2.5-2.5 3v1"/></svg>
         </div>
@@ -93,27 +93,27 @@ import Layout from '../layouts/Layout.astro';
 <!-- SELECTED WORK -->
 <div style="background:var(--bg2);border-bottom: 1px solid var(--border);">
   <div class="section">
-    <div class="section-header">
+    <div class="section-header reveal">
       <span class="section-num">02</span>
       <h2 class="section-title">Selected<br><em>Work</em></h2>
     </div>
     <div class="section-rule"></div>
     <div class="services-grid">
-      <div class="service-card">
+      <div class="service-card reveal">
         <span class="service-num">01</span>
         <div class="service-name">Adams Jones Law Firm</div>
         <div class="service-desc">Webflow Redesign &amp; CMS Buildout for a Wichita law firm — a full site rebuild with a structured CMS, a mobile-first layout, and zero developer dependency going forward.</div>
         <div class="service-tags"><span class="tag">Webflow</span><span class="tag">CMS</span><span class="tag">Web Design</span></div>
         <a href="/portfolio/" class="service-arrow" style="text-decoration:none;" aria-label="View the Adams Jones project on Portfolio">↗</a>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal">
         <span class="service-num">02</span>
         <div class="service-name">When Nobody Owns IT</div>
         <div class="service-desc">Building a Triage System for a Professional Office — replacing an informal "mention it to whoever's nearby" process with a lightweight triage system that actually stuck. 6 min read.</div>
         <div class="service-tags"><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">SQLite</span></div>
         <a href="/work/it-triage/" class="service-arrow" style="text-decoration:none;" aria-label="Read the IT triage write-up">↗</a>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal">
         <span class="service-num">03</span>
         <div class="service-name">The 30-Day Window</div>
         <div class="service-desc">Why Offboarding Is Where Security Actually Breaks — building a one-page audit framework that catches what informal processes consistently miss. 5 min read.</div>
@@ -130,27 +130,27 @@ import Layout from '../layouts/Layout.astro';
 <!-- TOOLS I'VE BUILT -->
 <div style="border-bottom: 1px solid var(--border);">
   <div class="section">
-    <div class="section-header">
+    <div class="section-header reveal">
       <span class="section-num">03</span>
       <h2 class="section-title">Tools I've<br><em>Built</em></h2>
     </div>
     <div class="section-rule"></div>
     <div class="services-grid">
-      <div class="service-card">
+      <div class="service-card reveal">
         <span class="service-num">01</span>
         <div class="service-name">SortShelf</div>
         <div class="service-desc">A Windows utility that scans a folder, categorizes files by type, previews every move before anything happens, then sorts with one click. Safe by default, with one-step undo.</div>
         <div class="service-tags"><span class="tag">Python</span><span class="tag">PyQt6</span><span class="tag">Desktop</span></div>
         <a href="/tools/" class="service-arrow" style="text-decoration:none;" aria-label="View SortShelf on Tools">↗</a>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal">
         <span class="service-num">02</span>
         <div class="service-name">IT Logger</div>
         <div class="service-desc">A lightweight internal ticketing system for environments that won't adopt enterprise helpdesk software. Logs issues, tracks status, and runs locally with zero external dependencies.</div>
         <div class="service-tags"><span class="tag">Flask</span><span class="tag">SQLite</span><span class="tag">Internal</span></div>
         <a href="/tools/" class="service-arrow" style="text-decoration:none;" aria-label="View IT Logger on Tools">↗</a>
       </div>
-      <div class="service-card">
+      <div class="service-card reveal">
         <span class="service-num">03</span>
         <div class="service-name">CaseLens</div>
         <div class="service-desc">A desktop tool for reviewing exported case data for legal discovery — browse, search, and filter messages, then export findings to CSV without touching the source data.</div>
@@ -167,33 +167,33 @@ import Layout from '../layouts/Layout.astro';
 <!-- HOW I WORK -->
 <div style="background:var(--bg2);border-bottom: 1px solid var(--border);">
   <div class="section">
-    <div class="section-header">
+    <div class="section-header reveal">
       <span class="section-num">04</span>
       <h2 class="section-title">How I<br><em>Work</em></h2>
     </div>
     <div class="section-rule"></div>
     <div class="services-grid">
-      <div class="service-card">
+      <div class="service-card service-card--compact reveal">
         <span class="service-num">01</span>
         <div class="service-desc">You send the form or email directly.</div>
       </div>
-      <div class="service-card">
+      <div class="service-card service-card--compact reveal">
         <span class="service-num">02</span>
         <div class="service-desc">I reply within 24 hours with a few targeted questions.</div>
       </div>
-      <div class="service-card">
+      <div class="service-card service-card--compact reveal">
         <span class="service-num">03</span>
         <div class="service-desc">A 30-minute call to assess fit and clarify what I'd need to see.</div>
       </div>
-      <div class="service-card">
+      <div class="service-card service-card--compact reveal">
         <span class="service-num">04</span>
         <div class="service-desc">I review your materials, data, or process documentation.</div>
       </div>
-      <div class="service-card">
+      <div class="service-card service-card--compact reveal">
         <span class="service-num">05</span>
         <div class="service-desc">You receive a written proposal with scope, timeline, and fixed price.</div>
       </div>
-      <div class="service-card">
+      <div class="service-card service-card--compact reveal">
         <span class="service-num">06</span>
         <div class="service-desc">We align on scope, sign off on the proposal, and the work begins — defined timeline, clear deliverables, no surprises.</div>
       </div>
@@ -239,6 +239,25 @@ import Layout from '../layouts/Layout.astro';
   .hero-sub strong { color: var(--text); font-weight: 500; }
   .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
   .services-grid--2col { grid-template-columns: repeat(2, 1fr); }
+
+  /* "How I Work" steps only carry a number + one line of copy, not a
+     name/tags/arrow — the default .service-card padding was sized for
+     the fuller content, so short text sat stranded in a tall box. */
+  .service-card--compact {
+    padding: 28px 32px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .service-card--compact .service-num {
+    position: static;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .service-card--compact .service-desc {
+    margin-bottom: 0;
+  }
+
   @media (max-width: 900px) {
     .hero-inner { padding: 40px 24px; }
     .services-grid--2col { grid-template-columns: 1fr; }
