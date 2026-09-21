@@ -1,6 +1,37 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+/*
+  PHOTOGRAPHY PLACEMENT PROPOSAL (Phase 3 — for Brian to decide, not
+  implemented anywhere below except the headshot slot on this page)
+
+  This site currently has zero real photography — the only <img> on the
+  whole site is an empty lightbox shell in tools.astro, populated by JS
+  on click. Below are the spots that seem like the best candidates for
+  real photos later, without making the site feel busier. None of these
+  are built — just flagged for a future decision.
+
+  1. Portfolio — Featured Project (portfolio.astro, "Adams Jones Law
+     Firm"). The browser-frame mockup there is an abstract CSS drawing
+     (fake nav bar, placeholder line blocks) standing in for the real,
+     live site at adamsjones.com. Swapping it for an actual screenshot
+     inside that same frame is close to zero new layout work — the slot
+     already exists — and turns an illustration into real proof of work.
+
+  2. Tools — SortShelf gallery (tools.astro, .ss-gallery). This one is
+     the most shovel-ready of all three: the BEFORE / SORT PREVIEW /
+     AFTER panels, the click-to-zoom lightbox, and the "Screenshot
+     coming" placeholder copy are already built and wired up in JS.
+     It's just waiting for the actual screenshots to be dropped in.
+
+  3. Tools — IT Logger / CaseLens / EPS cards (tools.astro). Unlike
+     SortShelf, these three tool cards are text-only right now — no
+     visual at all. Extending SortShelf's same panel pattern to each
+     (one representative screenshot per tool, not a full gallery) would
+     balance the page and give each tool the same credibility bump,
+     without introducing a new visual treatment.
+*/
+
 const stack = [
   { name: 'Python',      role: 'Data pipelines, automation & scripting'  },
   { name: 'SQL',         role: 'Analytics, reporting & data modeling'    },
@@ -60,6 +91,17 @@ const steps = [
 
       <!-- Left: about copy -->
       <div class="identity-copy reveal">
+        <!--
+          PLACEHOLDER — Brian's headshot goes here.
+          Add the real file to /public/images/about-headshot.jpg (or .webp),
+          ideally a 4:5 portrait crop at 480×600px or larger, then replace
+          this .headshot-slot div with:
+            <img class="headshot" src="/images/about-headshot.jpg" alt="Brian, founder of DataForge" />
+          Keep it modest — this is a byline photo, not a hero image.
+        -->
+        <div class="headshot-slot" aria-hidden="true">
+          <span class="headshot-slot-label">[ HEADSHOT<br>add about-headshot.jpg<br>to /images/ ]</span>
+        </div>
         <p class="identity-para">
           DataForge is a boutique data and systems consultancy based in Wichita, Kansas —
           built on a straightforward premise: most operational problems aren't unsolvable,
@@ -229,6 +271,31 @@ const steps = [
     margin-bottom: 22px;
   }
   .identity-para:last-of-type { margin-bottom: 40px; }
+
+  /* ── HEADSHOT (placeholder — see comment above the markup) ── */
+  .headshot-slot {
+    width: 160px;
+    aspect-ratio: 4 / 5;
+    border: 1px dashed var(--border2);
+    background: var(--bg3);
+    display: flex; align-items: center; justify-content: center;
+    padding: 16px;
+    margin-bottom: 32px;
+  }
+  .headshot-slot-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--muted2); text-align: center; line-height: 1.6;
+  }
+  /* For when the real file replaces .headshot-slot with an <img class="headshot">: */
+  .headshot {
+    width: 160px;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border: 1px solid var(--border2);
+    margin-bottom: 32px;
+    display: block;
+  }
 
   .identity-stat-row {
     display: flex; align-items: center; gap: 0;
