@@ -518,7 +518,9 @@ const retainers = [
 
   .pricing-card {
     background: var(--bg3);
-    padding: 44px 36px;
+    /* Matches .pillar-card's 40px/36px card rhythm above — was 44px top
+       with no functional reason to differ. */
+    padding: 40px 36px;
     position: relative;
     display: flex; flex-direction: column;
     overflow: hidden;
