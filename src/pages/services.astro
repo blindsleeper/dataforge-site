@@ -133,6 +133,45 @@ const tiers = [
     featured: false,
   },
 ];
+
+const retainers = [
+  {
+    id: 'care',
+    label: 'Care',
+    badge: 'Managed — Monthly',
+    price: '$250',
+    cadence: 'month',
+    tagline: 'Keep it running, updated, and secure.',
+    best: "Sites or systems I've already built that just need to stay healthy",
+    features: [
+      'Content updates & copy edits (text, images, small page changes)',
+      'Uptime & security monitoring',
+      'Software/dependency updates',
+      "Monthly check-in email confirming everything's healthy",
+      'Includes 2 hrs/month; overage billed at $125/hr',
+    ],
+    tags: ['Content Updates', 'Security Monitoring', 'Dependency Updates'],
+    cta: 'Start a Conversation',
+  },
+  {
+    id: 'priority-care',
+    label: 'Priority Care',
+    badge: 'Managed — Monthly',
+    price: '$750',
+    cadence: 'month',
+    tagline: 'Faster response, more room to build.',
+    best: 'Active sites or systems that need frequent changes or fast turnaround',
+    features: [
+      'Everything in Care, plus:',
+      'Small feature additions & integration tweaks',
+      'Priority response (next business day)',
+      'Quarterly performance/strategy check-in call',
+      'Includes 6 hrs/month; overage billed at $125/hr',
+    ],
+    tags: ['Priority Response', 'Feature Adds', 'Strategy Calls'],
+    cta: 'Book a Discovery Call',
+  },
+];
 ---
 
 <Layout title="Services" description="DataForge offers data analytics, systems automation, process streamlining, AI-augmented workflows, and web/CMS development — priced by project or monthly retainer.">
@@ -250,6 +289,64 @@ const tiers = [
     <p class="pricing-note">
       All projects include a scoping call, written proposal, and clear milestone structure.
       No surprise overages — scope changes are agreed in writing before work begins.
+    </p>
+  </div>
+</div>
+
+<!-- ── MANAGED SERVICES ── -->
+<div id="managed-services" style="border-bottom: 1px solid var(--border);">
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Managed<br><em>Services</em></h2>
+    </div>
+    <div class="section-rule"></div>
+
+    <p class="pricing-intro">
+      For sites and systems I've already built, I also offer two ongoing care plans — recurring
+      upkeep, not project work. No scoping call, no new build: just a standing arrangement to
+      keep things running.
+    </p>
+
+    <div class="pricing-grid pricing-grid--retainer">
+      {retainers.map((r) => (
+        <div class="pricing-card pricing-card--retainer">
+          <div class="pricing-featured-bar pricing-featured-bar--retainer"></div>
+          <div class="pricing-badge">{r.badge}</div>
+          <div class="pricing-label">{r.label}</div>
+          <div class="pricing-price">
+            {r.price}
+            <span class="pricing-cadence">/{r.cadence}</span>
+          </div>
+          <div class="pricing-tagline">{r.tagline}</div>
+          <div class="pricing-best-for">
+            <span class="pricing-best-label">Best for</span>
+            <span>{r.best}</span>
+          </div>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-features">
+            {r.features.map((f) => (
+              <li>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+          <div class="pricing-examples">
+            {r.tags.map((tg) => (
+              <span class="tag">{tg}</span>
+            ))}
+          </div>
+          <a href="/contact/" class="btn-ghost pricing-cta">{r.cta}</a>
+        </div>
+      ))}
+    </div>
+
+    <p class="pricing-note">
+      Care plans are for sites or systems already in place — mine or otherwise, after a quick review.
+      Unused hours don't roll over, and I always confirm overage before any extra work starts.
     </p>
   </div>
 </div>
@@ -506,6 +603,16 @@ const tiers = [
     border-top: 1px solid var(--border); padding-top: 28px;
   }
 
+  /* ── MANAGED SERVICES (RETAINER) ── */
+  .pricing-grid--retainer {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 820px;
+    margin: 0 auto 40px;
+  }
+  .pricing-featured-bar--retainer {
+    background: var(--accent3);
+  }
+
   /* ── CTA STRIP ── */
   .cta-strip {
     padding: 100px 48px;
@@ -553,6 +660,7 @@ const tiers = [
     .pillar-card:nth-child(4),
     .pillar-card:nth-child(5) { grid-column: span 1; }
     .pricing-grid { grid-template-columns: 1fr; }
+    .pricing-grid--retainer { grid-template-columns: 1fr; max-width: none; }
     .cta-strip { padding: 80px 24px; }
     .meta-item { padding: 4px 0; }
     .meta-divider { display: none; }
