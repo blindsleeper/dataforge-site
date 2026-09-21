@@ -235,7 +235,9 @@ const steps = [
     border: 1px solid var(--border);
   }
   .identity-stat {
-    padding: 20px 28px; flex: 1;
+    /* Matches the stat-tile padding used for outcome stats in the
+       work/* write-ups (24px/28px), rather than a one-off value. */
+    padding: 24px 28px; flex: 1;
   }
   .identity-stat-val {
     font-family: 'Barlow Condensed', sans-serif;
@@ -268,6 +270,8 @@ const steps = [
   .stack-item {
     background: var(--bg3);
     display: flex; align-items: center; gap: 16px;
+    /* Slightly tighter than .detail-card's 20px/24px row padding —
+       intentional, this list runs 5 rows deep vs. detail-card's 3. */
     padding: 18px 20px;
     transition: background 0.2s;
     cursor: default;
