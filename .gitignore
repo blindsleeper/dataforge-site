@@ -18,3 +18,4 @@ Thumbs.db
 backup codes/
 *.txt
 !README.txt
+!public/robots.txt
