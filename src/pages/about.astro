@@ -1,6 +1,37 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+/*
+  PHOTOGRAPHY PLACEMENT PROPOSAL (Phase 3 — for Brian to decide, not
+  implemented anywhere below except the headshot slot on this page)
+
+  This site currently has zero real photography — the only <img> on the
+  whole site is an empty lightbox shell in tools.astro, populated by JS
+  on click. Below are the spots that seem like the best candidates for
+  real photos later, without making the site feel busier. None of these
+  are built — just flagged for a future decision.
+
+  1. Portfolio — Featured Project (portfolio.astro, "Adams Jones Law
+     Firm"). The browser-frame mockup there is an abstract CSS drawing
+     (fake nav bar, placeholder line blocks) standing in for the real,
+     live site at adamsjones.com. Swapping it for an actual screenshot
+     inside that same frame is close to zero new layout work — the slot
+     already exists — and turns an illustration into real proof of work.
+
+  2. Tools — SortShelf gallery (tools.astro, .ss-gallery). This one is
+     the most shovel-ready of all three: the BEFORE / SORT PREVIEW /
+     AFTER panels, the click-to-zoom lightbox, and the "Screenshot
+     coming" placeholder copy are already built and wired up in JS.
+     It's just waiting for the actual screenshots to be dropped in.
+
+  3. Tools — IT Logger / CaseLens / EPS cards (tools.astro). Unlike
+     SortShelf, these three tool cards are text-only right now — no
+     visual at all. Extending SortShelf's same panel pattern to each
+     (one representative screenshot per tool, not a full gallery) would
+     balance the page and give each tool the same credibility bump,
+     without introducing a new visual treatment.
+*/
+
 const stack = [
   { name: 'Python',      role: 'Data pipelines, automation & scripting'  },
   { name: 'SQL',         role: 'Analytics, reporting & data modeling'    },
@@ -50,7 +81,7 @@ const steps = [
 <!-- ── IDENTITY ── -->
 <div style="border-bottom: 1px solid var(--border);">
   <div class="section">
-    <div class="section-header">
+    <div class="section-header reveal">
       <span class="section-num">01</span>
       <h2 class="section-title">Who I<br><em>Am</em></h2>
     </div>
@@ -59,7 +90,8 @@ const steps = [
     <div class="identity-body">
 
       <!-- Left: about copy -->
-      <div class="identity-copy">
+      <div class="identity-copy reveal">
+        <img class="headshot" src="/images/about-headshot.jpg" alt="Brian, founder of DataForge" />
         <p class="identity-para">
           DataForge is a boutique data and systems consultancy based in Wichita, Kansas —
           built on a straightforward premise: most operational problems aren't unsolvable,
@@ -107,7 +139,7 @@ const steps = [
       </div>
 
       <!-- Right: tech stack -->
-      <div class="stack-block">
+      <div class="stack-block reveal">
         <div class="stack-label">// Tech Stack</div>
         <div class="stack-list">
           {stack.map((item, i) => (
@@ -132,7 +164,7 @@ const steps = [
 <!-- ── HOW I WORK ── -->
 <div style="background: var(--bg2); border-bottom: 1px solid var(--border);">
   <div class="section">
-    <div class="section-header">
+    <div class="section-header reveal">
       <span class="section-num">02</span>
       <h2 class="section-title">How I<br><em>Work</em></h2>
     </div>
@@ -140,7 +172,7 @@ const steps = [
 
     <div class="process-track">
       {steps.map((step, i) => (
-        <div class="process-step">
+        <div class="process-step reveal">
           <div class="process-step-inner">
             <div class="process-num-row">
               <span class="process-num">{step.num}</span>
@@ -230,12 +262,24 @@ const steps = [
   }
   .identity-para:last-of-type { margin-bottom: 40px; }
 
+  /* ── HEADSHOT ── */
+  .headshot {
+    width: 160px;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border: 1px solid var(--border2);
+    margin-bottom: 32px;
+    display: block;
+  }
+
   .identity-stat-row {
     display: flex; align-items: center; gap: 0;
     border: 1px solid var(--border);
   }
   .identity-stat {
-    padding: 20px 28px; flex: 1;
+    /* Matches the stat-tile padding used for outcome stats in the
+       work/* write-ups (24px/28px), rather than a one-off value. */
+    padding: 24px 28px; flex: 1;
   }
   .identity-stat-val {
     font-family: 'Barlow Condensed', sans-serif;
@@ -268,8 +312,10 @@ const steps = [
   .stack-item {
     background: var(--bg3);
     display: flex; align-items: center; gap: 16px;
+    /* Slightly tighter than .detail-card's 20px/24px row padding —
+       intentional, this list runs 5 rows deep vs. detail-card's 3. */
     padding: 18px 20px;
-    transition: background 0.25s;
+    transition: background 0.2s;
     cursor: default;
   }
   .stack-item:hover { background: var(--bg4); }

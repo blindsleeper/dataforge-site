@@ -4,17 +4,17 @@ import Layout from '../layouts/Layout.astro';
 const pillars = [
   {
     num: '01',
-    name: 'Data Analytics',
-    desc: 'Transform scattered business data into dashboards and live reporting pipelines that drive real decisions — not just presentations.',
+    name: 'Web & CMS',
+    desc: 'Professional websites and content platforms built for performance, clarity, and conversion. Hand-coded or Webflow — built to last and grow.',
     deliverables: [
-      'Custom KPI dashboards',
-      'SQL query design & optimization',
-      'Automated reporting pipelines',
-      'Data cleaning & normalization',
-      'Business intelligence setup',
-      'Excel / Sheets automation',
+      'Custom site design & development',
+      'Webflow builds & migrations',
+      'CMS setup, structure & training',
+      'SEO foundations & metadata',
+      'Performance & Core Web Vitals',
+      'Landing pages & microsites',
     ],
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18M7 16l4-4 4 4 4-8"/></svg>`,
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="16" rx="1"/><path d="M8 21h8M12 19v2"/><path d="M7 8l3 2-3 2M13 12h4"/></svg>`,
   },
   {
     num: '02',
@@ -46,6 +46,20 @@ const pillars = [
   },
   {
     num: '04',
+    name: 'Data Analytics',
+    desc: 'Transform scattered business data into dashboards and live reporting pipelines that drive real decisions — not just presentations.',
+    deliverables: [
+      'Custom KPI dashboards',
+      'SQL query design & optimization',
+      'Automated reporting pipelines',
+      'Data cleaning & normalization',
+      'Business intelligence setup',
+      'Excel / Sheets automation',
+    ],
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18M7 16l4-4 4 4 4-8"/></svg>`,
+  },
+  {
+    num: '05',
     name: 'AI-Augmented Workflows',
     desc: 'Embed large language models and AI tooling into your existing processes — document analysis, content generation, and intelligent decision support.',
     deliverables: [
@@ -57,20 +71,6 @@ const pillars = [
       'Custom chatbots & assistants',
     ],
     icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a7 7 0 0 1 7 7c0 3.5-2 6-5 7v2H10v-2c-3-1-5-3.5-5-7a7 7 0 0 1 7-7z"/><path d="M9 17v2a3 3 0 0 0 6 0v-2"/><path d="M9.5 9.5a2.5 2.5 0 0 1 5 0c0 1.5-1 2.5-2.5 3v1"/></svg>`,
-  },
-  {
-    num: '05',
-    name: 'Web & CMS',
-    desc: 'Professional websites and content platforms built for performance, clarity, and conversion. Hand-coded or Webflow — built to last and grow.',
-    deliverables: [
-      'Custom site design & development',
-      'Webflow builds & migrations',
-      'CMS setup, structure & training',
-      'SEO foundations & metadata',
-      'Performance & Core Web Vitals',
-      'Landing pages & microsites',
-    ],
-    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="16" rx="1"/><path d="M8 21h8M12 19v2"/><path d="M7 8l3 2-3 2M13 12h4"/></svg>`,
   },
 ];
 
@@ -204,7 +204,7 @@ const retainers = [
 <!-- ── SERVICE PILLARS ── -->
 <div id="pillars" style="border-bottom: 1px solid var(--border);">
   <div class="section">
-    <div class="section-header">
+    <div class="section-header reveal">
       <span class="section-num">01</span>
       <h2 class="section-title">Service<br><em>Pillars</em></h2>
     </div>
@@ -212,7 +212,7 @@ const retainers = [
 
     <div class="pillars-grid">
       {pillars.map((p) => (
-        <div class="pillar-card">
+        <div class="pillar-card reveal">
           <div class="pillar-top">
             <div class="service-icon" set:html={p.icon} />
             <span class="service-num">{p.num}</span>
@@ -235,7 +235,7 @@ const retainers = [
 <!-- ── PRICING ── -->
 <div id="pricing" style="background: var(--bg2); border-bottom: 1px solid var(--border);">
   <div class="section">
-    <div class="section-header">
+    <div class="section-header reveal">
       <span class="section-num">02</span>
       <h2 class="section-title">Pricing &amp;<br><em>Engagement</em></h2>
     </div>
@@ -248,7 +248,7 @@ const retainers = [
 
     <div class="pricing-grid">
       {tiers.map((t) => (
-        <div class={`pricing-card${t.featured ? ' pricing-card--featured' : ''}`}>
+        <div class={`pricing-card reveal${t.featured ? ' pricing-card--featured' : ''}`}>
           {t.featured && <div class="pricing-featured-bar"></div>}
           <div class="pricing-badge">{t.badge}</div>
           <div class="pricing-label">{t.label}</div>
@@ -296,7 +296,7 @@ const retainers = [
 <!-- ── MANAGED SERVICES ── -->
 <div id="managed-services" style="border-bottom: 1px solid var(--border);">
   <div class="section">
-    <div class="section-header">
+    <div class="section-header reveal">
       <span class="section-num">03</span>
       <h2 class="section-title">Managed<br><em>Services</em></h2>
     </div>
@@ -310,7 +310,7 @@ const retainers = [
 
     <div class="pricing-grid pricing-grid--retainer">
       {retainers.map((r) => (
-        <div class="pricing-card pricing-card--retainer">
+        <div class="pricing-card pricing-card--retainer reveal">
           <div class="pricing-featured-bar pricing-featured-bar--retainer"></div>
           <div class="pricing-badge">{r.badge}</div>
           <div class="pricing-label">{r.label}</div>
@@ -518,7 +518,9 @@ const retainers = [
 
   .pricing-card {
     background: var(--bg3);
-    padding: 44px 36px;
+    /* Matches .pillar-card's 40px/36px card rhythm above — was 44px top
+       with no functional reason to differ. */
+    padding: 40px 36px;
     position: relative;
     display: flex; flex-direction: column;
     overflow: hidden;

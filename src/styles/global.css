@@ -142,6 +142,19 @@ footer {
 .d1 { animation-delay: 0.1s; } .d2 { animation-delay: 0.2s; } .d3 { animation-delay: 0.35s; }
 .d4 { animation-delay: 0.5s; } .d5 { animation-delay: 0.65s; }
 
+/* ── SCROLL REVEAL (below-the-fold) ── */
+/* Paired with the IntersectionObserver in Layout.astro. Reuses fadeUp's
+   curve/duration so scroll reveals read as the same motion as the hero. */
+.reveal { opacity: 0; transform: translateY(20px); }
+.reveal.is-visible { animation: fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) both; }
+
+/* ── REDUCED MOTION ── */
+@media (prefers-reduced-motion: reduce) {
+  .fade-up, .reveal { animation: none !important; opacity: 1 !important; transform: none !important; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  html { scroll-behavior: auto; }
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   .section { padding: 80px 24px; }

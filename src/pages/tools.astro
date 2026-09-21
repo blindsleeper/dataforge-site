@@ -22,7 +22,7 @@ import Layout from '../layouts/Layout.astro';
 <div style="background: var(--bg); border-bottom: 1px solid var(--border);">
   <div class="section">
 
-    <div class="ss-card fade-up d1">
+    <div class="ss-card reveal">
       <div class="ss-accent-bar"></div>
 
       <div class="ss-card-top">
@@ -110,7 +110,7 @@ import Layout from '../layouts/Layout.astro';
 <div style="background: var(--bg2); border-bottom: 1px solid var(--border);">
   <div class="section">
 
-    <div class="ss-card fade-up d1">
+    <div class="ss-card reveal">
       <div class="ss-accent-bar"></div>
 
       <div class="ss-card-top">
@@ -163,7 +163,7 @@ import Layout from '../layouts/Layout.astro';
 <div style="background: var(--bg); border-bottom: 1px solid var(--border);">
   <div class="section">
 
-    <div class="ss-card fade-up d1">
+    <div class="ss-card reveal">
       <div class="ss-accent-bar"></div>
 
       <div class="ss-card-top">
@@ -216,7 +216,7 @@ import Layout from '../layouts/Layout.astro';
 <div style="background: var(--bg2); border-bottom: 1px solid var(--border);">
   <div class="section">
 
-    <div class="ss-card fade-up d1">
+    <div class="ss-card reveal">
       <div class="ss-accent-bar"></div>
 
       <div class="ss-card-top">
@@ -359,6 +359,9 @@ import Layout from '../layouts/Layout.astro';
   list-style: none;
   display: flex; flex-direction: column; gap: 10px;
   margin-bottom: 40px;
+  /* Matches .ss-desc's reading width — unconstrained, short bullet
+     lines trailed off into a wide empty gutter on desktop. */
+  max-width: 520px;
 }
 .ss-features li {
   font-size: 14px; color: var(--muted); line-height: 1.5;
