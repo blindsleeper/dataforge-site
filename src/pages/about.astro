@@ -50,7 +50,7 @@ const steps = [
 <!-- ── IDENTITY ── -->
 <div style="border-bottom: 1px solid var(--border);">
   <div class="section">
-    <div class="section-header">
+    <div class="section-header reveal">
       <span class="section-num">01</span>
       <h2 class="section-title">Who I<br><em>Am</em></h2>
     </div>
@@ -59,7 +59,7 @@ const steps = [
     <div class="identity-body">
 
       <!-- Left: about copy -->
-      <div class="identity-copy">
+      <div class="identity-copy reveal">
         <p class="identity-para">
           DataForge is a boutique data and systems consultancy based in Wichita, Kansas —
           built on a straightforward premise: most operational problems aren't unsolvable,
@@ -107,7 +107,7 @@ const steps = [
       </div>
 
       <!-- Right: tech stack -->
-      <div class="stack-block">
+      <div class="stack-block reveal">
         <div class="stack-label">// Tech Stack</div>
         <div class="stack-list">
           {stack.map((item, i) => (
@@ -132,7 +132,7 @@ const steps = [
 <!-- ── HOW I WORK ── -->
 <div style="background: var(--bg2); border-bottom: 1px solid var(--border);">
   <div class="section">
-    <div class="section-header">
+    <div class="section-header reveal">
       <span class="section-num">02</span>
       <h2 class="section-title">How I<br><em>Work</em></h2>
     </div>
@@ -140,7 +140,7 @@ const steps = [
 
     <div class="process-track">
       {steps.map((step, i) => (
-        <div class="process-step">
+        <div class="process-step reveal">
           <div class="process-step-inner">
             <div class="process-num-row">
               <span class="process-num">{step.num}</span>
@@ -269,7 +269,7 @@ const steps = [
     background: var(--bg3);
     display: flex; align-items: center; gap: 16px;
     padding: 18px 20px;
-    transition: background 0.25s;
+    transition: background 0.2s;
     cursor: default;
   }
   .stack-item:hover { background: var(--bg4); }

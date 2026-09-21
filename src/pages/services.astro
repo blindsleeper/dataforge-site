@@ -204,7 +204,7 @@ const retainers = [
 <!-- ── SERVICE PILLARS ── -->
 <div id="pillars" style="border-bottom: 1px solid var(--border);">
   <div class="section">
-    <div class="section-header">
+    <div class="section-header reveal">
       <span class="section-num">01</span>
       <h2 class="section-title">Service<br><em>Pillars</em></h2>
     </div>
@@ -212,7 +212,7 @@ const retainers = [
 
     <div class="pillars-grid">
       {pillars.map((p) => (
-        <div class="pillar-card">
+        <div class="pillar-card reveal">
           <div class="pillar-top">
             <div class="service-icon" set:html={p.icon} />
             <span class="service-num">{p.num}</span>
@@ -235,7 +235,7 @@ const retainers = [
 <!-- ── PRICING ── -->
 <div id="pricing" style="background: var(--bg2); border-bottom: 1px solid var(--border);">
   <div class="section">
-    <div class="section-header">
+    <div class="section-header reveal">
       <span class="section-num">02</span>
       <h2 class="section-title">Pricing &amp;<br><em>Engagement</em></h2>
     </div>
@@ -248,7 +248,7 @@ const retainers = [
 
     <div class="pricing-grid">
       {tiers.map((t) => (
-        <div class={`pricing-card${t.featured ? ' pricing-card--featured' : ''}`}>
+        <div class={`pricing-card reveal${t.featured ? ' pricing-card--featured' : ''}`}>
           {t.featured && <div class="pricing-featured-bar"></div>}
           <div class="pricing-badge">{t.badge}</div>
           <div class="pricing-label">{t.label}</div>
@@ -296,7 +296,7 @@ const retainers = [
 <!-- ── MANAGED SERVICES ── -->
 <div id="managed-services" style="border-bottom: 1px solid var(--border);">
   <div class="section">
-    <div class="section-header">
+    <div class="section-header reveal">
       <span class="section-num">03</span>
       <h2 class="section-title">Managed<br><em>Services</em></h2>
     </div>
@@ -310,7 +310,7 @@ const retainers = [
 
     <div class="pricing-grid pricing-grid--retainer">
       {retainers.map((r) => (
-        <div class="pricing-card pricing-card--retainer">
+        <div class="pricing-card pricing-card--retainer reveal">
           <div class="pricing-featured-bar pricing-featured-bar--retainer"></div>
           <div class="pricing-badge">{r.badge}</div>
           <div class="pricing-label">{r.label}</div>

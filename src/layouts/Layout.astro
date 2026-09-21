@@ -89,5 +89,24 @@ const localBusinessSchema = {
   </ul>
 </footer>
 
+<script>
+  // Scroll-triggered reveal for below-the-fold content (.reveal elements).
+  // Reduced-motion users get the CSS fallback in global.css; this just
+  // needs to add the class so `.reveal` content is guaranteed visible.
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+    document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-visible'));
+  }
+</script>
+
 </body>
 </html>

@@ -28,7 +28,7 @@ import Layout from '../layouts/Layout.astro';
     ══════════════════════════════════════ -->
     <div class="db-section">
 
-      <div class="db-problem">
+      <div class="db-problem reveal">
         <div class="db-problem-head">
           <span class="section-num">// 01</span>
           <h2 class="db-scenario">Legal — <em>Billing Performance</em></h2>
@@ -36,7 +36,7 @@ import Layout from '../layouts/Layout.astro';
         <p class="db-problem-text">Attorneys had no visibility into their own billing performance without someone running a report manually.</p>
       </div>
 
-      <div class="db-card">
+      <div class="db-card reveal">
         <div class="db-header">
           <div>
             <div class="db-title">// DataForge · Legal</div>
@@ -112,7 +112,7 @@ import Layout from '../layouts/Layout.astro';
     ══════════════════════════════════════ -->
     <div class="db-section">
 
-      <div class="db-problem">
+      <div class="db-problem reveal">
         <div class="db-problem-head">
           <span class="section-num">// 02</span>
           <h2 class="db-scenario">Professional Services — <em>Intake &amp; Pipeline</em></h2>
@@ -120,7 +120,7 @@ import Layout from '../layouts/Layout.astro';
         <p class="db-problem-text">New client intake was managed through email and spreadsheets. Nothing was tracked consistently and leads were falling through the cracks.</p>
       </div>
 
-      <div class="db-card">
+      <div class="db-card reveal">
         <div class="db-header">
           <div>
             <div class="db-title">// DataForge · Professional Services</div>
@@ -226,7 +226,7 @@ import Layout from '../layouts/Layout.astro';
     ══════════════════════════════════════ -->
     <div class="db-section">
 
-      <div class="db-problem">
+      <div class="db-problem reveal">
         <div class="db-problem-head">
           <span class="section-num">// 03</span>
           <h2 class="db-scenario">Small Business — <em>Consolidated Operations</em></h2>
@@ -234,7 +234,7 @@ import Layout from '../layouts/Layout.astro';
         <p class="db-problem-text">Weekly reporting required 3.5 hours of manual copy-paste across five disconnected spreadsheets.</p>
       </div>
 
-      <div class="db-card">
+      <div class="db-card reveal">
         <div class="db-header">
           <div>
             <div class="db-title">// DataForge · Small Business</div>
@@ -331,7 +331,7 @@ import Layout from '../layouts/Layout.astro';
     ══════════════════════════════════════ -->
     <div class="db-section">
 
-      <div class="db-problem">
+      <div class="db-problem reveal">
         <div class="db-problem-head">
           <span class="section-num">// 04</span>
           <h2 class="db-scenario">Office Operations — <em>Records &amp; Compliance</em></h2>
@@ -339,7 +339,7 @@ import Layout from '../layouts/Layout.astro';
         <p class="db-problem-text">Compliance deadlines were tracked in a system that wasn't built for it. Nobody knew what was overdue until it already was.</p>
       </div>
 
-      <div class="db-card">
+      <div class="db-card reveal">
         <div class="db-header">
           <div>
             <div class="db-title">// DataForge · Office Operations</div>
@@ -424,7 +424,7 @@ import Layout from '../layouts/Layout.astro';
     ══════════════════════════════════════ -->
     <div class="db-section" style="margin-bottom:0;">
 
-      <div class="db-problem">
+      <div class="db-problem reveal">
         <div class="db-problem-head">
           <span class="section-num">// 05</span>
           <h2 class="db-scenario">Records Management — <em>Retention &amp; Audit Trail</em></h2>
@@ -432,7 +432,7 @@ import Layout from '../layouts/Layout.astro';
         <p class="db-problem-text">Retention schedules existed in a policy document, but nobody could say which records were due for review, eligible for destruction, or under litigation hold — let alone who had accessed them and when.</p>
       </div>
 
-      <div class="db-card">
+      <div class="db-card reveal">
         <div class="db-header">
           <div>
             <div class="db-title">// DataForge · Records Management</div>
@@ -613,7 +613,9 @@ import Layout from '../layouts/Layout.astro';
   padding: 20px;
   margin: 16px 0 8px 0;
   overflow: hidden;
+  transition: border-color 0.3s;
 }
+.db-card:hover { border-color: rgba(232,146,10,0.3); }
 
 /* ── CARD HEADER ── */
 .db-header {
@@ -686,6 +688,8 @@ import Layout from '../layouts/Layout.astro';
   border-bottom: 1px solid rgba(255,255,255,0.04);
 }
 .db-table tr:last-child td { border-bottom: none; }
+.db-table tbody tr { transition: background 0.2s; }
+.db-table tbody tr:hover { background: rgba(255,255,255,0.03); }
 .st-green { color: #4ade80; }
 .st-amber { color: var(--accent); }
 .st-red   { color: #f87171; }
