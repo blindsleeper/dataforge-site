@@ -91,17 +91,7 @@ const steps = [
 
       <!-- Left: about copy -->
       <div class="identity-copy reveal">
-        <!--
-          PLACEHOLDER — Brian's headshot goes here.
-          Add the real file to /public/images/about-headshot.jpg (or .webp),
-          ideally a 4:5 portrait crop at 480×600px or larger, then replace
-          this .headshot-slot div with:
-            <img class="headshot" src="/images/about-headshot.jpg" alt="Brian, founder of DataForge" />
-          Keep it modest — this is a byline photo, not a hero image.
-        -->
-        <div class="headshot-slot" aria-hidden="true">
-          <span class="headshot-slot-label">[ HEADSHOT<br>add about-headshot.jpg<br>to /images/ ]</span>
-        </div>
+        <img class="headshot" src="/images/about-headshot.jpg" alt="Brian, founder of DataForge" />
         <p class="identity-para">
           DataForge is a boutique data and systems consultancy based in Wichita, Kansas —
           built on a straightforward premise: most operational problems aren't unsolvable,
@@ -272,22 +262,7 @@ const steps = [
   }
   .identity-para:last-of-type { margin-bottom: 40px; }
 
-  /* ── HEADSHOT (placeholder — see comment above the markup) ── */
-  .headshot-slot {
-    width: 160px;
-    aspect-ratio: 4 / 5;
-    border: 1px dashed var(--border2);
-    background: var(--bg3);
-    display: flex; align-items: center; justify-content: center;
-    padding: 16px;
-    margin-bottom: 32px;
-  }
-  .headshot-slot-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--muted2); text-align: center; line-height: 1.6;
-  }
-  /* For when the real file replaces .headshot-slot with an <img class="headshot">: */
+  /* ── HEADSHOT ── */
   .headshot {
     width: 160px;
     aspect-ratio: 4 / 5;
