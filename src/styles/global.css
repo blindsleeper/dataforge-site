@@ -124,11 +124,32 @@ body {
 .tag { padding: 4px 10px; background: var(--bg4); border: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: var(--muted); }
 .service-arrow { font-size: 18px; color: var(--muted2); transition: transform 0.2s, color 0.2s; display: inline-block; }
 
+/* ── SECTION DIVIDERS (line-art) ── */
+/* Alternative to .section-rule where a page benefits from a little
+   visual variety — assigned per page (see Divider.astro usage), not
+   randomized, so each page keeps one consistent divider identity. */
+.section-divider {
+  width: 100%; height: 32px; display: block; margin-bottom: 64px; color: var(--accent3);
+}
+.section-divider--circuit { color: var(--accent3); }
+.section-divider--flowing { color: var(--accent2); }
+
 /* ── FOOTER ── */
 footer {
   border-top: 1px solid var(--border); padding: 48px;
   display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap;
 }
+.footer-brand { display: flex; align-items: center; gap: 12px; }
+.footer-mono { width: 34px; height: 23px; overflow: visible; flex-shrink: 0; }
+.footer-mono .mono-ring { fill: none; stroke: var(--border2); stroke-width: 1; opacity: 0; transition: opacity 1s ease; }
+.footer-mono.is-visible .mono-ring { opacity: 1; }
+.footer-mono .mono-d, .footer-mono .mono-f {
+  fill: none; stroke: var(--accent2); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round;
+  stroke-dasharray: 1; stroke-dashoffset: 1;
+}
+.footer-mono.is-visible .mono-d { animation: mono-draw 1.3s cubic-bezier(0.4,0,0.2,1) forwards; }
+.footer-mono.is-visible .mono-f { animation: mono-draw 1.3s cubic-bezier(0.4,0,0.2,1) forwards 0.3s; }
+@keyframes mono-draw { to { stroke-dashoffset: 0; } }
 .footer-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: 0.06em; color: var(--accent); }
 .footer-logo span { color: var(--text); opacity: 0.3; }
 .footer-copy { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: var(--muted2); }
@@ -153,6 +174,13 @@ footer {
   .fade-up, .reveal { animation: none !important; opacity: 1 !important; transform: none !important; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   html { scroll-behavior: auto; }
+  /* Draw-in effects rely on an animation's `forwards` fill to reach their
+     final state — killing the animation outright (above) would leave them
+     stuck undrawn. Keep the animation but collapse it to near-zero time. */
+  .footer-mono.is-visible .mono-d,
+  .footer-mono.is-visible .mono-f {
+    animation: mono-draw 0.01ms forwards !important;
+  }
 }
 
 /* ── RESPONSIVE ── */

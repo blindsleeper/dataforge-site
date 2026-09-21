@@ -19,3 +19,6 @@ backup codes/
 *.txt
 !README.txt
 !public/robots.txt
+
+# Working reference material (not for deployment)
+_reference/

@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Divider from '../components/Divider.astro';
 
 const pillars = [
   {
@@ -208,7 +209,7 @@ const retainers = [
       <span class="section-num">01</span>
       <h2 class="section-title">Service<br><em>Pillars</em></h2>
     </div>
-    <div class="section-rule"></div>
+    <Divider variant="angular" />
 
     <div class="pillars-grid">
       {pillars.map((p) => (
@@ -239,7 +240,7 @@ const retainers = [
       <span class="section-num">02</span>
       <h2 class="section-title">Pricing &amp;<br><em>Engagement</em></h2>
     </div>
-    <div class="section-rule"></div>
+    <Divider variant="angular" />
 
     <p class="pricing-intro">
       I work both project-based and retainer. Pricing reflects scope — not arbitrary hourly rates.
@@ -300,7 +301,7 @@ const retainers = [
       <span class="section-num">03</span>
       <h2 class="section-title">Managed<br><em>Services</em></h2>
     </div>
-    <div class="section-rule"></div>
+    <Divider variant="angular" />
 
     <p class="pricing-intro">
       For sites and systems I've already built, I also offer two ongoing care plans — recurring

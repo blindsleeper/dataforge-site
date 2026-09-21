@@ -1,0 +1,18 @@
+---
+// Line-art section divider — replaces the flat .section-rule on pages
+// where a little visual variety is wanted. Assign variant per page,
+// not per section, so it reads as page identity rather than noise.
+export interface Props {
+  variant?: 'angular' | 'circuit' | 'flowing';
+}
+const { variant = 'angular' } = Astro.props;
+
+const paths: Record<string, string> = {
+  angular: 'M0,42 L120,14 L240,48 L360,10 L480,44 L600,16 L720,46 L840,12 L960,42 L1080,18 L1200,40',
+  circuit: 'M0,30 H150 V10 H350 V50 H550 V30 H750 V10 H950 V50 H1200',
+  flowing: 'M0,30 C150,0 250,60 400,30 C550,0 650,60 800,30 C950,0 1050,60 1200,30',
+};
+---
+<svg class={`section-divider section-divider--${variant}`} viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+  <path d={paths[variant]} fill="none" stroke="currentColor" stroke-width="2" />
+</svg>
