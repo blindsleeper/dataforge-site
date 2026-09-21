@@ -6,6 +6,7 @@ import Layout from '../layouts/Layout.astro';
 <!-- HERO -->
 <section class="hero">
   <div class="hero-glow"></div>
+  <canvas id="network-canvas" class="hero-canvas" aria-hidden="true"></canvas>
   <div class="hero-inner">
     <div class="hero-left">
       <div class="hero-eyebrow fade-up d1">Wichita, KS — Small Business Web & Systems Consultant</div>
@@ -230,6 +231,7 @@ import Layout from '../layouts/Layout.astro';
     pointer-events: none;
   }
   .hero-glow { position: absolute; top: 15%; right: -5%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(232,146,10,0.07) 0%, transparent 65%); pointer-events: none; }
+  .hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
   .hero-inner { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 0 48px; width: 100%; display: grid; grid-template-columns: 1fr; align-items: center; }
   .hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 28px; }
   .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--accent); }
@@ -263,3 +265,99 @@ import Layout from '../layouts/Layout.astro';
     .services-grid--2col { grid-template-columns: 1fr; }
   }
 </style>
+
+<script>
+  // Animated node network — drifting points behind the hero copy, connected
+  // by faint lines when close. Reads --accent from the CSS token itself
+  // (not a hardcoded hex) so it stays in sync if the palette ever changes.
+  (function () {
+    const canvas = document.getElementById('network-canvas');
+    if (!(canvas instanceof HTMLCanvasElement)) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function hexToRgb(hex) {
+      const n = parseInt(hex.replace('#', ''), 16);
+      return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+    }
+    const accentHex = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
+    const [ar, ag, ab] = hexToRgb(accentHex);
+
+    /** @type {{x:number,y:number,vx:number,vy:number}[]} */
+    let points = [];
+
+    function size() {
+      const r = canvas.parentElement.getBoundingClientRect();
+      canvas.width = r.width;
+      canvas.height = r.height;
+    }
+
+    function seed() {
+      // Cap point count on mobile — 55 connection-distance checks per pair
+      // adds up fast on the small/slow devices that hit this breakpoint.
+      const count = window.innerWidth < 600 ? 25 : 55;
+      points = Array.from({ length: count }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+      }));
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < points.length; i++) {
+        for (let j = i + 1; j < points.length; j++) {
+          const a = points[i];
+          const b = points[j];
+          const dist = Math.hypot(a.x - b.x, a.y - b.y);
+          if (dist < 130) {
+            ctx.strokeStyle = `rgba(${ar},${ag},${ab},${(1 - dist / 130) * 0.35})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+      }
+      for (const p of points) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 1.6, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${ar},${ag},${ab},0.85)`;
+        ctx.fill();
+      }
+    }
+
+    size();
+    seed();
+    draw();
+
+    if (reduceMotion) {
+      // Freeze on a single static frame — still redraw on resize so it
+      // doesn't go stale, but no rAF loop and no drift.
+      window.addEventListener('resize', () => { size(); seed(); draw(); });
+      return;
+    }
+
+    let running = !document.hidden;
+    document.addEventListener('visibilitychange', () => { running = !document.hidden; });
+    window.addEventListener('resize', size);
+
+    function frame() {
+      if (running) {
+        for (const p of points) {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+          if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+        }
+        draw();
+      }
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  })();
+</script>
