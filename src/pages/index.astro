@@ -173,27 +173,27 @@ import Layout from '../layouts/Layout.astro';
     </div>
     <div class="section-rule"></div>
     <div class="services-grid">
-      <div class="service-card reveal">
+      <div class="service-card service-card--compact reveal">
         <span class="service-num">01</span>
         <div class="service-desc">You send the form or email directly.</div>
       </div>
-      <div class="service-card reveal">
+      <div class="service-card service-card--compact reveal">
         <span class="service-num">02</span>
         <div class="service-desc">I reply within 24 hours with a few targeted questions.</div>
       </div>
-      <div class="service-card reveal">
+      <div class="service-card service-card--compact reveal">
         <span class="service-num">03</span>
         <div class="service-desc">A 30-minute call to assess fit and clarify what I'd need to see.</div>
       </div>
-      <div class="service-card reveal">
+      <div class="service-card service-card--compact reveal">
         <span class="service-num">04</span>
         <div class="service-desc">I review your materials, data, or process documentation.</div>
       </div>
-      <div class="service-card reveal">
+      <div class="service-card service-card--compact reveal">
         <span class="service-num">05</span>
         <div class="service-desc">You receive a written proposal with scope, timeline, and fixed price.</div>
       </div>
-      <div class="service-card reveal">
+      <div class="service-card service-card--compact reveal">
         <span class="service-num">06</span>
         <div class="service-desc">We align on scope, sign off on the proposal, and the work begins — defined timeline, clear deliverables, no surprises.</div>
       </div>
@@ -239,6 +239,25 @@ import Layout from '../layouts/Layout.astro';
   .hero-sub strong { color: var(--text); font-weight: 500; }
   .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
   .services-grid--2col { grid-template-columns: repeat(2, 1fr); }
+
+  /* "How I Work" steps only carry a number + one line of copy, not a
+     name/tags/arrow — the default .service-card padding was sized for
+     the fuller content, so short text sat stranded in a tall box. */
+  .service-card--compact {
+    padding: 28px 32px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .service-card--compact .service-num {
+    position: static;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .service-card--compact .service-desc {
+    margin-bottom: 0;
+  }
+
   @media (max-width: 900px) {
     .hero-inner { padding: 40px 24px; }
     .services-grid--2col { grid-template-columns: 1fr; }
