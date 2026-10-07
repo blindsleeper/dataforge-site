@@ -58,43 +58,27 @@ import SparklinePattern from '../components/SparklinePattern.astro';
             <li>Protected path block — never touches your project directories</li>
           </ul>
 
-          <div class="ss-gallery">
-            <div class="ss-panel ss-panel--ph">
-              <div class="ss-panel-label">BEFORE</div>
-              <div class="ss-panel-ph-body">
-                <div class="ss-ph-line" style="width:82%"></div>
-                <div class="ss-ph-line" style="width:67%"></div>
-                <div class="ss-ph-line" style="width:91%"></div>
-                <div class="ss-ph-line" style="width:54%"></div>
-                <div class="ss-ph-line" style="width:73%"></div>
-                <div class="ss-ph-line" style="width:88%"></div>
-                <span class="ss-ph-note">Screenshot coming</span>
-              </div>
-            </div>
-            <div class="ss-panel ss-panel--ph">
-              <div class="ss-panel-label">SORT PREVIEW</div>
-              <div class="ss-panel-ph-body">
-                <div class="ss-ph-line" style="width:82%"></div>
-                <div class="ss-ph-line" style="width:67%"></div>
-                <div class="ss-ph-line" style="width:91%"></div>
-                <div class="ss-ph-line" style="width:54%"></div>
-                <div class="ss-ph-line" style="width:73%"></div>
-                <div class="ss-ph-line" style="width:88%"></div>
-                <span class="ss-ph-note">Screenshot coming</span>
-              </div>
-            </div>
-            <div class="ss-panel ss-panel--ph">
-              <div class="ss-panel-label">AFTER</div>
-              <div class="ss-panel-ph-body">
-                <div class="ss-ph-line" style="width:82%"></div>
-                <div class="ss-ph-line" style="width:67%"></div>
-                <div class="ss-ph-line" style="width:91%"></div>
-                <div class="ss-ph-line" style="width:54%"></div>
-                <div class="ss-ph-line" style="width:73%"></div>
-                <div class="ss-ph-line" style="width:88%"></div>
-                <span class="ss-ph-note">Screenshot coming</span>
-              </div>
-            </div>
+          <div class="ss-gallery ss-gallery--four">
+            <button type="button" class="ss-panel" aria-haspopup="dialog" aria-label="Enlarge screenshot: the empty app" data-caption="App on launch, with dry run on by default">
+              <span class="ss-panel-label">APP</span>
+              <img class="ss-panel-img" src="/images/tools/sortshelf-01-empty.webp" alt="SortShelf main window on launch, with an empty project list and no source folder selected. A dry run indicator is shown at the bottom." width="1600" height="863" loading="lazy" decoding="async" />
+              <span class="ss-panel-cap">App on launch, with dry run on by default</span>
+            </button>
+            <button type="button" class="ss-panel" aria-haspopup="dialog" aria-label="Enlarge screenshot: the folder before sorting" data-caption="A sample folder of mixed files before sorting">
+              <span class="ss-panel-label">BEFORE</span>
+              <img class="ss-panel-img" src="/images/tools/sortshelf-02-before.webp" alt="Windows File Explorer showing a folder of about forty mixed files, including documents, spreadsheets, images, scripts and archives, all in one flat list." width="617" height="871" loading="lazy" decoding="async" />
+              <span class="ss-panel-cap">A sample folder of mixed files before sorting</span>
+            </button>
+            <button type="button" class="ss-panel" aria-haspopup="dialog" aria-label="Enlarge screenshot: the dry run preview" data-caption="Dry run previews every move before anything changes">
+              <span class="ss-panel-label">PREVIEW</span>
+              <img class="ss-panel-img" src="/images/tools/sortshelf-03-preview.webp" alt="SortShelf dry run preview listing each file with its assigned category and a Move action, with a status bar reading 40 files found." width="1600" height="863" loading="lazy" decoding="async" />
+              <span class="ss-panel-cap">Dry run previews every move before anything changes</span>
+            </button>
+            <button type="button" class="ss-panel" aria-haspopup="dialog" aria-label="Enlarge screenshot: the folder after sorting" data-caption="The same folder after sorting: 11 category folders">
+              <span class="ss-panel-label">AFTER</span>
+              <img class="ss-panel-img" src="/images/tools/sortshelf-04-after.webp" alt="Windows File Explorer showing eleven category folders after sorting: Archives, Audio, Code, Documents, Images, Installers, Misc, PDFs, Scripts, Spreadsheets and Video." width="538" height="266" loading="lazy" decoding="async" />
+              <span class="ss-panel-cap">The same folder after sorting: 11 category folders</span>
+            </button>
           </div>
 
           <div class="ss-actions">
@@ -146,6 +130,14 @@ import SparklinePattern from '../components/SparklinePattern.astro';
             <li>Zero external dependencies or licensing costs</li>
             <li>Built for environments that need a log, not a full helpdesk</li>
           </ul>
+
+          <div class="ss-gallery ss-gallery--single">
+            <button type="button" class="ss-panel" aria-haspopup="dialog" aria-label="Enlarge screenshot: the IT Logger dashboard" data-caption="Dashboard with ticket totals, issue type distribution and monthly volume">
+              <span class="ss-panel-label">DASHBOARD</span>
+              <img class="ss-panel-img" src="/images/tools/itlogger-dashboard.webp" alt="IT Logger dashboard showing total, open and resolved ticket counts and average resolution time, a donut chart of issue types, and a bar chart of monthly ticket volume over six months." width="1600" height="535" loading="lazy" decoding="async" />
+              <span class="ss-panel-cap">Dashboard with ticket totals, issue type distribution and monthly volume</span>
+            </button>
+          </div>
 
           <div class="ss-footer">
             <div class="ss-tags">
@@ -290,8 +282,12 @@ import SparklinePattern from '../components/SparklinePattern.astro';
 </div>
 
 <!-- ── LIGHTBOX ── -->
-<div id="ss-lightbox" class="ss-lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Image lightbox">
-  <img id="ss-lightbox-img" src="" alt="" class="ss-lightbox-img" />
+<div id="ss-lightbox" class="ss-lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Screenshot viewer" inert>
+  <button type="button" id="ss-lightbox-close" class="ss-lightbox-close" aria-label="Close screenshot">&times;</button>
+  <figure class="ss-lightbox-fig">
+    <img id="ss-lightbox-img" src="" alt="" class="ss-lightbox-img" />
+    <figcaption id="ss-lightbox-cap" class="ss-lightbox-cap"></figcaption>
+  </figure>
 </div>
 
 </Layout>
@@ -438,7 +434,15 @@ import SparklinePattern from '../components/SparklinePattern.astro';
 .ss-panel:hover {
   box-shadow: inset 0 0 0 2px rgba(232,146,10,0.45);
 }
+.ss-panel:focus-visible,
+.ss-lightbox-close:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+.ss-gallery--four { grid-template-columns: repeat(4, 1fr); }
+.ss-gallery--single { grid-template-columns: 1fr; margin-bottom: 40px; }
 .ss-panel-label {
+  display: block;
   font-family: 'JetBrains Mono', monospace;
   font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--accent);
@@ -447,8 +451,19 @@ import SparklinePattern from '../components/SparklinePattern.astro';
 .ss-panel-img {
   width: 100%;
   height: 220px;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: top left;
+  background: var(--bg4);
   display: block;
+  border-top: 1px solid var(--border);
+}
+.ss-gallery--single .ss-panel-img { height: auto; aspect-ratio: 1600 / 535; }
+.ss-panel-cap {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 0.04em; line-height: 1.6;
+  color: var(--muted);
+  padding: 10px 16px 14px;
   border-top: 1px solid var(--border);
 }
 .ss-panel--ph { cursor: default; display: flex; flex-direction: column; }
@@ -481,12 +496,30 @@ import SparklinePattern from '../components/SparklinePattern.astro';
 .ss-lightbox.is-open {
   opacity: 1; pointer-events: auto;
 }
+.ss-lightbox-fig {
+  margin: 0; display: flex; flex-direction: column; align-items: center; gap: 12px;
+  max-width: 94vw;
+}
 .ss-lightbox-img {
-  max-width: 90vw; max-height: 88vh;
+  max-width: 94vw; max-height: 80vh;
+  height: auto;
   display: block;
   border: 1px solid rgba(232,146,10,0.3);
   cursor: default;
 }
+.ss-lightbox-cap {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 0.06em; line-height: 1.6;
+  color: var(--muted); text-align: center;
+}
+.ss-lightbox-close {
+  position: absolute; top: 12px; right: 12px;
+  width: 44px; height: 44px;
+  background: var(--bg3); color: var(--text);
+  border: 1px solid var(--border2);
+  font-size: 28px; line-height: 1; cursor: pointer;
+}
+.ss-lightbox-close:hover { border-color: var(--accent); color: var(--accent); }
 
 
 /* ── STATUS ── */
@@ -571,7 +604,8 @@ import SparklinePattern from '../components/SparklinePattern.astro';
   .tools-intro-inner { padding: 56px 24px; }
   .ss-card-top { padding: 28px 24px 0; flex-wrap: wrap; gap: 16px; }
   .ss-card-body { padding: 24px 24px 24px; }
-  .ss-gallery { grid-template-columns: 1fr; }
+  .ss-gallery, .ss-gallery--four { grid-template-columns: 1fr; }
+  .ss-gallery--four .ss-panel-img { height: auto; }
   .ss-actions { flex-direction: column; align-items: flex-start; }
   .ss-footer { flex-direction: column; align-items: flex-start; }
   .it-card-top { padding: 24px 24px 0; }
@@ -581,36 +615,53 @@ import SparklinePattern from '../components/SparklinePattern.astro';
 </style>
 
 <script>
-  const panels    = document.querySelectorAll('.ss-panel');
+  const panels    = document.querySelectorAll<HTMLButtonElement>('.ss-panel');
   const lightbox  = document.getElementById('ss-lightbox') as HTMLElement;
   const lbImg     = document.getElementById('ss-lightbox-img') as HTMLImageElement;
+  const lbCap     = document.getElementById('ss-lightbox-cap') as HTMLElement;
+  const lbClose   = document.getElementById('ss-lightbox-close') as HTMLButtonElement;
+  let lastTrigger: HTMLElement | null = null;
 
-  function openLightbox(src: string, alt: string) {
-    lbImg.src = src;
-    lbImg.alt = alt;
+  function openLightbox(img: HTMLImageElement, caption: string, trigger: HTMLElement) {
+    lastTrigger = trigger;
+    lbImg.src = img.currentSrc || img.src;
+    lbImg.alt = img.alt;
+    lbImg.width = img.naturalWidth || Number(img.getAttribute('width'));
+    lbImg.height = img.naturalHeight || Number(img.getAttribute('height'));
+    lbCap.textContent = caption;
+    lightbox.removeAttribute('inert');
     lightbox.setAttribute('aria-hidden', 'false');
     lightbox.classList.add('is-open');
     document.body.style.overflow = 'hidden';
+    lbClose.focus();
   }
 
   function closeLightbox() {
     lightbox.classList.remove('is-open');
     lightbox.setAttribute('aria-hidden', 'true');
+    lightbox.setAttribute('inert', '');
     document.body.style.overflow = '';
+    lastTrigger?.focus();
+    lastTrigger = null;
   }
 
   panels.forEach(panel => {
     panel.addEventListener('click', () => {
       const img = panel.querySelector('.ss-panel-img') as HTMLImageElement;
-      openLightbox(img.src, img.alt);
+      openLightbox(img, panel.dataset.caption || '', panel);
     });
   });
+
+  lbClose.addEventListener('click', closeLightbox);
 
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) closeLightbox();
   });
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
+    if (!lightbox.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    // Only one focusable control in the dialog — keep Tab inside it.
+    if (e.key === 'Tab') { e.preventDefault(); lbClose.focus(); }
   });
 </script>
