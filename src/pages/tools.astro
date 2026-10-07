@@ -50,7 +50,7 @@ import SparklinePattern from '../components/SparklinePattern.astro';
 
           <div class="ss-features-label">Features</div>
           <ul class="ss-features">
-            <li>Sorts into 10 categories automatically</li>
+            <li>Sorts into 12 categories automatically, including a Misc catch-all</li>
             <li>Preview every move before execution</li>
             <li>Safe by default — nothing moves without approval</li>
             <li>One-step undo</li>
@@ -74,10 +74,10 @@ import SparklinePattern from '../components/SparklinePattern.astro';
               <img class="ss-panel-img" src="/images/tools/sortshelf-03-preview.webp" alt="SortShelf dry run preview listing each file with its assigned category and a Move action, with a status bar reading 40 files found." width="1600" height="863" loading="lazy" decoding="async" />
               <span class="ss-panel-cap">Dry run previews every move before anything changes</span>
             </button>
-            <button type="button" class="ss-panel" aria-haspopup="dialog" aria-label="Enlarge screenshot: the folder after sorting" data-caption="The same folder after sorting: 11 category folders">
+            <button type="button" class="ss-panel" aria-haspopup="dialog" aria-label="Enlarge screenshot: the folder after sorting" data-caption="The same folder after sorting: 11 of 12 category folders created, one per file type found">
               <span class="ss-panel-label">AFTER</span>
               <img class="ss-panel-img" src="/images/tools/sortshelf-04-after.webp" alt="Windows File Explorer showing eleven category folders after sorting: Archives, Audio, Code, Documents, Images, Installers, Misc, PDFs, Scripts, Spreadsheets and Video." width="538" height="266" loading="lazy" decoding="async" />
-              <span class="ss-panel-cap">The same folder after sorting: 11 category folders</span>
+              <span class="ss-panel-cap">The same folder after sorting: 11 of 12 category folders created, one per file type found</span>
             </button>
           </div>
 
@@ -118,7 +118,7 @@ import SparklinePattern from '../components/SparklinePattern.astro';
           <p class="ss-desc">
             A lightweight internal ticketing system built for environments that won’t adopt
             enterprise helpdesk software. Logs issues, tracks status, and runs locally with
-            zero external dependencies or licensing costs. Built for Adams Jones Law Firm.
+            zero external dependencies or licensing costs. Built for a law firm’s internal IT support.
           </p>
 
           <div class="ss-features-label">Features</div>
@@ -146,7 +146,7 @@ import SparklinePattern from '../components/SparklinePattern.astro';
               <span class="tag">SQLite</span>
               <span class="tag">Internal Tooling</span>
             </div>
-            <span class="ss-note">Internal deployment — Adams Jones Law Firm</span>
+            <span class="ss-note">Internal deployment — Law firm</span>
           </div>
         </div>
       </div>
@@ -439,7 +439,11 @@ import SparklinePattern from '../components/SparklinePattern.astro';
   outline: 2px solid var(--accent);
   outline-offset: -2px;
 }
-.ss-gallery--four { grid-template-columns: repeat(4, 1fr); }
+.ss-gallery--four { grid-template-columns: repeat(2, 1fr); }
+.ss-gallery--four .ss-panel-img {
+  height: auto; aspect-ratio: 16 / 10;
+  object-fit: cover; object-position: top left;
+}
 .ss-gallery--single { grid-template-columns: 1fr; margin-bottom: 40px; }
 .ss-panel-label {
   display: block;
@@ -605,7 +609,6 @@ import SparklinePattern from '../components/SparklinePattern.astro';
   .ss-card-top { padding: 28px 24px 0; flex-wrap: wrap; gap: 16px; }
   .ss-card-body { padding: 24px 24px 24px; }
   .ss-gallery, .ss-gallery--four { grid-template-columns: 1fr; }
-  .ss-gallery--four .ss-panel-img { height: auto; }
   .ss-actions { flex-direction: column; align-items: flex-start; }
   .ss-footer { flex-direction: column; align-items: flex-start; }
   .it-card-top { padding: 24px 24px 0; }
