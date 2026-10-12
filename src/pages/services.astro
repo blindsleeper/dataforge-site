@@ -556,10 +556,11 @@ const localPages = [
     transition: background 0.3s;
     cursor: default;
   }
-  /* Bottom two cards: each span 3 cols (50% width) */
-  .pillar-card:nth-child(4),
-  .pillar-card:nth-child(5) {
-    grid-column: span 3;
+  /* Web & CMS leads full width; the other four sit in a 2x2 grid (3 cols each). */
+  .pillars-grid:not(.pillars-grid--two) .pillar-card { grid-column: span 3; }
+  .pillars-grid:not(.pillars-grid--two) .pillar-card:first-child { grid-column: span 6; }
+  .pillars-grid:not(.pillars-grid--two) .pillar-card:first-child .pillar-deliverables {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px 28px;
   }
   .pillar-card:hover { background: var(--bg3); }
   .pillar-card:hover .service-icon { border-color: var(--adim3); }
@@ -795,9 +796,9 @@ const localPages = [
     .chaos-box { height: 220px; }
     .pillars-grid,
     .pillars-grid--two { grid-template-columns: 1fr; }
-    .pillar-card,
-    .pillar-card:nth-child(4),
-    .pillar-card:nth-child(5) { grid-column: span 1; }
+    .pillars-grid:not(.pillars-grid--two) .pillar-card,
+    .pillars-grid:not(.pillars-grid--two) .pillar-card:first-child { grid-column: span 1; }
+    .pillars-grid:not(.pillars-grid--two) .pillar-card:first-child .pillar-deliverables { display: flex; }
     .pricing-grid { grid-template-columns: 1fr; }
     .pricing-grid--retainer { grid-template-columns: 1fr; max-width: none; }
     .cta-strip { padding: 80px 24px; }
