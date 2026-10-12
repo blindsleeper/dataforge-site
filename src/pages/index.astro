@@ -40,63 +40,33 @@ import Layout from '../layouts/Layout.astro';
   <div class="section">
     <div class="section-header reveal">
       <span class="section-num">01</span>
-      <h2 class="section-title">What I<br><em>Build</em></h2>
+      <h2 class="section-title">What I<br><em>Do</em></h2>
     </div>
     <div class="section-rule"></div>
-    <div class="services-grid services-grid--lead">
-      <div class="service-card service-card--lead reveal">
-        <div class="service-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-        </div>
-        <span class="service-num">01</span>
+    <div class="services-grid services-grid--row">
+      <div class="service-card service-card--row reveal">
+        <img class="row-art" src="/images/graphics/glass-web.webp" alt="Illustration of a website in a browser window" width="800" height="800" loading="lazy" decoding="async" />
         <div class="service-name">Web & CMS</div>
-        <div class="service-desc">Small business website design and web development — professional, mobile-first sites and CMS platforms that convert visitors into clients. Hand-coded or Webflow.</div>
-        <div class="service-tags"><span class="tag">Webflow</span><span class="tag">Custom Dev</span><span class="tag">CMS</span><span class="tag">Performance</span></div>
-        <a href="/small-business-website-design-wichita/" class="service-arrow" style="text-decoration:none;" aria-label="View Small Business Website Design in Wichita">↗</a>
-        <img class="card-art card-art--lead" src="/images/graphics/glass-web.webp" alt="Illustration of a website in a browser window" width="800" height="800" loading="lazy" decoding="async" />
+        <div class="service-desc">Small business website design and web development, hand-coded or on Webflow.</div>
+        <a href="/services/" class="service-arrow" style="text-decoration:none;" aria-label="See Web &amp; CMS on Services">↗</a>
       </div>
-    </div>
-    <div class="also-label reveal">// Also</div>
-    <div class="services-grid">
-      <div class="service-card reveal">
-        <div class="card-top">
-          <div class="service-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="1"/><path d="M8 21h8M12 17v4"/></svg>
-          </div>
-          <img class="card-art card-art--sm" src="/images/graphics/glass-automation.webp" alt="Illustration of a browser window showing a gear connected to four boxes" width="800" height="800" loading="lazy" decoding="async" />
-        </div>
-        <span class="service-num">02</span>
+      <div class="service-card service-card--row reveal">
+        <img class="row-art" src="/images/graphics/glass-automation.webp" alt="Illustration of a browser window showing a gear connected to four boxes" width="800" height="800" loading="lazy" decoding="async" />
         <div class="service-name">Systems & Automation</div>
-        <div class="service-desc">Small business process automation and custom systems — backend tools, integrations, and process cleanup that eliminate manual work, often at a fraction of the cost of off-the-shelf CRM software.</div>
-        <p class="service-note">As a business systems consultant in Wichita, I help small businesses map how work gets done and automate the repetitive parts.</p>
-        <div class="service-tags"><span class="tag">Automation</span><span class="tag">Integrations</span><span class="tag">Custom Tools</span><span class="tag">AI Workflows</span></div>
-        <span class="service-arrow">↗</span>
+        <div class="service-desc">Business systems consultant in Wichita: small business process automation, often cheaper than off-the-shelf CRM software.</div>
+        <a href="/services/" class="service-arrow" style="text-decoration:none;" aria-label="See Systems &amp; Automation on Services">↗</a>
       </div>
-      <div class="service-card reveal">
-        <div class="card-top">
-          <div class="service-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18M7 16l4-4 4 4 4-8"/></svg>
-          </div>
-          <img class="card-art card-art--sm" src="/images/graphics/glass-analytics.webp" alt="Illustration of a browser window showing a growing bar chart" width="800" height="800" loading="lazy" decoding="async" />
-        </div>
-        <span class="service-num">03</span>
+      <div class="service-card service-card--row reveal">
+        <img class="row-art" src="/images/graphics/glass-analytics.webp" alt="Illustration of a browser window showing a growing bar chart" width="800" height="800" loading="lazy" decoding="async" />
         <div class="service-name">Data Analytics</div>
-        <div class="service-desc">Small business data analytics consulting — turning scattered data into dashboards and reporting that actually drive decisions.</div>
-        <div class="service-tags"><span class="tag">Dashboards</span><span class="tag">SQL</span><span class="tag">Reporting</span><span class="tag">KPI Tracking</span></div>
-        <span class="service-arrow">↗</span>
+        <div class="service-desc">Small business data analytics consulting: dashboards and reporting that drive decisions.</div>
+        <a href="/services/" class="service-arrow" style="text-decoration:none;" aria-label="See Data Analytics on Services">↗</a>
       </div>
-      <div class="service-card reveal">
-        <div class="card-top">
-          <div class="service-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a7 7 0 0 1 7 7c0 3.5-2 6-5 7v2H10v-2c-3-1-5-3.5-5-7a7 7 0 0 1 7-7z"/><path d="M9 17v2a3 3 0 0 0 6 0v-2"/><path d="M9.5 9.5a2.5 2.5 0 0 1 5 0c0 1.5-1 2.5-2.5 3v1"/></svg>
-          </div>
-          <img class="card-art card-art--sm" src="/images/graphics/glass-ai.webp" alt="Illustration of a browser window showing a connected workflow with an AI sparkle" width="800" height="800" loading="lazy" decoding="async" />
-        </div>
-        <span class="service-num">04</span>
+      <div class="service-card service-card--row reveal">
+        <img class="row-art" src="/images/graphics/glass-ai.webp" alt="Illustration of a browser window showing a connected workflow with an AI sparkle" width="800" height="800" loading="lazy" decoding="async" />
         <div class="service-name">AI-Augmented Workflows</div>
-        <div class="service-desc">Embed large language models and AI tooling into your existing processes — document analysis, content generation, and decision support.</div>
-        <div class="service-tags"><span class="tag">LLM Tools</span><span class="tag">Document Parsing</span><span class="tag">Prompt Engineering</span><span class="tag">Chatbots</span></div>
-        <a href="/services/" class="service-arrow" style="text-decoration:none;" aria-label="View AI-Augmented Workflows on Services">↗</a>
+        <div class="service-desc">AI tools for document analysis, content generation, and decision support.</div>
+        <a href="/services/" class="service-arrow" style="text-decoration:none;" aria-label="See AI-Augmented Workflows on Services">↗</a>
       </div>
     </div>
     <div class="services-grid services-grid--2col" style="margin-top:24px;">
@@ -271,31 +241,17 @@ import Layout from '../layouts/Layout.astro';
   .hero-sub strong { color: var(--text); font-weight: 500; }
   .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
   .services-grid--2col { grid-template-columns: repeat(2, 1fr); }
-  .services-grid--lead { grid-template-columns: 1fr; }
-  .service-card--lead { padding: 48px 44px; }
-  .service-card--lead .service-name { font-size: 32px; }
-  .service-card--lead .service-desc { max-width: 720px; font-size: 15px; }
-  /* Graphics: lead card art sits on the right; the small cards carry art beside the icon. */
-  .service-card--lead { padding-right: 400px; min-height: 340px; }
-  .card-art { display: block; height: auto; pointer-events: none; }
-  .card-art--lead {
-    position: absolute; right: 36px; top: 50%; transform: translateY(-50%);
-    width: 320px;
-  }
-  .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px; }
-  .card-top .service-icon { margin-bottom: 0; }
-  .card-art--sm { width: 132px; margin: -10px 48px 0 0; }
-  .service-note { font-size: 13px; line-height: 1.6; color: var(--muted2); margin: -12px 0 24px; }
+  /* "What I Do": a compact four-item row, art above a short name, one line of copy, and a link to Services. */
+  .services-grid--row { grid-template-columns: repeat(4, 1fr); }
+  .service-card--row { padding: 28px 24px; display: flex; flex-direction: column; }
+  .row-art { display: block; width: 96px; height: 96px; margin: 0 0 14px -6px; pointer-events: none; }
+  .service-card--row .service-name { font-size: 20px; margin-bottom: 8px; }
+  .service-card--row .service-desc { font-size: 13px; line-height: 1.6; margin-bottom: 18px; flex: 1; }
   /* Decorative backdrop behind the closing call-to-action. */
   .cta-backdrop-wrap { display: contents; }
   .cta-backdrop {
     position: absolute; inset: 0; width: 100%; height: 100%;
     object-fit: cover; opacity: 0.3; pointer-events: none; z-index: 0;
-  }
-  .also-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--accent); margin: 40px 0 16px;
   }
 
   /* "How I Work" steps only carry a number + one line of copy, not a
@@ -319,12 +275,16 @@ import Layout from '../layouts/Layout.astro';
   @media (max-width: 900px) {
     .hero-inner { padding: 40px 24px; }
     .services-grid--2col { grid-template-columns: 1fr; }
-    .service-card--lead { padding: 40px 36px; min-height: 0; }
-    .card-art--lead { position: static; transform: none; width: 220px; margin: 28px auto 0; }
+    .services-grid--row { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 640px) {
     .cta-backdrop { display: none; }
-    .card-art--sm { width: 104px; margin-right: 40px; }
+    .services-grid--row { grid-template-columns: 1fr; }
+    .service-card--row {
+      display: grid; grid-template-columns: 88px 1fr; column-gap: 18px; align-items: start; padding: 24px;
+    }
+    .service-card--row .row-art { grid-row: 1 / span 3; width: 88px; height: 88px; margin: 0; }
+    .service-card--row .service-desc { margin-bottom: 10px; }
   }
 </style>
 
