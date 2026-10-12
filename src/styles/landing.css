@@ -266,6 +266,30 @@
 
 .lp-actions { margin-top: 32px; display: flex; gap: 12px; flex-wrap: wrap; }
 
+/* Article-style pages: summary box + contents list, and anchor offset for the fixed nav. */
+.lp-anchor { scroll-margin-top: calc(var(--nav-h) + 12px); }
+.lp-intro { display: grid; grid-template-columns: 1.7fr 1fr; gap: 24px; align-items: start; }
+.lp-summary-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.lp-summary-list li { font-size: 14px; line-height: 1.65; color: var(--muted); }
+.lp-summary-list strong {
+  display: block; margin-bottom: 2px;
+  font-family: 'JetBrains Mono', monospace; font-weight: 400;
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);
+}
+.lp-toc { list-style: none; counter-reset: toc; display: flex; flex-direction: column; gap: 4px; }
+.lp-toc li { counter-increment: toc; }
+.lp-toc a {
+  display: flex; gap: 14px; align-items: baseline; padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px; line-height: 1.4; color: var(--text); text-decoration: none;
+  transition: color 0.2s;
+}
+.lp-toc a::before {
+  content: '0' counter(toc);
+  font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; color: var(--accent);
+}
+.lp-toc a:hover { color: var(--accent); }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   .page-hero-inner { padding: 60px 24px; }
@@ -275,6 +299,7 @@
   .meta-item { padding: 4px 0; }
   .meta-divider { display: none; }
   .lp-list { grid-template-columns: 1fr; }
+  .lp-intro { grid-template-columns: 1fr; }
   .lp-card { padding: 32px 24px; }
   .lp-tier { grid-template-columns: 1fr; gap: 8px; }
 }

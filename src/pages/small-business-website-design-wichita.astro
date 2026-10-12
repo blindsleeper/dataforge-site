@@ -3,17 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import Divider from '../components/Divider.astro';
 import '../styles/landing.css';
 
-const included = [
-  'Custom site design & development',
-  'Webflow builds & migrations',
-  'CMS setup, structure & training',
-  'SEO foundations & metadata',
-  'Performance & Core Web Vitals',
-  'Landing pages & small standalone sites',
-  'Mobile-first layouts',
-  'Handoff documentation',
-];
-
 const care = [
   {
     label: 'Care',
@@ -46,7 +35,7 @@ const care = [
 ];
 ---
 
-<Layout title="Small Business Website Design" description="Small business website design and development in Wichita, KS. Custom or Webflow sites you can edit yourself, from one local developer. Free scoping call.">
+<Layout title="Small Business Website Design" description="Small business website design and development in Wichita, KS. Custom or Webflow sites you can edit yourself, from one local developer. Free intake call.">
 
 <!-- ── PAGE HERO ── -->
 <section class="page-hero">
@@ -60,7 +49,7 @@ const care = [
       Small Business<br>Website Design<br><em>in Wichita</em>
     </h1>
     <p class="page-sub fade-up d3">
-      A website you can edit yourself, built by one person you can reach directly.
+      A website built to be easy for you to update, by one person you can reach directly.
       Custom-coded or on Webflow, for small businesses in Wichita and the towns around it.
     </p>
     <div class="page-hero-meta fade-up d4">
@@ -68,72 +57,152 @@ const care = [
       <div class="meta-divider"></div>
       <div class="meta-item"><span class="meta-dot"></span>Webflow or Custom Code</div>
       <div class="meta-divider"></div>
-      <div class="meta-item"><span class="meta-dot"></span>Free Scoping Call</div>
+      <div class="meta-item"><span class="meta-dot"></span>Free Intake Call</div>
     </div>
   </div>
 </section>
 
-<!-- ── WHAT'S INCLUDED ── -->
+<!-- ── SUMMARY + CONTENTS ── -->
 <div style="border-bottom: 1px solid var(--border);">
   <div class="section">
-    <div class="section-header reveal">
-      <span class="section-num">01</span>
-      <h2 class="section-title">What a Website<br><em>Includes</em></h2>
-    </div>
-    <Divider variant="angular" />
-
-    <div class="lp-card reveal">
-      <div class="lp-card-label">Deliverables</div>
-      <p class="lp-card-lead">
-        Every site is built mobile-first, meaning it's designed for phones first and then scaled
-        up to desktop.
-      </p>
-      <ul class="lp-list">
-        {included.map((i) => <li>{i}</li>)}
-      </ul>
-    </div>
-    <div class="lp-prose" style="margin-top:28px;">
-      <p>
-        A <strong>CMS</strong> (content management system) is the editing area behind your site,
-        where you change text, images, and pages yourself. <strong>Webflow</strong> is a visual
-        website builder. <strong>SEO</strong> is how search engines find your pages, and
-        metadata is the title and description they show. <strong>Core Web Vitals</strong> are
-        Google's measures of how fast and stable a page feels.
-      </p>
+    <div class="lp-intro">
+      <div class="lp-card reveal">
+        <div class="lp-card-label">// The short version</div>
+        <ul class="lp-summary-list">
+          <li><strong>Who it's for</strong>Small businesses and professional-service firms in Wichita, KS and the towns around it.</li>
+          <li><strong>What you get</strong>A custom-coded or Webflow website that works well on phones and is built to be easy for you to update.</li>
+          <li><strong>How it works</strong>A free 30-minute intake call, a written scope-of-work plan, a working preview you review, then launch.</li>
+          <li><strong>What it costs</strong>Smaller single-scope projects run $500–$1,500. Larger builds are quoted after the intake call. Optional care plans are $250 or $750 a month.</li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <div class="lp-card-label">// In this page</div>
+        <ol class="lp-toc">
+          <li><a href="#needs">What a small business website needs</a></li>
+          <li><a href="#tools">Webflow, custom code, and who owns what</a></li>
+          <li><a href="#process">How a project works</a></li>
+          <li><a href="#example">A recent example</a></li>
+          <li><a href="#cost">Cost, and what happens after launch</a></li>
+        </ol>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- ── WHO IT'S FOR ── -->
-<div style="background: var(--bg2); border-bottom: 1px solid var(--border);">
+<!-- ── 01 WHAT A SITE NEEDS ── -->
+<div id="needs" class="lp-anchor" style="border-bottom: 1px solid var(--border);">
   <div class="section">
     <div class="section-header reveal">
-      <span class="section-num">02</span>
-      <h2 class="section-title">Who This<br><em>Is For</em></h2>
+      <span class="section-num">01</span>
+      <h2 class="section-title">What a Small Business<br><em>Website Needs</em></h2>
     </div>
     <Divider variant="angular" />
 
     <div class="lp-prose reveal">
       <p>
-        I'm a small business web developer in Wichita, KS. I build sites for owners and
-        professional-service firms who want something credible and fast, and who don't want to
-        call a developer every time a phone number or a paragraph changes. You work directly
-        with me, the person doing the building.
+        A small business website has a few jobs. It has to look credible to someone who has never
+        heard of you, load quickly on a phone, and make it obvious how to get in touch. Everything
+        else is secondary. When I do small business website design in Wichita, I start from those
+        jobs and work outward, rather than starting from a template and hoping it fits.
       </p>
       <p>
-        If you're looking for small business website design in Wichita, I serve Wichita,
-        El Dorado, Augusta, Hutchinson, Mount Hope, Cheney, Maize, Bel Aire, Andover, Goddard,
-        Park City, and Derby.
+        The most common mistake I see is an idea for the site that is too grand. If you're a small
+        business without a website, the main goal is to get one live and let it mature, so it
+        becomes more searchable over time. Build what you need for where you are now. A site can
+        always be scaled up later, but an overly large site that is hard to manage becomes a
+        headache and often gets abandoned.
+      </p>
+      <p>
+        In practice that means a mobile-first layout, which is a design that starts with the phone
+        screen and then scales up to desktop. It means search basics done properly: clear page
+        titles and descriptions, which are the text search engines show for your pages. And it
+        means attention to performance, including Core Web Vitals, which are Google's measures of
+        how fast and stable a page feels while it loads.
+      </p>
+      <p>
+        I'm a small business web developer in Wichita, KS, and you work directly with me, the
+        person doing the building. I serve Wichita, El Dorado, Augusta, Hutchinson, Mount Hope,
+        Cheney, Maize, Bel Aire, Andover, Goddard, Park City, and Derby.
       </p>
     </div>
   </div>
 </div>
 
-<!-- ── RECENT EXAMPLE ── -->
-<div style="border-bottom: 1px solid var(--border);">
+<!-- ── 02 TOOLS AND OWNERSHIP ── -->
+<div id="tools" class="lp-anchor" style="background: var(--bg2); border-bottom: 1px solid var(--border);">
+  <div class="section">
+    <div class="section-header reveal">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Webflow, Custom Code,<br><em>and Who Owns What</em></h2>
+    </div>
+    <Divider variant="angular" />
+
+    <div class="lp-prose reveal">
+      <p>
+        Which tool is right depends on the use case. Template-based builders are quick to start
+        with, but they can limit how much you can customize as your needs grow. Custom code allows
+        anything, because the site is written from scratch. Webflow is a middle ground: a visual
+        website builder that gives you a shell to work in without restricting creativity. A Webflow
+        site can include a CMS, short for content management system, which is the editing area
+        behind the site where you change text, images, and pages without touching code.
+      </p>
+      <p>
+        For my own projects I prefer code, for the freedom. But a case can be made for any of these
+        tools depending on the situation, so I keep all of them in my toolbox and adapt to each
+        client instead of pushing one.
+      </p>
+      <p>
+        I usually build a working preview site first, hosted locally or on a service like Netlify,
+        so you and I can iterate together. You approve the copy and see how the pages flow before
+        anything goes live. At handoff you receive the design files, the code, and the hosting
+        setup. I usually ask you to buy and set up your own domain, which is your web address, so
+        it is yours from the start.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ── 03 HOW A PROJECT WORKS ── -->
+<div id="process" class="lp-anchor" style="border-bottom: 1px solid var(--border);">
   <div class="section">
     <div class="section-header reveal">
       <span class="section-num">03</span>
+      <h2 class="section-title">How a Project<br><em>Works</em></h2>
+    </div>
+    <Divider variant="angular" />
+
+    <div class="lp-prose reveal">
+      <p>
+        It starts with a message, through the contact form or by email. Email is the best way to
+        reach me, and I reply within 24 hours.
+      </p>
+      <p>
+        Then we have an informal intake call. It is free and takes about 30 minutes. We talk through
+        your vision and where you are right now, including whether you've already bought a domain or
+        hosting. We cover any style or color palette you like, whether you want basic SEO, and
+        whether this is a one-time build or you'll want managed services afterward.
+      </p>
+      <p>
+        After the call I turn what we discussed into a written scope-of-work plan for you to review.
+        If the scope changes later, we agree on the change in writing before any work begins, so
+        there are no surprise charges. Revisions within the agreed scope are included.
+      </p>
+      <p>
+        A full website build generally starts at about 6 weeks, depending on scope. That doesn't
+        include your review time. I ask that review feedback come back within about 15 days,
+        though I'm flexible. A single scoped deliverable, such as a landing page, has a 1–2 week
+        delivery window. At the end you get documentation and training, so you know how to update
+        the site yourself.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ── 04 A RECENT EXAMPLE ── -->
+<div id="example" class="lp-anchor" style="background: var(--bg2); border-bottom: 1px solid var(--border);">
+  <div class="section">
+    <div class="section-header reveal">
+      <span class="section-num">04</span>
       <h2 class="section-title">A Recent<br><em>Example</em></h2>
     </div>
     <Divider variant="angular" />
@@ -141,60 +210,48 @@ const care = [
     <div class="lp-prose reveal">
       <p>
         I rebuilt the website for a Wichita law firm on Webflow. The work covered a new site
-        structure, a mobile-first layout, a CMS the firm's own team manages, attorney profiles,
-        practice-area pages, a blog, and training with written handoff documentation. The aim
-        was a site the firm can run without depending on a developer.
+        structure, a mobile-first layout across screen sizes, a CMS the firm's own team can update,
+        attorney profiles, practice-area pages, a blog, and training with written handoff
+        documentation.
+      </p>
+      <p>
+        I prioritized the organization of the site's assets and CMS entries, because the previous
+        site's assets and content entries were disorganized. I created new pages from scratch, and
+        I added the ability to post jobs and receive resumes directly through the site. You can see
+        more on the <a href="/portfolio/">portfolio page</a>.
       </p>
     </div>
     <div class="lp-note reveal">
       <span class="lp-note-label">// Independence</span>
       <p>
-        DataForge is a separate, independent company. I also work at a Wichita law firm and use
-        DataForge's tools there, and nothing on this page speaks for the firm.
+        DataForge is a separate, independent company, and nothing on this page speaks for any
+        law firm.
       </p>
     </div>
   </div>
 </div>
 
-<!-- ── HOW A PROJECT WORKS ── -->
-<div style="background: var(--bg2); border-bottom: 1px solid var(--border);">
-  <div class="section">
-    <div class="section-header reveal">
-      <span class="section-num">04</span>
-      <h2 class="section-title">How a Project<br><em>Works</em></h2>
-    </div>
-    <Divider variant="angular" />
-
-    <div class="lp-prose reveal">
-      <p>
-        Every project starts with a free scoping call, where we talk through what you need.
-        After that you get a written proposal and a milestone-by-milestone plan. If the scope
-        changes, we agree on the change in writing before any work begins, so there are no
-        surprise charges. Revisions within the agreed scope are included. At the end you get
-        handoff documentation, plus training if the site has a CMS.
-      </p>
-    </div>
-  </div>
-</div>
-
-<!-- ── COST ── -->
-<div style="border-bottom: 1px solid var(--border);">
+<!-- ── 05 COST AND AFTER LAUNCH ── -->
+<div id="cost" class="lp-anchor" style="border-bottom: 1px solid var(--border);">
   <div class="section">
     <div class="section-header reveal">
       <span class="section-num">05</span>
-      <h2 class="section-title">What It<br><em>Costs</em></h2>
+      <h2 class="section-title">Cost, and What Happens<br><em>After Launch</em></h2>
     </div>
     <Divider variant="angular" />
 
     <div class="lp-prose reveal" style="margin-bottom:48px;">
       <p>
-        Smaller, single-scope projects, such as a landing page, fall in the Starter range:
-        <strong>$500–$1,500 per project</strong>, with a 1–2 week delivery window. Larger site
-        builds are quoted after a discovery call.
+        Smaller, single-scope projects fall in the Starter range: <strong>$500–$1,500 per
+        project</strong>, with a 1–2 week delivery window, revisions within the agreed scope, email
+        support, and handoff documentation. Larger site builds are quoted after the intake call.
+        While a larger build is actively underway, a monthly arrangement is available at
+        $1,500–$3,000 a month. Full details are on the <a href="/services/#pricing">Services page</a>.
       </p>
       <p>
-        After launch, two optional care plans keep a site healthy. They're for sites I've
-        built, or others after a quick review.
+        After launch, managed services are available through two Care plans, one with a priority
+        response time and one without. They are for sites I've built, or others after a quick
+        review. The first is $250 a month. The second is $750 a month and adds a faster response.
       </p>
     </div>
 
@@ -225,76 +282,19 @@ const care = [
       ))}
     </div>
 
-    <p class="pricing-note">
-      Unused hours don't roll over, and I always confirm overage before any extra work starts.
-      Full pricing is on the <a href="/services/#pricing" class="lp-link">Services page</a>.
-    </p>
-  </div>
-</div>
-
-<!-- ── BEYOND THE WEBSITE ── -->
-<div style="background: var(--bg2); border-bottom: 1px solid var(--border);">
-  <div class="section">
-    <div class="section-header reveal">
-      <span class="section-num">06</span>
-      <h2 class="section-title">Beyond the<br><em>Website</em></h2>
-    </div>
-    <Divider variant="angular" />
-
     <div class="lp-prose reveal">
       <p>
-        Many small businesses also have problems that sit behind the website: manual
-        processes, scattered spreadsheets, and reports someone builds by hand each month.
-        I also build automation, dashboards, and process cleanups. See
-        <a href="/services/">all services</a>.
+        Unused hours don't roll over, and I always confirm extra time before any extra work starts.
+        Email is the best way to reach me, and I reply within 24 hours.
       </p>
       <p>
-        If you run a law firm, see
+        Many small businesses find that their next problem sits behind the website: manual
+        processes, scattered spreadsheets, and reports someone builds by hand each month. As a
+        business systems consultant in Wichita, I also build automation, dashboards, and process
+        cleanups; see <a href="/services/">all services</a>. If you run a law firm, see
         <a href="/law-firm-technology-consulting-wichita/">law firm technology consulting in Wichita</a>.
       </p>
     </div>
-  </div>
-</div>
-
-<!-- ── COMMON QUESTIONS ── -->
-<div style="border-bottom: 1px solid var(--border);">
-  <div class="section">
-    <div class="section-header reveal">
-      <span class="section-num">07</span>
-      <h2 class="section-title">Common<br><em>Questions</em></h2>
-    </div>
-    <Divider variant="angular" />
-
-    <dl class="lp-faq reveal">
-      <div>
-        <dt>Can I update the site myself?</dt>
-        <dd>
-          Yes. I set up the CMS so you can change text, images, and pages without a developer,
-          and I train you on it.
-        </dd>
-      </div>
-      <div>
-        <dt>Webflow or custom code?</dt>
-        <dd>
-          Either. Webflow is a visual builder, and custom code is written from scratch. I'll
-          recommend whichever fits what you need.
-        </dd>
-      </div>
-      <div>
-        <dt>What happens after launch?</dt>
-        <dd>
-          You get handoff documentation. If you'd like ongoing help, the Care plans above cover
-          updates, monitoring, and small changes.
-        </dd>
-      </div>
-      <div>
-        <dt>How does it start?</dt>
-        <dd>
-          With a free scoping call. You tell me what you need and I tell you honestly whether
-          I'm the right fit.
-        </dd>
-      </div>
-    </dl>
   </div>
 </div>
 
@@ -305,10 +305,10 @@ const care = [
   <h2 class="cta-headline">Let's Talk<br><em>About Your Site.</em></h2>
   <p class="cta-sub">
     Tell me about your business and what you want the site to do. Every project starts with a
-    free scoping call.
+    free 30-minute intake call.
   </p>
   <div class="cta-actions">
-    <a href="/contact/" class="btn-primary">Book a Free Scoping Call</a>
+    <a href="/contact/" class="btn-primary">Book a Free Intake Call</a>
     <a href="/services/" class="btn-ghost">See Services &amp; Pricing</a>
   </div>
 </div>

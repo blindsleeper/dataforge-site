@@ -4,7 +4,7 @@ import Divider from '../components/Divider.astro';
 import '../styles/landing.css';
 ---
 
-<Layout title="Law Firm Technology Consulting" description="Wichita law firm technology consulting: IT issue tracking, discovery review tools, reporting dashboards, and website builds from an independent local consultant.">
+<Layout title="Law Firm Technology Consulting" description="Wichita law firm technology consulting: IT issue tracking, reporting dashboards, websites, and discovery tools in development, from an independent local consultant.">
 
 <!-- ── PAGE HERO ── -->
 <section class="page-hero">
@@ -18,8 +18,8 @@ import '../styles/landing.css';
       Law Firm<br>Technology Consulting<br><em>in Wichita</em>
     </h1>
     <p class="page-sub fade-up d3">
-      Practical technology for small and mid-size law firms: IT tracking, evidence review
-      tools, reporting dashboards, and websites. Built by someone who works inside a law firm.
+      Practical technology for small law firms: IT tracking, reporting dashboards, and websites,
+      with discovery and evidence tools in development. Built by an independent local consultant.
     </p>
     <div class="page-hero-meta fade-up d4">
       <div class="meta-item"><span class="meta-dot"></span>Wichita, KS</div>
@@ -31,71 +31,98 @@ import '../styles/landing.css';
   </div>
 </section>
 
-<!-- ── INDEPENDENT, AND WHO I AM ── -->
+<!-- ── SUMMARY + CONTENTS ── -->
 <div style="border-bottom: 1px solid var(--border);">
+  <div class="section">
+    <div class="lp-intro">
+      <div class="lp-card reveal">
+        <div class="lp-card-label">// The short version</div>
+        <ul class="lp-summary-list">
+          <li><strong>Who it's for</strong>Small law firms in Wichita, KS that don't have a full in-house IT department.</li>
+          <li><strong>What you get</strong>IT issue tracking, reporting dashboards, and websites today, with discovery and evidence tools in development. The tools are built by DataForge.</li>
+          <li><strong>Independence</strong>DataForge is a separate, independent company, and nothing here speaks for any law firm.</li>
+          <li><strong>How it starts</strong>A free scoping call, then interviews with a few of your staff.</li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <div class="lp-card-label">// In this page</div>
+        <ol class="lp-toc">
+          <li><a href="#independent">Independent, and how I work</a></li>
+          <li><a href="#it">When nobody owns IT</a></li>
+          <li><a href="#caselens">Reviewing discovery data: CaseLens</a></li>
+          <li><a href="#evidence">Evidence processing</a></li>
+          <li><a href="#reporting">Reporting, websites, and a first engagement</a></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 01 INDEPENDENT, AND WHO I AM ── -->
+<div id="independent" class="lp-anchor" style="border-bottom: 1px solid var(--border);">
   <div class="section">
     <div class="section-header reveal">
       <span class="section-num">01</span>
-      <h2 class="section-title">Independent, and<br><em>Who I Am</em></h2>
+      <h2 class="section-title">Independent, and<br><em>How I Work</em></h2>
     </div>
     <Divider variant="circuit" />
 
     <div class="lp-prose reveal">
       <p>
         DataForge is a separate, independent company, and I work as a law firm technology
-        consultant here in Wichita. I use DataForge's tools in my work at a Wichita law firm,
-        and this page speaks for DataForge, not for the firm.
+        consultant here in Wichita. Nothing on this page speaks for any law firm, and no firm is
+        named here.
       </p>
       <p>
-        I started at that firm in 2022 as an office clerk, and the firm later created a Data Coordinator
-        role around the systems I'd built.
+        My method is diagnostic first. I pull a system apart, whether it's a reporting workflow, an
+        intake process, or an automation that has grown brittle, and find where the original design
+        ends and the workarounds begin. The workarounds are usually the problem. The same approach
+        applies outside law, and I work as a business systems consultant in Wichita for other small
+        businesses too. The aim is always the same: find the inefficiency, build the solution, and
+        make it stick.
+      </p>
+      <p>
+        On confidentiality, here is how I work as an independent consultant engaged by a firm. I
+        don't upload or share information that could reveal the firm's clients. I only access what
+        a task requires, and I don't need case content to build or fix a system. If an engagement
+        involves regulated data, such as health information, we set up the right agreements with
+        the firm first.
       </p>
     </div>
   </div>
 </div>
 
-<!-- ── THE PROBLEM ── -->
-<div style="background: var(--bg2); border-bottom: 1px solid var(--border);">
+<!-- ── 02 WHEN NOBODY OWNS IT ── -->
+<div id="it" class="lp-anchor" style="background: var(--bg2); border-bottom: 1px solid var(--border);">
   <div class="section">
     <div class="section-header reveal">
       <span class="section-num">02</span>
-      <h2 class="section-title">The<br><em>Problem</em></h2>
+      <h2 class="section-title">When Nobody<br><em>Owns IT</em></h2>
     </div>
     <Divider variant="circuit" />
 
     <div class="lp-prose reveal">
       <p>
-        Many law firms don't have an in-house IT department. Printers jam, software rollouts
-        go unexplained, and when something breaks the fix depends on who happens to be nearby.
-        Each issue looks like a one-off because nobody keeps a record, so the underlying
-        patterns stay invisible.
-      </p>
-    </div>
-  </div>
-</div>
-
-<!-- ── IT LOGGER ── -->
-<div style="border-bottom: 1px solid var(--border);">
-  <div class="section">
-    <div class="section-header reveal">
-      <span class="section-num">03</span>
-      <h2 class="section-title">Tracking IT Issues:<br><em>IT Logger</em></h2>
-    </div>
-    <Divider variant="circuit" />
-
-    <div class="lp-prose reveal">
-      <p>
-        In my office, a vendor was called only for major failures and nothing tracked the
-        smaller problems. I built IT Logger, a small ticket tracker (a log of who reported what,
-        when, and whether it's fixed). It runs locally on any machine with Python, needs no
-        licenses or outside services, and shows ticket counts, issue types, and monthly volume
-        on a dashboard.
+        Many small law firms don't have an in-house IT department. IT Logger was built for a law
+        firm's internal IT support, in a setting where a contract vendor was called in for major
+        failures and nothing tracked the smaller problems. When a printer jammed or a workstation
+        lost its network connection, the fix depended on who happened to be nearby. Each issue
+        looked like a one-off, because nobody kept a record.
       </p>
       <p>
-        Once issues were logged, a pattern appeared. Printer trouble was the biggest category
-        and clustered around the same shared printers. The training questions clustered around
-        a document-management software rollout that never had a structured handoff. Individual
-        annoyances turned out to have fixable causes.
+        IT Logger is a small ticket tracker: a log of who reported what, from which
+        department, what type of issue it was, its priority, and when it was logged and closed. The
+        intake form takes under two minutes, and a short dropdown for issue type forces
+        categorization without adding friction. I run it myself. It runs locally on one machine,
+        using Python, Flask, and SQLite, with no licenses and no outside services. Only I can see
+        it, and the log data stays on that machine.
+      </p>
+      <p>
+        Once issues were logged, a pattern appeared. Printer trouble was the biggest single
+        category, and it clustered around the same shared printers. The training questions
+        clustered around a document-management software rollout that had no structured handoff.
+        What looked like random friction was a systemic gap, and individual annoyances turned out
+        to have fixable causes.
       </p>
     </div>
 
@@ -103,159 +130,97 @@ import '../styles/landing.css';
       <img src="/images/tools/itlogger-dashboard.webp" alt="IT Logger dashboard showing total, open and resolved ticket counts and average resolution time, a donut chart of issue types, and a bar chart of monthly ticket volume over six months." width="1600" height="535" loading="lazy" decoding="async" />
       <figcaption>Dashboard with ticket totals, issue type distribution and monthly volume</figcaption>
     </figure>
-
-    <div class="lp-actions">
-      <a href="/work/it-triage/" class="btn-ghost">Read the Write-Up: When Nobody Owns IT →</a>
-    </div>
   </div>
 </div>
 
-<!-- ── CASELENS ── -->
-<div style="background: var(--bg2); border-bottom: 1px solid var(--border);">
+<!-- ── 03 CASELENS ── -->
+<div id="caselens" class="lp-anchor" style="border-bottom: 1px solid var(--border);">
   <div class="section">
     <div class="section-header reveal">
-      <span class="section-num">04</span>
+      <span class="section-num">03</span>
       <h2 class="section-title">Reviewing Discovery Data:<br><em>CaseLens</em></h2>
     </div>
     <Divider variant="circuit" />
 
     <div class="lp-prose reveal">
       <p>
-        Discovery is the stage where both sides hand over case data. CaseLens, built by
-        DataForge, is a Windows desktop app for reviewing exported message data. A reviewer
-        can browse threads, search by keyword, filter by sender or channel, and export findings
-        to CSV (a plain spreadsheet file). Cases open read-only, so the source data can't be
-        changed by accident.
+        Discovery is the stage where both sides hand over case data. CaseLens, built by DataForge,
+        is a Windows desktop app for reviewing exported message data. A reviewer can browse and
+        search the messages and export findings to CSV, a plain spreadsheet format. Cases open
+        read-only, so the source data can't be changed by accident.
       </p>
       <p>
-        It started as a simple message browser and grew in stages as real needs came up.
+        CaseLens is currently in development. It is planned to be available to other businesses to
+        purchase once it is ready, and I'm not giving a date yet. You can read more in the
+        <a href="/work/caselens/">CaseLens write-up</a> and on the <a href="/tools/">Tools page</a>.
       </p>
-    </div>
-
-    <div class="lp-actions">
-      <a href="/work/caselens/" class="btn-ghost">Read the Write-Up: Building CaseLens →</a>
-      <a href="/tools/" class="btn-ghost">See CaseLens on the Tools Page →</a>
     </div>
   </div>
 </div>
 
-<!-- ── EVIDENCE PROCESSING SUITE ── -->
-<div style="border-bottom: 1px solid var(--border);">
+<!-- ── 04 EVIDENCE PROCESSING ── -->
+<div id="evidence" class="lp-anchor" style="background: var(--bg2); border-bottom: 1px solid var(--border);">
+  <div class="section">
+    <div class="section-header reveal">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Evidence<br><em>Processing</em></h2>
+    </div>
+    <Divider variant="circuit" />
+
+    <div class="lp-prose reveal">
+      <p>
+        The Evidence Processing Suite (working name), also built by DataForge, is a companion
+        toolset for evidence files. It pulls still frames out of video, reads the text in images
+        and screenshots using OCR (optical character recognition), and lays frames out in contact
+        sheets: PDF grids of frames with timestamps, designed for quick attorney review instead of
+        opening hundreds of files one by one.
+      </p>
+      <p>
+        It also records a SHA-256 hash for evidence files. A hash is a digital fingerprint that
+        changes if a file is altered, so you can check later whether a file is unchanged. I make no
+        claim about what any court will accept; that's a question for counsel.
+      </p>
+      <p>
+        Like CaseLens, the suite is in development and is planned to be available to other
+        businesses to purchase once it is ready.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ── 05 REPORTING, WEBSITES, FIRST ENGAGEMENT ── -->
+<div id="reporting" class="lp-anchor" style="border-bottom: 1px solid var(--border);">
   <div class="section">
     <div class="section-header reveal">
       <span class="section-num">05</span>
-      <h2 class="section-title">Evidence Processing:<br><em>Evidence Suite</em></h2>
+      <h2 class="section-title">Reporting, Websites,<br><em>and a First Engagement</em></h2>
     </div>
     <Divider variant="circuit" />
 
     <div class="lp-prose reveal">
       <p>
-        The Evidence Processing Suite, also built by DataForge, is a companion toolset for
-        evidence files. It pulls still frames out of video, reads the text in images and
-        screenshots (OCR, optical character recognition), and lays frames out in contact sheets
-        (PDF grids of frames with timestamps) for quick attorney review.
+        Firms often can't see their own numbers without someone running a report by hand. I build
+        dashboards, which are single screens of live charts and tables, and automated reports that
+        build themselves on a schedule, from the data you already have. The
+        <a href="/dashboard-gallery/">dashboard gallery</a> includes a sample legal billing
+        dashboard. It uses made-up data and is there to show what's possible, not to show any real
+        firm's numbers.
       </p>
       <p>
-        It also records a SHA-256 hash for each evidence file. A hash is a digital fingerprint
-        that changes if a file is altered, so you can check later whether a file is unchanged.
-        The results are packaged into structured PDFs. I make no claim about what any court
-        will accept; that's a question for counsel.
-      </p>
-    </div>
-
-    <div class="lp-actions">
-      <a href="/tools/" class="btn-ghost">See the Evidence Processing Suite on the Tools Page →</a>
-    </div>
-  </div>
-</div>
-
-<!-- ── REPORTING AND DASHBOARDS ── -->
-<div style="background: var(--bg2); border-bottom: 1px solid var(--border);">
-  <div class="section">
-    <div class="section-header reveal">
-      <span class="section-num">06</span>
-      <h2 class="section-title">Reporting and<br><em>Dashboards</em></h2>
-    </div>
-    <Divider variant="circuit" />
-
-    <div class="lp-prose reveal">
-      <p>
-        Firms often can't see their own numbers without someone running a report by hand.
-        I build dashboards (one screen of live charts and tables) and automated reports
-        (reports that build themselves on a schedule) from the data you already have.
-      </p>
-      <p>
-        The <a href="/dashboard-gallery/">dashboard gallery</a> includes a sample legal billing
-        dashboard. It uses made-up data and is there to show what's possible, not to show any
-        real firm's numbers.
-      </p>
-    </div>
-  </div>
-</div>
-
-<!-- ── WEBSITE ── -->
-<div style="border-bottom: 1px solid var(--border);">
-  <div class="section">
-    <div class="section-header reveal">
-      <span class="section-num">07</span>
-      <h2 class="section-title">Your Firm's<br><em>Website</em></h2>
-    </div>
-    <Divider variant="circuit" />
-
-    <div class="lp-prose reveal">
-      <p>
-        I also build websites for law firms: attorney profiles, practice-area pages, a blog,
-        and a CMS (the editing area behind the site) that your own staff can update, with
-        training and handoff documentation. See
+        I also build websites for law firms: attorney profiles, practice-area pages, a blog, and a
+        CMS (the editing area behind the site) that your own staff can update, with training and
+        handoff documentation. See
         <a href="/small-business-website-design-wichita/">small business website design in Wichita</a>.
       </p>
-    </div>
-  </div>
-</div>
-
-<!-- ── WORKING TOGETHER ── -->
-<div style="background: var(--bg2); border-bottom: 1px solid var(--border);">
-  <div class="section">
-    <div class="section-header reveal">
-      <span class="section-num">08</span>
-      <h2 class="section-title">Working<br><em>Together</em></h2>
-    </div>
-    <Divider variant="circuit" />
-
-    <div class="lp-prose reveal" style="margin-bottom:32px;">
       <p>
-        Engagements start with a free scoping call. Pricing depends on the kind of work, and
-        ongoing support is separate from building.
+        A first engagement starts with listening. I interview a few of your staff who hold
+        different job titles, to find where workflow pain points concentrate. Then I write an
+        outline of where I think the inefficiencies sit, along with some possible solutions.
       </p>
-    </div>
-
-    <div class="lp-tiers reveal">
-      <div class="lp-tier">
-        <div class="lp-tier-name">Starter<span class="lp-tier-price">$500–$1,500 per project</span></div>
-        <p>A single, scoped deliverable, such as a dashboard, an automation script, or a landing page.</p>
-      </div>
-      <div class="lp-tier">
-        <div class="lp-tier-name">Growth<span class="lp-tier-price">$1,500–$3,000 a month</span></div>
-        <p>
-          The monthly price while a larger build is actively underway. It's for building
-          things, not for ongoing support.
-        </p>
-      </div>
-      <div class="lp-tier">
-        <div class="lp-tier-name">Strategic<span class="lp-tier-price">Quoted</span></div>
-        <p>Larger or multi-system work, scoped and priced after a discovery call.</p>
-      </div>
-      <div class="lp-tier">
-        <div class="lp-tier-name">Care plans<span class="lp-tier-price">$250 / $750 a month</span></div>
-        <p>
-          Ongoing support for tools and sites already in place: Care at $250 a month and
-          Priority Care at $750 a month, each with included hours.
-        </p>
-      </div>
-    </div>
-
-    <div class="lp-actions">
-      <a href="/services/" class="btn-ghost">See Full Services &amp; Pricing →</a>
+      <p>
+        Every conversation starts with a free scoping call. Pricing for the different kinds of work
+        is on the <a href="/services/">Services page</a>.
+      </p>
     </div>
   </div>
 </div>
