@@ -181,6 +181,7 @@ const localPages = [
     desc: 'Custom or Webflow websites you can edit yourself, built by one local developer.',
     points: ['Webflow or custom-coded sites', 'A CMS you can edit yourself', 'Care plans after launch'],
     href: '/small-business-website-design-wichita/',
+    cta: 'Explore Small Business Website Design →',
     icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="16" rx="1"/><path d="M8 21h8M12 19v2"/><path d="M7 8l3 2-3 2M13 12h4"/></svg>`,
   },
   {
@@ -189,6 +190,7 @@ const localPages = [
     desc: 'IT issue tracking, discovery review tools, reporting dashboards, and websites for law firms.',
     points: ['IT issue tracking', 'Discovery and evidence review tools', 'Reporting dashboards'],
     href: '/law-firm-technology-consulting-wichita/',
+    cta: 'Explore Law Firm Technology Consulting →',
     icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v18M5 21h14"/><path d="M4 7h16"/><path d="M6 7l-3 7a3 3 0 0 0 6 0L6 7zM18 7l-3 7a3 3 0 0 0 6 0l-3-7z"/></svg>`,
   },
 ];
@@ -270,11 +272,46 @@ const localPages = [
   </div>
 </div>
 
-<!-- ── PRICING ── -->
-<div id="pricing" style="background: var(--bg2); border-bottom: 1px solid var(--border);">
+<!-- ── INDUSTRY & LOCAL PAGES ── -->
+<div id="local-pages" style="background: var(--bg2); border-bottom: 1px solid var(--border);">
   <div class="section">
     <div class="section-header reveal">
       <span class="section-num">02</span>
+      <h2 class="section-title">Industry &amp;<br><em>Local Pages</em></h2>
+    </div>
+    <Divider variant="angular" />
+
+    <p class="pricing-intro">
+      Two pages that go deeper on specific kinds of work.
+    </p>
+
+    <div class="pillars-grid pillars-grid--two">
+      {localPages.map((p) => (
+        <div class="pillar-card reveal">
+          <div class="pillar-top">
+            <div class="service-icon" set:html={p.icon} />
+            <span class="service-num">{p.num}</span>
+          </div>
+          <div class="pillar-name">{p.name}</div>
+          <div class="pillar-desc">{p.desc}</div>
+          <div class="pillar-divider"></div>
+          <ul class="pillar-deliverables">
+            {p.points.map((d) => (
+              <li>{d}</li>
+            ))}
+          </ul>
+          <a href={p.href} class="btn-primary local-page-link">{p.cta}</a>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<!-- ── PRICING ── -->
+<div id="pricing" style="border-bottom: 1px solid var(--border);">
+  <div class="section">
+    <div class="section-header reveal">
+      <span class="section-num">03</span>
       <h2 class="section-title">Pricing &amp;<br><em>Engagement</em></h2>
     </div>
     <Divider variant="angular" />
@@ -332,10 +369,10 @@ const localPages = [
 </div>
 
 <!-- ── MANAGED SERVICES ── -->
-<div id="managed-services" style="border-bottom: 1px solid var(--border);">
+<div id="managed-services" style="background: var(--bg2); border-bottom: 1px solid var(--border);">
   <div class="section">
     <div class="section-header reveal">
-      <span class="section-num">03</span>
+      <span class="section-num">04</span>
       <h2 class="section-title">Managed<br><em>Services</em></h2>
     </div>
     <Divider variant="angular" />
@@ -386,41 +423,6 @@ const localPages = [
       Care plans are for sites I've built, or others after a quick review.
       Unused hours don't roll over, and I always confirm overage before any extra work starts.
     </p>
-  </div>
-</div>
-
-<!-- ── INDUSTRY & LOCAL PAGES ── -->
-<div id="local-pages" style="background: var(--bg2); border-bottom: 1px solid var(--border);">
-  <div class="section">
-    <div class="section-header reveal">
-      <span class="section-num">04</span>
-      <h2 class="section-title">Industry &amp;<br><em>Local Pages</em></h2>
-    </div>
-    <Divider variant="angular" />
-
-    <p class="pricing-intro">
-      Two pages that go deeper on specific kinds of work.
-    </p>
-
-    <div class="pillars-grid pillars-grid--two">
-      {localPages.map((p) => (
-        <div class="pillar-card reveal">
-          <div class="pillar-top">
-            <div class="service-icon" set:html={p.icon} />
-            <span class="service-num">{p.num}</span>
-          </div>
-          <div class="pillar-name">{p.name}</div>
-          <div class="pillar-desc">{p.desc}</div>
-          <div class="pillar-divider"></div>
-          <ul class="pillar-deliverables">
-            {p.points.map((d) => (
-              <li>{d}</li>
-            ))}
-          </ul>
-          <a href={p.href} class="btn-ghost local-page-link">Read More →</a>
-        </div>
-      ))}
-    </div>
   </div>
 </div>
 
