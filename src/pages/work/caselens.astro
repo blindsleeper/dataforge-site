@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 ---
 
-<Layout title="Nine Phases to Production: Building a Legal Discovery Tool" description="How CaseLens grew from a simple message browser into a nine-phase legal discovery suite with OCR, video frame extraction, and SHA-256 chain-of-custody verification.">
+<Layout title="Nine Phases to Production: Building a Legal Discovery Tool" description="How CaseLens grew from a simple message browser into a nine-phase legal discovery suite with OCR, video frame extraction, and SHA-256 file verification.">
 
 <!-- ── PAGE HERO ── -->
 <section class="page-hero">
@@ -52,6 +52,10 @@ import Layout from '../../layouts/Layout.astro';
       </aside>
 
       <article class="writeup-body">
+
+        <p>
+          CaseLens is in development, so details here may change before release.
+        </p>
 
         <h2 class="section-heading">The Starting Point</h2>
         <p>
@@ -113,11 +117,10 @@ import Layout from '../../layouts/Layout.astro';
           gets a document that shows the full timeline at a glance and can flag the frames that matter.
         </p>
 
-        <h2 class="section-heading">Phases 7–9: Chain of Custody and Pipeline Automation</h2>
+        <h2 class="section-heading">Phases 7–9: File Verification and Pipeline Automation</h2>
         <p>
-          Legal evidence has an integrity requirement that most software doesn't: you need to be able
-          to prove that what you're reviewing is what was originally collected, and that it hasn't
-          been modified.
+          When you review evidence files, it helps to know they haven't changed since they were
+          collected. File verification is one way to check that.
         </p>
         <p>
           Phase 7 added SHA-256 hash verification for all evidence files. Every file in a case gets
