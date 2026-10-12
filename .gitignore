@@ -23,3 +23,6 @@ backup codes/
 # Working reference material (not for deployment)
 _reference/
 _media-inbox/
+
+# Astro generated cache/types
+.astro/
