@@ -163,7 +163,7 @@ footer {
 .footer-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: 0.06em; color: var(--accent); }
 .footer-logo span { color: var(--text); opacity: 0.3; }
 .footer-copy { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: var(--muted2); }
-.footer-links { display: flex; gap: 28px; list-style: none; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 12px 28px; list-style: none; }
 .footer-links a { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted2); text-decoration: none; transition: color 0.2s; }
 .footer-links a:hover { color: var(--muted); }
 
