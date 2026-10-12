@@ -1,0 +1,316 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Divider from '../components/Divider.astro';
+import '../styles/landing.css';
+
+const included = [
+  'Custom site design & development',
+  'Webflow builds & migrations',
+  'CMS setup, structure & training',
+  'SEO foundations & metadata',
+  'Performance & Core Web Vitals',
+  'Landing pages & small standalone sites',
+  'Mobile-first layouts',
+  'Handoff documentation',
+];
+
+const care = [
+  {
+    label: 'Care',
+    badge: 'Managed — Monthly',
+    price: '$250',
+    tagline: 'Keep it running, updated, and secure.',
+    features: [
+      'Content updates & copy edits (text, images, small page changes)',
+      'Uptime & security monitoring',
+      'Software/dependency updates',
+      "Monthly check-in email confirming everything's healthy",
+      'Includes 2 hrs/month; overage billed at $125/hr',
+    ],
+    cta: 'Start a Conversation',
+  },
+  {
+    label: 'Priority Care',
+    badge: 'Managed — Monthly',
+    price: '$750',
+    tagline: 'Faster response, more room to build.',
+    features: [
+      'Everything in Care, plus:',
+      'Small feature additions & integration tweaks',
+      'Priority response (next business day)',
+      'Quarterly performance/strategy check-in call',
+      'Includes 6 hrs/month; overage billed at $125/hr',
+    ],
+    cta: 'Book a Discovery Call',
+  },
+];
+---
+
+<Layout title="Small Business Website Design" description="Small business website design and development in Wichita, KS. Custom or Webflow sites you can edit yourself, from one local developer. Free scoping call.">
+
+<!-- ── PAGE HERO ── -->
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-glow"></div>
+  <div class="page-hero-inner">
+    <div class="page-eyebrow fade-up d1">
+      <span class="eyebrow-num">// Web &amp; CMS</span>
+    </div>
+    <h1 class="page-headline fade-up d2">
+      Small Business<br>Website Design<br><em>in Wichita</em>
+    </h1>
+    <p class="page-sub fade-up d3">
+      A website you can edit yourself, built by one person you can reach directly.
+      Custom-coded or on Webflow, for small businesses in Wichita and the towns around it.
+    </p>
+    <div class="page-hero-meta fade-up d4">
+      <div class="meta-item"><span class="meta-dot"></span>Wichita, KS</div>
+      <div class="meta-divider"></div>
+      <div class="meta-item"><span class="meta-dot"></span>Webflow or Custom Code</div>
+      <div class="meta-divider"></div>
+      <div class="meta-item"><span class="meta-dot"></span>Free Scoping Call</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHAT'S INCLUDED ── -->
+<div style="border-bottom: 1px solid var(--border);">
+  <div class="section">
+    <div class="section-header reveal">
+      <span class="section-num">01</span>
+      <h2 class="section-title">What a Website<br><em>Includes</em></h2>
+    </div>
+    <Divider variant="angular" />
+
+    <div class="lp-card reveal">
+      <div class="lp-card-label">Deliverables</div>
+      <p class="lp-card-lead">
+        Every site is built mobile-first, meaning it's designed for phones first and then scaled
+        up to desktop.
+      </p>
+      <ul class="lp-list">
+        {included.map((i) => <li>{i}</li>)}
+      </ul>
+    </div>
+    <div class="lp-prose" style="margin-top:28px;">
+      <p>
+        A <strong>CMS</strong> (content management system) is the editing area behind your site,
+        where you change text, images, and pages yourself. <strong>Webflow</strong> is a visual
+        website builder. <strong>SEO</strong> is how search engines find your pages, and
+        metadata is the title and description they show. <strong>Core Web Vitals</strong> are
+        Google's measures of how fast and stable a page feels.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ── WHO IT'S FOR ── -->
+<div style="background: var(--bg2); border-bottom: 1px solid var(--border);">
+  <div class="section">
+    <div class="section-header reveal">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Who This<br><em>Is For</em></h2>
+    </div>
+    <Divider variant="angular" />
+
+    <div class="lp-prose reveal">
+      <p>
+        I'm a small business web developer in Wichita, KS. I build sites for owners and
+        professional-service firms who want something credible and fast, and who don't want to
+        call a developer every time a phone number or a paragraph changes. You work directly
+        with me, the person doing the building.
+      </p>
+      <p>
+        If you're looking for small business website design in Wichita, I serve Wichita,
+        El Dorado, Augusta, Hutchinson, Mount Hope, Cheney, Maize, Bel Aire, Andover, Goddard,
+        Park City, and Derby.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ── RECENT EXAMPLE ── -->
+<div style="border-bottom: 1px solid var(--border);">
+  <div class="section">
+    <div class="section-header reveal">
+      <span class="section-num">03</span>
+      <h2 class="section-title">A Recent<br><em>Example</em></h2>
+    </div>
+    <Divider variant="angular" />
+
+    <div class="lp-prose reveal">
+      <p>
+        I rebuilt the website for a Wichita law firm on Webflow. The work covered a new site
+        structure, a mobile-first layout, a CMS the firm's own team manages, attorney profiles,
+        practice-area pages, a blog, and training with written handoff documentation. The aim
+        was a site the firm can run without depending on a developer.
+      </p>
+    </div>
+    <div class="lp-note reveal">
+      <span class="lp-note-label">// Independence</span>
+      <p>
+        DataForge is a separate, independent company. I also work at a Wichita law firm and use
+        DataForge's tools there, and nothing on this page speaks for the firm.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ── HOW A PROJECT WORKS ── -->
+<div style="background: var(--bg2); border-bottom: 1px solid var(--border);">
+  <div class="section">
+    <div class="section-header reveal">
+      <span class="section-num">04</span>
+      <h2 class="section-title">How a Project<br><em>Works</em></h2>
+    </div>
+    <Divider variant="angular" />
+
+    <div class="lp-prose reveal">
+      <p>
+        Every project starts with a free scoping call, where we talk through what you need.
+        After that you get a written proposal and a milestone-by-milestone plan. If the scope
+        changes, we agree on the change in writing before any work begins, so there are no
+        surprise charges. Revisions within the agreed scope are included. At the end you get
+        handoff documentation, plus training if the site has a CMS.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ── COST ── -->
+<div style="border-bottom: 1px solid var(--border);">
+  <div class="section">
+    <div class="section-header reveal">
+      <span class="section-num">05</span>
+      <h2 class="section-title">What It<br><em>Costs</em></h2>
+    </div>
+    <Divider variant="angular" />
+
+    <div class="lp-prose reveal" style="margin-bottom:48px;">
+      <p>
+        Smaller, single-scope projects, such as a landing page, fall in the Starter range:
+        <strong>$500–$1,500 per project</strong>, with a 1–2 week delivery window. Larger site
+        builds are quoted after a discovery call.
+      </p>
+      <p>
+        After launch, two optional care plans keep a site healthy. They're for sites and
+        systems already in place, after a quick review.
+      </p>
+    </div>
+
+    <div class="pricing-grid pricing-grid--retainer">
+      {care.map((r) => (
+        <div class="pricing-card reveal">
+          <div class="pricing-featured-bar pricing-featured-bar--retainer"></div>
+          <div class="pricing-badge">{r.badge}</div>
+          <div class="pricing-label">{r.label}</div>
+          <div class="pricing-price">
+            {r.price}
+            <span class="pricing-cadence">/month</span>
+          </div>
+          <div class="pricing-tagline">{r.tagline}</div>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-features">
+            {r.features.map((f) => (
+              <li>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                  <path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+          <a href="/contact/" class="btn-ghost pricing-cta">{r.cta}</a>
+        </div>
+      ))}
+    </div>
+
+    <p class="pricing-note">
+      Unused hours don't roll over, and I always confirm overage before any extra work starts.
+      Full pricing is on the <a href="/services/#pricing" class="lp-link">Services page</a>.
+    </p>
+  </div>
+</div>
+
+<!-- ── BEYOND THE WEBSITE ── -->
+<div style="background: var(--bg2); border-bottom: 1px solid var(--border);">
+  <div class="section">
+    <div class="section-header reveal">
+      <span class="section-num">06</span>
+      <h2 class="section-title">Beyond the<br><em>Website</em></h2>
+    </div>
+    <Divider variant="angular" />
+
+    <div class="lp-prose reveal">
+      <p>
+        Many small businesses also have problems that sit behind the website: manual
+        processes, scattered spreadsheets, and reports someone builds by hand each month.
+        I also build automation, dashboards, and process cleanups. See
+        <a href="/services/">all services</a>.
+      </p>
+      <p>
+        If you run a law firm, see
+        <a href="/law-firm-technology-consulting-wichita/">law firm technology consulting in Wichita</a>.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ── COMMON QUESTIONS ── -->
+<div style="border-bottom: 1px solid var(--border);">
+  <div class="section">
+    <div class="section-header reveal">
+      <span class="section-num">07</span>
+      <h2 class="section-title">Common<br><em>Questions</em></h2>
+    </div>
+    <Divider variant="angular" />
+
+    <dl class="lp-faq reveal">
+      <div>
+        <dt>Can I update the site myself?</dt>
+        <dd>
+          Yes. I set up the CMS so you can change text, images, and pages without a developer,
+          and I train you on it.
+        </dd>
+      </div>
+      <div>
+        <dt>Webflow or custom code?</dt>
+        <dd>
+          Either. Webflow is a visual builder, and custom code is written from scratch. I'll
+          recommend whichever fits what you need.
+        </dd>
+      </div>
+      <div>
+        <dt>What happens after launch?</dt>
+        <dd>
+          You get handoff documentation. If you'd like ongoing help, the Care plans above cover
+          updates, monitoring, and small changes.
+        </dd>
+      </div>
+      <div>
+        <dt>How does it start?</dt>
+        <dd>
+          With a free scoping call. You tell me what you need and I tell you honestly whether
+          I'm the right fit.
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+
+<!-- ── CTA STRIP ── -->
+<div class="cta-strip">
+  <div class="cta-glow"></div>
+  <div class="cta-eyebrow">// Start Here</div>
+  <h2 class="cta-headline">Let's Talk<br><em>About Your Site.</em></h2>
+  <p class="cta-sub">
+    Tell me about your business and what you want the site to do. Every project starts with a
+    free scoping call.
+  </p>
+  <div class="cta-actions">
+    <a href="/contact/" class="btn-primary">Book a Free Scoping Call</a>
+    <a href="/services/" class="btn-ghost">See Services &amp; Pricing</a>
+  </div>
+</div>
+
+</Layout>
