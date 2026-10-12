@@ -26,3 +26,6 @@ _media-inbox/
 
 # Astro generated cache/types
 .astro/
+
+# Design originals (large PNGs; optimized copies live in public/images/graphics/)
+df graphics/

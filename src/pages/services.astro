@@ -20,6 +20,7 @@ const pillars = [
   {
     num: '02',
     name: 'Systems & Automation',
+    art: { src: '/images/graphics/glass-automation.webp', alt: 'Illustration of a browser window showing a gear connected to four boxes' },
     desc: 'Replace manual, repetitive processes with custom backend tools and integrations that run themselves — and scale with you.',
     deliverables: [
       'API integrations & webhooks',
@@ -34,6 +35,7 @@ const pillars = [
   {
     num: '03',
     name: 'Process Streamlining',
+    art: { src: '/images/graphics/glass-process.webp', alt: 'Illustration of a browser window where several lines merge into one clean line' },
     desc: 'Map, analyze, and redesign business operations to eliminate bottlenecks, reduce overhead, and recapture lost time across your team.',
     deliverables: [
       'Workflow audits & process mapping',
@@ -48,6 +50,7 @@ const pillars = [
   {
     num: '04',
     name: 'Data Analytics',
+    art: { src: '/images/graphics/glass-analytics.webp', alt: 'Illustration of a browser window showing a growing bar chart' },
     desc: 'Transform scattered business data into dashboards and live reporting pipelines that drive real decisions — not just presentations.',
     deliverables: [
       'Custom KPI dashboards',
@@ -62,6 +65,7 @@ const pillars = [
   {
     num: '05',
     name: 'AI-Augmented Workflows',
+    art: { src: '/images/graphics/glass-ai.webp', alt: 'Illustration of a browser window showing a connected workflow with an AI sparkle' },
     desc: 'Embed large language models and AI tooling into your existing processes — document analysis, content generation, and intelligent decision support.',
     deliverables: [
       'LLM-powered internal tools',
@@ -200,6 +204,10 @@ const localPages = [
 
 <!-- ── PAGE HERO ── -->
 <section class="page-hero">
+  <picture class="hero-backdrop-wrap">
+    <source media="(min-width: 641px)" srcset="/images/graphics/glow-backdrop-bold.webp" width="1280" height="720" />
+    <img class="hero-backdrop" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" aria-hidden="true" width="1280" height="720" decoding="async" />
+  </picture>
   <div class="page-hero-grid"></div>
   <div class="page-hero-glow"></div>
   <div class="page-hero-inner">
@@ -251,10 +259,16 @@ const localPages = [
     <Divider variant="angular" />
 
     <div class="pillars-grid">
-      {pillars.map((p) => (
+      {pillars.map((p, i) => (
         <div class="pillar-card reveal">
+          {i === 0 && (
+            <img class="pillar-art" src="/images/graphics/glass-web.webp" alt="Illustration of a website in a browser window" width="800" height="800" loading="lazy" decoding="async" />
+          )}
           <div class="pillar-top">
             <div class="service-icon" set:html={p.icon} />
+            {p.art && (
+              <img class="pillar-art pillar-art--sm" src={p.art.src} alt={p.art.alt} width="800" height="800" loading="lazy" decoding="async" />
+            )}
             <span class="service-num">{p.num}</span>
           </div>
           <div class="pillar-name">{p.name}</div>
@@ -453,6 +467,15 @@ const localPages = [
     overflow: hidden;
     border-bottom: 1px solid var(--border);
   }
+  /* Decorative glow behind the hero; the grid, glow and text sit above it. */
+  .hero-backdrop-wrap { display: contents; }
+  .hero-backdrop {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; opacity: 0.22; pointer-events: none;
+    /* Fade out the left side so the headline stays on a clean background. */
+    -webkit-mask-image: linear-gradient(90deg, transparent 20%, #000 70%);
+    mask-image: linear-gradient(90deg, transparent 20%, #000 70%);
+  }
   .page-hero-grid {
     position: absolute; inset: 0;
     background-image:
@@ -558,9 +581,18 @@ const localPages = [
   }
   /* Web & CMS leads full width; the other four sit in a 2x2 grid (3 cols each). */
   .pillars-grid:not(.pillars-grid--two) .pillar-card { grid-column: span 3; }
-  .pillars-grid:not(.pillars-grid--two) .pillar-card:first-child { grid-column: span 6; }
+  .pillars-grid:not(.pillars-grid--two) .pillar-card:first-child { grid-column: span 6; padding-right: 380px; }
+  .pillar-art {
+    position: absolute; right: 36px; top: 50%; transform: translateY(-50%);
+    width: 300px; height: auto; pointer-events: none;
+  }
+  /* Smaller art in the 2x2 pillars: in the top row, beside the icon (matches the homepage cards). */
+  .pillar-art--sm {
+    position: static; transform: none;
+    width: 132px; margin: -10px 56px 0 auto;
+  }
   .pillars-grid:not(.pillars-grid--two) .pillar-card:first-child .pillar-deliverables {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px 28px;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 7px 28px;
   }
   .pillar-card:hover { background: var(--bg3); }
   .pillar-card:hover .service-icon { border-color: var(--adim3); }
@@ -798,12 +830,18 @@ const localPages = [
     .pillars-grid--two { grid-template-columns: 1fr; }
     .pillars-grid:not(.pillars-grid--two) .pillar-card,
     .pillars-grid:not(.pillars-grid--two) .pillar-card:first-child { grid-column: span 1; }
+    .pillars-grid:not(.pillars-grid--two) .pillar-card:first-child { padding-right: 36px; }
     .pillars-grid:not(.pillars-grid--two) .pillar-card:first-child .pillar-deliverables { display: flex; }
+    .pillar-art { position: static; transform: none; width: 220px; margin: 0 auto 20px; display: block; }
+    .pillar-art--sm { width: 104px; margin: -6px 44px 0 auto; }
     .pricing-grid { grid-template-columns: 1fr; }
     .pricing-grid--retainer { grid-template-columns: 1fr; max-width: none; }
     .cta-strip { padding: 80px 24px; }
     .meta-item { padding: 4px 0; }
     .meta-divider { display: none; }
+  }
+  @media (max-width: 640px) {
+    .hero-backdrop { display: none; }
   }
 </style>
 

@@ -53,23 +53,31 @@ import Layout from '../layouts/Layout.astro';
         <div class="service-desc">Small business website design and web development — professional, mobile-first sites and CMS platforms that convert visitors into clients. Hand-coded or Webflow.</div>
         <div class="service-tags"><span class="tag">Webflow</span><span class="tag">Custom Dev</span><span class="tag">CMS</span><span class="tag">Performance</span></div>
         <a href="/small-business-website-design-wichita/" class="service-arrow" style="text-decoration:none;" aria-label="View Small Business Website Design in Wichita">↗</a>
+        <img class="card-art card-art--lead" src="/images/graphics/glass-web.webp" alt="Illustration of a website in a browser window" width="800" height="800" loading="lazy" decoding="async" />
       </div>
     </div>
     <div class="also-label reveal">// Also</div>
     <div class="services-grid">
       <div class="service-card reveal">
-        <div class="service-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="1"/><path d="M8 21h8M12 17v4"/></svg>
+        <div class="card-top">
+          <div class="service-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="1"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <img class="card-art card-art--sm" src="/images/graphics/glass-automation.webp" alt="Illustration of a browser window showing a gear connected to four boxes" width="800" height="800" loading="lazy" decoding="async" />
         </div>
         <span class="service-num">02</span>
         <div class="service-name">Systems & Automation</div>
         <div class="service-desc">Small business process automation and custom systems — backend tools, integrations, and process cleanup that eliminate manual work, often at a fraction of the cost of off-the-shelf CRM software.</div>
+        <p class="service-note">As a business systems consultant in Wichita, I help small businesses map how work gets done and automate the repetitive parts.</p>
         <div class="service-tags"><span class="tag">Automation</span><span class="tag">Integrations</span><span class="tag">Custom Tools</span><span class="tag">AI Workflows</span></div>
         <span class="service-arrow">↗</span>
       </div>
       <div class="service-card reveal">
-        <div class="service-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18M7 16l4-4 4 4 4-8"/></svg>
+        <div class="card-top">
+          <div class="service-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3v18h18M7 16l4-4 4 4 4-8"/></svg>
+          </div>
+          <img class="card-art card-art--sm" src="/images/graphics/glass-analytics.webp" alt="Illustration of a browser window showing a growing bar chart" width="800" height="800" loading="lazy" decoding="async" />
         </div>
         <span class="service-num">03</span>
         <div class="service-name">Data Analytics</div>
@@ -78,8 +86,11 @@ import Layout from '../layouts/Layout.astro';
         <span class="service-arrow">↗</span>
       </div>
       <div class="service-card reveal">
-        <div class="service-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a7 7 0 0 1 7 7c0 3.5-2 6-5 7v2H10v-2c-3-1-5-3.5-5-7a7 7 0 0 1 7-7z"/><path d="M9 17v2a3 3 0 0 0 6 0v-2"/><path d="M9.5 9.5a2.5 2.5 0 0 1 5 0c0 1.5-1 2.5-2.5 3v1"/></svg>
+        <div class="card-top">
+          <div class="service-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a7 7 0 0 1 7 7c0 3.5-2 6-5 7v2H10v-2c-3-1-5-3.5-5-7a7 7 0 0 1 7-7z"/><path d="M9 17v2a3 3 0 0 0 6 0v-2"/><path d="M9.5 9.5a2.5 2.5 0 0 1 5 0c0 1.5-1 2.5-2.5 3v1"/></svg>
+          </div>
+          <img class="card-art card-art--sm" src="/images/graphics/glass-ai.webp" alt="Illustration of a browser window showing a connected workflow with an AI sparkle" width="800" height="800" loading="lazy" decoding="async" />
         </div>
         <span class="service-num">04</span>
         <div class="service-name">AI-Augmented Workflows</div>
@@ -222,6 +233,10 @@ import Layout from '../layouts/Layout.astro';
 
 <!-- CTA STRIP -->
 <div style="background:var(--bg2);border-bottom:1px solid var(--border);padding:100px 48px;text-align:center;position:relative;overflow:hidden;">
+  <picture class="cta-backdrop-wrap">
+    <source media="(min-width: 641px)" srcset="/images/graphics/glow-backdrop-subtle.webp" width="1280" height="720" />
+    <img class="cta-backdrop" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" aria-hidden="true" width="1280" height="720" decoding="async" />
+  </picture>
   <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:400px;background:radial-gradient(ellipse,rgba(232,146,10,0.06) 0%,transparent 60%);pointer-events:none;"></div>
   <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;position:relative;z-index:1;">// Ready to Build</div>
   <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(48px,6vw,80px);line-height:0.92;text-transform:uppercase;color:var(--text);margin-bottom:20px;position:relative;z-index:1;">Forge Your<br>Competitive Edge.</h2>
@@ -260,6 +275,23 @@ import Layout from '../layouts/Layout.astro';
   .service-card--lead { padding: 48px 44px; }
   .service-card--lead .service-name { font-size: 32px; }
   .service-card--lead .service-desc { max-width: 720px; font-size: 15px; }
+  /* Graphics: lead card art sits on the right; the small cards carry art beside the icon. */
+  .service-card--lead { padding-right: 400px; min-height: 340px; }
+  .card-art { display: block; height: auto; pointer-events: none; }
+  .card-art--lead {
+    position: absolute; right: 36px; top: 50%; transform: translateY(-50%);
+    width: 320px;
+  }
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px; }
+  .card-top .service-icon { margin-bottom: 0; }
+  .card-art--sm { width: 132px; margin: -10px 48px 0 0; }
+  .service-note { font-size: 13px; line-height: 1.6; color: var(--muted2); margin: -12px 0 24px; }
+  /* Decorative backdrop behind the closing call-to-action. */
+  .cta-backdrop-wrap { display: contents; }
+  .cta-backdrop {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; opacity: 0.3; pointer-events: none; z-index: 0;
+  }
   .also-label {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
@@ -287,7 +319,12 @@ import Layout from '../layouts/Layout.astro';
   @media (max-width: 900px) {
     .hero-inner { padding: 40px 24px; }
     .services-grid--2col { grid-template-columns: 1fr; }
-    .service-card--lead { padding: 40px 36px; }
+    .service-card--lead { padding: 40px 36px; min-height: 0; }
+    .card-art--lead { position: static; transform: none; width: 220px; margin: 28px auto 0; }
+  }
+  @media (max-width: 640px) {
+    .cta-backdrop { display: none; }
+    .card-art--sm { width: 104px; margin-right: 40px; }
   }
 </style>
 
