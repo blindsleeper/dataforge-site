@@ -122,8 +122,8 @@ const steps = [
         </p>
         <div class="identity-stat-row">
           <div class="identity-stat">
-            <div class="identity-stat-val">100%</div>
-            <div class="identity-stat-label">On-time delivery</div>
+            <div class="identity-stat-val">Written</div>
+            <div class="identity-stat-label">Scope and milestones in writing</div>
           </div>
           <div class="identity-stat-divider"></div>
           <div class="identity-stat">
@@ -273,7 +273,7 @@ const steps = [
   }
 
   .identity-stat-row {
-    display: flex; align-items: center; gap: 0;
+    display: flex; align-items: stretch; gap: 0;
     border: 1px solid var(--border);
   }
   .identity-stat {
@@ -292,7 +292,7 @@ const steps = [
     color: var(--muted2);
   }
   .identity-stat-divider {
-    width: 1px; height: 60px; background: var(--border); flex-shrink: 0;
+    width: 1px; height: 60px; background: var(--border); flex-shrink: 0; align-self: center;
   }
 
   /* ── TECH STACK ── */
