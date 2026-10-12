@@ -25,7 +25,7 @@ const placeholders = [
     category: 'Legal Tech',
     type:     'CaseLens — Document Review & Evidence Processing',
     sector:   'Legal Operations',
-    status:   'Internal Deployment — Law Firm',
+    status:   'In Development',
     desc:     'A Windows desktop tool for legal discovery — browse exported case data, search message threads, process multimedia evidence with OCR and frame extraction, and export findings without touching source files. Built by DataForge; used at a law firm.',
   },
   {
@@ -232,8 +232,8 @@ const placeholders = [
       <div class="tool-card reveal">
         <div class="tool-card-header">
           <span class="tool-eyebrow">// Internal Tool</span>
-          <span class="status-live">
-            <span class="status-dot"></span>Live
+          <span class="status-dev">
+            <span class="status-dot-dev"></span>In Use Internally
           </span>
         </div>
         <div class="tool-body">
@@ -370,6 +370,19 @@ const placeholders = [
   @keyframes pulse-live {
     0%, 100% { opacity: 1; }
     50%       { opacity: 0.45; }
+  }
+  .status-dev {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 5px 14px;
+    background: var(--adim);
+    border: 1px solid var(--adim3);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  .status-dot-dev {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent);
   }
 
   .featured-body {
