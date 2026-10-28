@@ -558,7 +558,9 @@ import Layout from '../layouts/Layout.astro';
     linear-gradient(90deg, var(--bg) 0%, var(--bg) 40%, rgba(7,7,7,0.65) 65%, rgba(7,7,7,0.25) 100%),
     linear-gradient(180deg, var(--bg) 0%, transparent 20%, transparent 78%, var(--bg) 100%);
 }
+/* Grid hidden on this page: the photo hero replaces it. */
 .page-hero-grid {
+  display: none;
   position: absolute; inset: 0;
   background-image:
     linear-gradient(var(--border) 1px, transparent 1px),
