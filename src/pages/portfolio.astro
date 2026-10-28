@@ -4,12 +4,12 @@ import Divider from '../components/Divider.astro';
 import SparklinePattern from '../components/SparklinePattern.astro';
 
 const featured = {
-  client:   'A Wichita Law Firm',
+  client:   'Adams Jones Law Firm, P.A.',
   location: 'Wichita, KS',
   service:  'Webflow Redesign & CMS Buildout',
   year:     '2025–Present',
   status:   'Live',
-  desc:     'A Wichita law firm needed a site that matched its reputation — professional, fast, and fully manageable by their own team. I rebuilt the entire site in Webflow with a structured CMS, a mobile-first layout, and zero developer dependency going forward.',
+  desc:     'Adams Jones Law Firm, P.A. needed a site that matched its reputation — professional, fast, and fully manageable by their own team. I rebuilt the entire site in Webflow with a structured CMS, a mobile-first layout, and zero developer dependency going forward.',
   deliverables: [
     'New site architecture & information hierarchy',
     'Mobile-first responsive design across all breakpoints',
@@ -45,7 +45,7 @@ const placeholders = [
 ];
 ---
 
-<Layout title="Portfolio" description="See DataForge's web development work, starting with a live Webflow CMS rebuild for a Wichita law firm, plus automation and legal-tech tools like CaseLens, SortShelf, and IT Logger.">
+<Layout title="Portfolio" description="See DataForge's web development work, starting with a live Webflow CMS rebuild for Adams Jones Law Firm, P.A., plus automation and legal-tech tools like CaseLens, SortShelf, and IT Logger.">
 
 <!-- ── PAGE HERO ── -->
 <section class="page-hero">
@@ -112,39 +112,24 @@ const placeholders = [
             </div>
             <a href="/small-business-website-design-wichita/" class="btn-ghost featured-cta" style="white-space:normal;">Website Design for Small Businesses →</a>
           </div>
-          <a href="/small-business-website-design-wichita/" class="tool-learn-link" style="display:inline-block;margin-top:20px;white-space:normal;">Small business website design in Wichita →</a>
+          <div class="featured-links">
+            <a href="/small-business-website-design-wichita/" class="tool-learn-link" style="white-space:normal;">Small business website design in Wichita →</a>
+            <a href="https://adamsjones.com" class="tool-learn-link" target="_blank" rel="noopener">Visit the live site →</a>
+          </div>
         </div>
 
-        <!-- Abstract browser preview -->
-        <div class="featured-preview" aria-hidden="true">
+        <!-- Device composite: real screenshots of the live site -->
+        <div class="featured-preview">
           <div class="browser-frame">
             <div class="browser-bar">
               <div class="browser-dots">
                 <span></span><span></span><span></span>
               </div>
             </div>
-            <div class="browser-body">
-              <div class="brow-nav">
-                <div class="brow-logo"></div>
-                <div class="brow-nav-links">
-                  <div class="brow-line short"></div>
-                  <div class="brow-line short"></div>
-                  <div class="brow-line short accent"></div>
-                </div>
-              </div>
-              <div class="brow-hero">
-                <div class="brow-line xl"></div>
-                <div class="brow-line lg"></div>
-                <div class="brow-line md muted"></div>
-                <div class="brow-line sm muted"></div>
-                <div class="brow-btn"></div>
-              </div>
-              <div class="brow-cards">
-                <div class="brow-card"></div>
-                <div class="brow-card"></div>
-                <div class="brow-card"></div>
-              </div>
-            </div>
+            <img class="browser-shot" src="/images/portfolio/adams-jones-desktop.webp" alt="Adams Jones Law Firm homepage on a desktop browser" width="2880" height="1440" loading="lazy" decoding="async" />
+          </div>
+          <div class="phone-frame">
+            <img class="phone-shot" src="/images/portfolio/adams-jones-phone.webp" alt="Adams Jones Law Firm homepage on a phone" width="780" height="1688" loading="lazy" decoding="async" />
           </div>
         </div>
       </div>
@@ -468,50 +453,18 @@ const placeholders = [
     font-size: 9px; letter-spacing: 0.08em;
     color: var(--muted2); flex: 1; text-align: center;
   }
-  .browser-body { padding: 18px 16px 20px; }
-
-  /* nav row */
-  .brow-nav {
-    display: flex; align-items: center;
-    justify-content: space-between;
-    margin-bottom: 22px;
+  .browser-shot { display: block; width: 100%; height: auto; }
+  /* Phone overlaps the browser frame's lower-right corner. */
+  .featured-preview { padding-bottom: 56px; }
+  .browser-frame { box-shadow: 0 18px 40px rgba(0,0,0,0.45); }
+  .phone-frame {
+    position: absolute; right: -14px; bottom: 0; width: 28%;
+    background: var(--bg); border: 2px solid var(--border2); border-radius: 14px;
+    padding: 4px; overflow: hidden;
+    box-shadow: 0 14px 32px rgba(0,0,0,0.55);
   }
-  .brow-logo {
-    width: 72px; height: 7px;
-    background: var(--muted2); border-radius: 1px;
-  }
-  .brow-nav-links { display: flex; gap: 8px; align-items: center; }
-
-  /* hero content rows */
-  .brow-hero { margin-bottom: 20px; }
-  .brow-btn {
-    width: 64px; height: 18px;
-    background: var(--accent); opacity: 0.6;
-    margin-top: 12px;
-  }
-
-  /* generic "line" shapes */
-  .brow-line {
-    height: 6px; background: var(--bg3); border-radius: 1px;
-    margin-bottom: 7px;
-  }
-  .brow-line.xl   { width: 90%; }
-  .brow-line.lg   { width: 75%; }
-  .brow-line.md   { width: 60%; }
-  .brow-line.sm   { width: 45%; }
-  .brow-line.short { width: 28px; }
-  .brow-line.muted { background: var(--bg4); }
-  .brow-line.accent { background: var(--adim3); width: 40px; height: 16px; }
-
-  /* bottom card row */
-  .brow-cards {
-    display: grid; grid-template-columns: repeat(3,1fr); gap: 8px;
-  }
-  .brow-card {
-    height: 44px;
-    background: var(--bg);
-    border: 1px solid var(--border);
-  }
+  .phone-shot { display: block; width: 100%; height: auto; border-radius: 10px; }
+  .featured-links { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 20px; }
 
   .preview-tag {
     position: absolute; bottom: -16px; right: -16px;
@@ -711,7 +664,8 @@ const placeholders = [
   @media (max-width: 900px) {
     .page-hero-inner { padding: 60px 24px; }
     .featured-body { grid-template-columns: 1fr; gap: 40px; }
-    .featured-preview { display: none; }
+    .featured-preview { max-width: 520px; width: 100%; margin: 0 auto; }
+    .phone-frame { right: -8px; }
     .featured-header { padding: 24px 24px 0; }
     .featured-body { padding: 28px 24px 32px; }
     .featured-footer { flex-direction: column; align-items: flex-start; }
