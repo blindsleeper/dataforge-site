@@ -8,6 +8,11 @@ import Layout from '../layouts/Layout.astro';
 
 <!-- ── PAGE HERO ── -->
 <section class="page-hero">
+  <picture class="page-hero-photo-wrap">
+    <source media="(min-width: 641px)" srcset="/images/graphics/gallery-analytics.webp" width="1600" height="1067" />
+    <img class="page-hero-photo" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" aria-hidden="true" width="1600" height="1067" decoding="async" />
+  </picture>
+  <div class="page-hero-fade"></div>
   <div class="page-hero-grid"></div>
   <div class="page-hero-glow"></div>
   <div class="page-hero-inner">
@@ -539,6 +544,20 @@ import Layout from '../layouts/Layout.astro';
   position: relative; overflow: hidden;
   border-bottom: 1px solid var(--border);
 }
+/* Decorative photo, kept dim: its monitor text is gibberish, so it must never read as content. */
+.page-hero-photo-wrap { display: contents; }
+.page-hero-photo {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: right 40%; opacity: 0.6;
+  filter: blur(2.5px);
+  pointer-events: none; z-index: 0;
+}
+.page-hero-fade {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    linear-gradient(90deg, var(--bg) 0%, var(--bg) 40%, rgba(7,7,7,0.65) 65%, rgba(7,7,7,0.25) 100%),
+    linear-gradient(180deg, var(--bg) 0%, transparent 20%, transparent 78%, var(--bg) 100%);
+}
 .page-hero-grid {
   position: absolute; inset: 0;
   background-image:
@@ -818,11 +837,19 @@ import Layout from '../layouts/Layout.astro';
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
+  .page-hero-fade {
+    background:
+      linear-gradient(90deg, var(--bg) 0%, rgba(7,7,7,0.9) 55%, rgba(7,7,7,0.6) 100%),
+      linear-gradient(180deg, var(--bg) 0%, transparent 20%, transparent 78%, var(--bg) 100%);
+  }
   .page-hero-inner { padding: 60px 24px; }
   .gallery-inner   { padding: 48px 20px; }
   .db-charts       { grid-template-columns: 1fr !important; }
   .db-metrics-grid { grid-template-columns: repeat(2,1fr); }
   .gal-cta         { padding: 80px 24px; }
+}
+@media (max-width: 640px) {
+  .page-hero-photo, .page-hero-fade { display: none; }
 }
 </style>
 
