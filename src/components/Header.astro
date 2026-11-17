@@ -78,6 +78,15 @@ nav.scrolled { border-color: var(--border2); }
 /* ── MOBILE DRAWER (hidden on desktop) ── */
 .nav-drawer { display: none; }
 
+/* ── TABLET NAV (769–1100px): tighter spacing so links never wrap ── */
+.nav-links a, .nav-cta { white-space: nowrap; }
+@media (min-width: 769px) and (max-width: 1100px) {
+  nav { padding: 0 24px; }
+  .nav-links { gap: 20px; }
+  .nav-links a { letter-spacing: 0.08em; }
+  .nav-cta { margin-left: 4px; padding: 8px 14px; letter-spacing: 0.08em; }
+}
+
 /* ── MOBILE NAV (≤768px) ── */
 @media (max-width: 768px) {
   nav { padding: 0 20px; }
