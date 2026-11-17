@@ -137,7 +137,7 @@ import Layout from '../layouts/Layout.astro';
       <h2 class="section-title">How I<br><em>Work</em></h2>
     </div>
     <div class="section-rule"></div>
-    <div class="services-grid">
+    <div class="services-grid services-grid--steps">
       <div class="service-card service-card--compact reveal">
         <span class="service-num">01</span>
         <div class="service-desc">You send the form or email directly.</div>
@@ -177,22 +177,22 @@ import Layout from '../layouts/Layout.astro';
       <h2 class="section-title">Tools I've<br><em>Built</em></h2>
     </div>
     <div class="section-rule"></div>
-    <div class="services-grid">
-      <div class="service-card reveal">
+    <div class="services-grid services-grid--tools">
+      <div class="service-card service-card--tool reveal">
         <span class="service-num">01</span>
         <div class="service-name">SortShelf</div>
         <div class="service-desc">A Windows utility that scans a folder, categorizes files by type, previews every move before anything happens, then sorts with one click. Safe by default, with one-step undo.</div>
         <div class="service-tags"><span class="tag">Python</span><span class="tag">PyQt6</span><span class="tag">Desktop</span></div>
         <a href="/tools/" class="service-arrow" style="text-decoration:none;" aria-label="View SortShelf on Tools">↗</a>
       </div>
-      <div class="service-card reveal">
+      <div class="service-card service-card--tool reveal">
         <span class="service-num">02</span>
         <div class="service-name">IT Logger</div>
         <div class="service-desc">A lightweight internal ticketing system for environments that won't adopt enterprise helpdesk software. Logs issues, tracks status, and runs locally with zero external dependencies.</div>
         <div class="service-tags"><span class="tag">Flask</span><span class="tag">SQLite</span><span class="tag">Internal</span></div>
         <a href="/tools/" class="service-arrow" style="text-decoration:none;" aria-label="View IT Logger on Tools">↗</a>
       </div>
-      <div class="service-card reveal">
+      <div class="service-card service-card--tool reveal">
         <span class="service-num">03</span>
         <div class="service-name">CaseLens</div>
         <div class="service-desc">In development: a desktop tool for reviewing exported case data for legal discovery — browse, search, and filter messages, then export findings to CSV without touching the source data.</div>
@@ -276,19 +276,35 @@ import Layout from '../layouts/Layout.astro';
      name/tags/arrow — the default .service-card padding was sized for
      the fuller content, so short text sat stranded in a tall box. */
   .service-card--compact {
-    padding: 28px 32px;
+    padding: 28px 28px 30px;
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
     gap: 14px;
   }
   .service-card--compact .service-num {
     position: static;
-    flex-shrink: 0;
-    margin-top: 2px;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    color: var(--accent);
   }
   .service-card--compact .service-desc {
     margin-bottom: 0;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--text);
   }
+
+  /* "Tools I've Built": bigger copy, tighter padding, arrow pinned to the bottom. */
+  .service-card--tool {
+    padding: 32px 30px;
+    display: flex;
+    flex-direction: column;
+  }
+  .service-card--tool .service-num { top: 32px; right: 30px; font-size: 12px; }
+  .service-card--tool .service-name { font-size: 28px; padding-right: 36px; margin-bottom: 14px; }
+  .service-card--tool .service-desc { font-size: 16px; line-height: 1.6; margin-bottom: 20px; }
+  .service-card--tool .service-tags { margin-bottom: 20px; }
+  .service-card--tool .service-arrow { margin-top: auto; align-self: flex-start; }
 
   @media (max-width: 900px) {
     .hero-photo-fade {
@@ -299,6 +315,10 @@ import Layout from '../layouts/Layout.astro';
     .hero-inner { padding: 40px 24px; }
     .services-grid--2col { grid-template-columns: 1fr; }
     .services-grid--row { grid-template-columns: repeat(2, 1fr); }
+    /* Tablet: two columns so short cards don't stretch into wide empty bars. */
+    .services-grid--steps { grid-template-columns: repeat(2, 1fr); }
+    .services-grid--tools { grid-template-columns: repeat(2, 1fr); }
+    .services-grid--tools .service-card--tool:last-child { grid-column: 1 / -1; }
   }
   @media (max-width: 640px) {
     .cta-backdrop, .hero-photo, .hero-photo-fade { display: none; }
@@ -308,6 +328,12 @@ import Layout from '../layouts/Layout.astro';
     }
     .service-card--row .row-art { grid-row: 1 / span 3; width: 88px; height: 88px; margin: 0; }
     .service-card--row .service-desc { margin-bottom: 10px; }
+    .services-grid--steps, .services-grid--tools { grid-template-columns: 1fr; }
+    .service-card--compact { padding: 22px 22px 24px; gap: 10px; }
+    .service-card--compact .service-desc { font-size: 16px; }
+    .service-card--tool { padding: 26px 22px; }
+    .service-card--tool .service-name { font-size: 26px; }
+    .service-card--tool .service-num { top: 26px; right: 22px; }
   }
 </style>
 
